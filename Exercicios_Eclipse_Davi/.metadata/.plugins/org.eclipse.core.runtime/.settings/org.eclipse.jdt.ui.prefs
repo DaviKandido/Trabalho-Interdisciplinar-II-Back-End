@@ -1,5 +1,4 @@
-content_assist_proposals_background=64,64,64
-content_assist_proposals_foreground=218,218,218
+content_assist_number_of_computers=15
 eclipse.preferences.version=1
 org.eclipse.jdt.internal.ui.navigator.layout=2
 org.eclipse.jdt.internal.ui.navigator.librariesnode=true
