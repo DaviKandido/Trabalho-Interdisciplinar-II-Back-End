@@ -33,7 +33,7 @@ public class Animal {
 	}
 
 	public Animal(int id, String url, String nome, char sexo, String idade, String raca, String vacinas, boolean cadastrado, String historia,String tags, char	porte,String especie ){
-		this.id = -1;
+		this.id = id;
 		this.url = url;
 		this.nome = nome;
 		this.sexo = sexo;
@@ -157,18 +157,18 @@ public class Animal {
 
 	@Override
 	public String toString() {
-		return "ANIMAL [ID: " + id +
-			   " URL: " + url +
-			   " Nome: " + nome +
-			   " Sexo: " + sexo +
-			   " Idade: " + idade +
-			   " Raça: " + raca +
-			   " Vacinas: " + vacinas +
-			   " Cadastrado: " + (cadastrado ? "Sim" : "Não") +
-			   " História: " + historia +
-			   " Tags: " + tags +
-			   " Porte: " + porte +
-			   " Espécie: " + especie + "]";
+		return "\nANIMAL [ID: " + id +
+			   "\nURL: " + url +
+			   "\nNome: " + nome +
+			   "\nSexo: " + sexo +
+			   "\nIdade: " + idade +
+			   "\nRaça: " + raca +
+			   "\nVacinas: " + vacinas +
+			   "\nCadastrado: " + (cadastrado ? "Sim" : "Não") +
+			   "\nHistória: " + historia +
+			   "\nTags: " + tags +
+			   "\nPorte: " + porte +
+			   "\nEspécie: " + especie + "]\n";
 	}
 	
 

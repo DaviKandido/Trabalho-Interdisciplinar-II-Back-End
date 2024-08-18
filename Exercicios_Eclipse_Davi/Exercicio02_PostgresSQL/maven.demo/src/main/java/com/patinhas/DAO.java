@@ -34,6 +34,17 @@ public class DAO {
         return status;
     }
 
+    public boolean close(){
+        boolean status = false;
+
+        try{
+            conexao.close();
+            status = true;
+        }catch(SQLException e){
+            System.err.println("Erro ao fechar a conexão -- " + e.getMessage());
+        }
+        return status;
+    }
 
     public boolean inserirAnimal(Animal animal){
         boolean status = false;
@@ -97,7 +108,7 @@ public class DAO {
         boolean status = false;
         try {
             Statement st = conexao.createStatement();
-            st.executeUpdate("DELETE FROM animal WHERE codigo = " + codigo);
+            st.executeUpdate("DELETE FROM animal WHERE id = " + codigo);
             st.close();
             status = true;
         } catch(SQLException u){
@@ -145,7 +156,7 @@ public class DAO {
         Animal[] animais = null;
         try {
             Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet rs = st.executeQuery("SELECT * FROM animal WHERE animais.sexo LIKE 'M'");
+            ResultSet rs = st.executeQuery("SELECT * FROM animal WHERE animal.sexo LIKE 'M'");
     
             if (rs.next()) {
                 rs.last();
@@ -181,7 +192,7 @@ public class DAO {
         Animal[] animais = null;
         try {
             Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet rs = st.executeQuery("SELECT * FROM animal WHERE animais.sexo LIKE 'F'");
+            ResultSet rs = st.executeQuery("SELECT * FROM animal WHERE animal.sexo LIKE 'F'");
     
             if (rs.next()) {
                 rs.last();
