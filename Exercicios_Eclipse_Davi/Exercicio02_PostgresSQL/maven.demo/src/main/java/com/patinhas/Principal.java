@@ -192,16 +192,12 @@ public class Principal {
 		
 	}
 
-
-
-
-
-
 		dao.close();
 	}
 
 }
 
+//======================  Códigos Padrões de INSERTE DELETE E UPDATE  =========================//
 
 // //Inserir um animal na tabela
 // Animal animal = new Animal(2, 
@@ -258,3 +254,5 @@ public class Principal {
 		// //Atualiza animal
 		// animal.setNome("Rex2");
 		// dao.atualizarAnimal(animal);
+
+//======================  END - Códigos Padrões de INSERTE DELETE E UPDATE  =========================//
