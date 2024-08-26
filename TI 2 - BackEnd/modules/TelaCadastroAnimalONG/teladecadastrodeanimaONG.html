@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Animal</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="home">
+            <a href="../../modules/telaInicialONG/telainicialONG.html">
+                <img src="/imgs/patinhaLogo.jpg" alt="logo" class="logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../../modules/requerimentos/requerimentos.html">Requerimentos</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="pagina-container">
+            <h1 class="titulo">Ficha de cadastro do animal</h1>
+            <form id="animalForm" class="formularios-container">
+                <div id="msg"></div> <!-- Adicione esta linha para exibir mensagens -->
+                <div class="formulario-circle">
+                    <input id="logo-input" name="imagem" type="file" />
+                    <label for="logo-input">Inserir Foto</label>
+                </div>
+                <div class="formulario-box">
+                    <label for="sexo-input-femea">Sexo</label>
+                    <div class="sexo-checkbox">
+                        <input type="radio" id="sexo-input-femea" name="sexo" value="femea">
+                        <label for="sexo-input-femea">Fêmea</label>
+                        <input type="radio" id="sexo-input-macho" name="sexo" value="macho">
+                        <label for="sexo-input-macho">Macho</label>
+                    </div>
+                    <label for="idade-input">Idade</label>
+                    <input class="input-text" id="idade-input" name="idade" />
+                    <label for="raca-input">Raça</label>
+                    <input class="input-text" id="raca-input" name="raca" />
+                </div>
+                <div class="formulario-box">
+                    <label for="cidade-input">Cidade</label>
+                    <input class="input-text" id="cidade-input" name="cidade" />
+                    <label for="historia-input">História</label>
+                    <textarea class="input-text" id="historia-input" name="historia"></textarea>
+                    <label for="tags-input">Tags</label>
+                    <div class="tags-checkboxes">
+                        <input type="checkbox" id="tag2" name="tags" value="Brincalhão"> Brincalhão<br>
+                        <input type="checkbox" id="tag3" name="tags" value="Gosta de caminhar"> Gosta de caminhar<br>
+                        <input type="checkbox" id="tag4" name="tags" value="Calmo"> Calmo<br>
+                        <input type="checkbox" id="tag5" name="tags" value="Caseiro"> Caseiro<br>
+                        <input type="checkbox" id="tag6" name="tags" value="Introvertido"> Introvertido<br>
+                        <input type="checkbox" id="tag7" name="tags" value="Extrovertido"> Extrovertido<br>
+                    </div>
+                </div>
+                <button type="submit" class="botao-cadastro">Cadastrar</button>
+            </form>
+        </div>
+    </main>
+    <footer class="footer-estilizadoJP">
+        <div>
+            <p>&copy; <span id="dataJP"></span> Patinhas Felizes</p>
+            <p>Conexão entre ONGs e Adotantes!</p>
+        </div>
+    </footer>
+    <script src="../../assets/scripts/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            init();
+        });
+
+        function init() {
+            carregarAnimais();
+        }
+    </script>
+</body>
+</html>

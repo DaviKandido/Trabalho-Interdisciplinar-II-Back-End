@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Animais</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="home">
+            <a href="../../modules/telaInicialONG/telainicialONG.html">
+                <img src="/imgs/patinhaLogo.jpg" alt="logo" class="logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../../modules/requerimentos/requerimentos.html">Requerimentos</a>
+        </nav>
+    </header>
+    <main>
+        <section class="animal-catalog" id="animal-catalog">
+            <h1>Animais</h1>
+            <div class="animal-container">
+                <div class="animal-grid" id="animal-grid">
+                    <!-- Animal cards serão inseridos aqui pelo JavaScript -->
+                </div>
+            </div>
+        </section>
+        <section class="edit-animal" id="edit-animal" style="display: none; min-width: 50%;">          
+            <h1 id="form-title">Cadastrar Animal</h1>
+            <form id="edit-form">
+                <input type="hidden" id="animal-id">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="container">
+
+                            <div class="row">
+                                <label class="col-5 label-edit" for="especie">Espécie (CA/GA/CO/RO):</label>
+                                <input type="text" id="especie" name="especie" class="col-7 input-edit"><br>
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="nome">Nome:</label>
+                                <input type="text" id="nome" name="nome" class="col-8 input-edit"><br>
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="imagem">Imagem (url):</label>
+                                <input type="text" id="imagem" name="imagem" class="col-8 input-edit"><br>
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="descricao">Descrição:</label>
+                                <input type="text" id="descricao" name="descricao" class="col-8 input-edit"><br>
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="sexo">Sexo (M/F):</label>
+                                <input type="text" id="sexo" name="sexo" class="col-8 input-edit"><br>
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="idade">Idade:</label>
+                                <input type="text" id="idade" name="idade" class="col-8 input-edit"><br>
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="raca">Raça:</label>
+                                <input type="text" id="raca" name="raca" class="col-8 input-edit"><br>
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="porte">Porte (P/M/G):</label>
+                                <input type="text" id="porte" name="porte" class="col-8 input-edit"><br>
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="castrado">Castrado (true/false):</label>
+                                <input type="text" id="castrado" name="castrado" class="col-8 input-edit"><br>
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="vacinado">Vacinado:</label>
+                                <input type="text" id="vacinado" name="vacinado" class="col-8 input-edit"><br>
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="historia">História:</label>
+                                <input type="text" id="historia" name="historia" class="col-8 input-edit"><br>
+                                <!--<textarea id="historia" name="historia" ></textarea><br>-->
+                            </div>
+                            <div class="row">
+                                <label class="col-4 label-edit" for="tags">Tags:</label>
+                                <input type="text" id="tags" name="tags" class="col-8 input-edit"><br>
+                            </div>
+                            <div class="row">
+                              <div class="col-6 text-end">
+                                <button class="salvar-edit btn btn-success" onclick="editarAnimal()">Salvar</button>
+                              </div>
+                              <div class="col-6">
+                                <button class="cancelar-edit btn btn-warning" onclick="cancelarEdicao()">Cancelar</button>
+                              </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+
+
+
+
+        </section>
+      
+    </main>
+    <footer class="footer-estilizadoJP">
+        <div>
+            <p>&copy; <span id="dataJP"></span> Patinhas Felizes</p>
+            <p>Conexão entre ONGs e Adotantes!</p>
+        </div>
+    </footer>
+    <script src="../../assets/scripts/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            carregarAnimais();
+        });
+
+        async function lerAnimais() {
+            let animais = [];
+            try {
+                const resposta = await fetch(apiUrlJP);
+                if (resposta.ok) {
+                    animais = await resposta.json();
+                } else {
+                    throw new Error("Erro ao buscar animais");
+                }
+            } catch (erro) {
+                console.error("Erro ao ler animais:", erro);
+            }
+            return animais;
+        }
+
+      async function lerAnimal(id) {
+          let animal = {};
+          try {
+              const resposta = await fetch(`${apiUrlJP}/${id}`);
+              if (resposta.ok) {
+                    animal = await resposta.json();
+              } else {
+                  throw new Error("Erro ao buscar animal");
+              }
+          } catch (erro) {
+              console.error("Erro ao ler animal:", erro);
+          }
+          return animal;
+      }
+
+        async function carregarAnimais() {
+            const gradeAnimais = document.getElementById('animal-grid');
+            const animais = await lerAnimais();
+            
+            if (!gradeAnimais) return;
+            
+            // Limpa a grade
+            gradeAnimais.innerHTML = '';
+
+            if (animais.length > 0) {
+                // Adiciona cartões de animais
+                for ( let x = 0; x < animais.length; x++ )
+                {
+                    let animal = animais[x];
+                    const cartaoAnimal = document.createElement('div');
+                    cartaoAnimal.className = 'animal-card';
+                    cartaoAnimal.setAttribute('id', animal.id);
+                    cartaoAnimal.innerHTML = `
+                        <div>
+                            <div>
+                                <img src="${animal.imagem}" alt="${animal.nome}" class="animal-img">
+                            </div>
+                            <p class="label-box">${animal.nome}</p>
+                        </div>
+                        <div class="crud-buttons">
+                            <button onclick="mostrarEditarAnimal(${animal.id})">✏️</button>
+                            <button onclick="deletarAnimal(${animal.id})">🗑️</button>
+                        </div>
+                    `;
+                    gradeAnimais.appendChild(cartaoAnimal)
+                }
+            }
+
+            // Preenche espaços vazios com o botão '+' e adiciona o evento de redirecionamento
+            while (gradeAnimais.children.length < 40) {
+                const adicionarCartaoAnimal = document.createElement('div');
+                adicionarCartaoAnimal.className = 'add-animal-card';
+                adicionarCartaoAnimal.innerHTML = '+';
+                adicionarCartaoAnimal.onclick = () => window.location.href = '/../modules/TelaCadastroAnimalONG/teladecadastrodeanimaONG.html';
+                gradeAnimais.appendChild(adicionarCartaoAnimal);
+            }
+        }
+
+        function exibirMensagem(mensagem) {
+            const msg = document.getElementById('msg');
+            if (msg) {
+                msg.innerHTML = `<div class="alert alert-warning">${mensagem}</div>`;
+            }
+        }
+/*
+        async function atualizarAnimal(id, animal) {
+          console.log(id, animal);
+            try {
+                const resposta = await fetch(`${apiUrlJP}/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(animal),
+                });
+                if (resposta.ok) {
+                    exibirMensagem("Sucesso ao editar animal!");
+                } else {
+                    throw new Error("Erro ao editar animal");
+                }
+            } catch (erro) {
+                console.error("Erro ao editar animal:", erro);
+                exibirMensagem("Erro ao editar animal (servidor JSON indisponível).");
+            }
+        } */
+
+        async function salvarAnimal(event) {
+            event.preventDefault();
+            const id = document.getElementById('animal-id').value;
+            const animal = {
+                sexo: document.getElementById('sexo').value,
+                idade: document.getElementById('idade').value,
+                raca: document.getElementById('raca').value,
+                historia: document.getElementById('historia').value,
+                tags: document.getElementById('tags').value.split(',').map(tag => tag.trim())
+            };
+
+            if (id) {
+                await atualizarAnimal(id, animal);
+            } else {
+                await criarAnimal(animal);
+            }
+
+            cancelarEdicao();
+            recarregarGradeAnimais();
+        }
+
+        async function criarAnimal(animal) {
+            try {
+                const resposta = await fetch(apiUrlJP, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(animal),
+                });
+                if (resposta.ok) {
+                    exibirMensagem("Sucesso ao criar animal!");
+                } else {
+                    throw new Error("Erro ao criar animal");
+                }
+            } catch (erro) {
+                console.error("Erro ao criar animal:", erro);
+                exibirMensagem("Erro ao criar animal (servidor JSON indisponível).");
+            }
+        }
+
+        async function deletarAnimal(id) {
+            const confirmacao = confirm(`Tem certeza que deseja excluir o animal com ID: ${id}?`);
+            if (confirmacao) {
+                try {
+                    const resposta = await fetch(`${apiUrlJP}/${id}`, {
+                        method: 'DELETE',
+                    });
+                    if (resposta.ok) {
+                        exibirMensagem("Sucesso ao excluir animal!");
+                        recarregarGradeAnimais();
+                    } else {
+                        throw new Error("Erro ao excluir animal");
+                    }
+                } catch (erro) {
+                    console.error("Erro ao excluir animal:", erro);
+                    exibirMensagem("Erro ao excluir animal (servidor JSON indisponível).");
+                }
+            }
+        }
+
+        function cancelarEdicao() {
+            document.getElementById('animal-catalog').style.display = 'block';
+            document.getElementById('edit-animal').style.display = 'none';
+            document.getElementById('edit-form').reset();
+            document.getElementById('form-title').innerText = 'Cadastrar Animal';
+        }
+
+        function mostrarFormularioEdicao() {
+            document.getElementById('animal-catalog').style.display = 'none';
+            document.getElementById('edit-animal').style.display = 'block';
+        }
+
+        async function mostrarEditarAnimal(id) {
+            const animal = await lerAnimal(id);
+            if (Object.keys(animal).length > 0) {
+                document.getElementById('form-title').innerText = 'Editar Animal';
+                document.getElementById('animal-id').value = animal.id;
+                document.getElementById('especie').value = animal.especie;
+                document.getElementById('nome').value = animal.nome;
+                document.getElementById('imagem').value = animal.imagem;
+                document.getElementById('descricao').value = animal.descricao;
+                document.getElementById('sexo').value = animal.sexo;
+                document.getElementById('idade').value = animal.idade;
+                document.getElementById('raca').value = animal.raca;
+                document.getElementById('porte').value = animal.porte;
+                document.getElementById('castrado').value = animal.castrado;
+                document.getElementById('vacinado').value = animal.vacinado;
+                document.getElementById('historia').value = animal.historia;
+                //document.getElementById('tags').value = animal.tags.join(', ');
+                document.getElementById('tags').value = animal.etiquetas[0];
+
+                mostrarFormularioEdicao();
+            }
+        }
+
+      async function atualizarAnimal (id, objAnimal) {
+        console.log(objAnimal);
+          //  tentar fazer a chamada
+          try {
+              //  definir a chamada HTTP do JSON Server
+              const response = await fetch(`${apiUrlJP}/${id}`, {
+                  method: 'PUT',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(objAnimal),
+              });
+          }
+          //  chamada de erro
+          catch (error) {
+              console.error("Error:", error);
+          }
+      } // end updateComment ( )
+
+        async function editarAnimal () {
+          let objAnimal = await lerAnimal(document.getElementById('animal-id').value);
+          let sexo = document.getElementById('sexo').value;
+          let urlSexo = '';
+          if ( sexo == 'F' )
+            urlSexo = "https://static.vecteezy.com/system/resources/previews/018/922/116/non_2x/3d-female-gender-symbol-sign-png.png";
+          else if ( sexo == 'M')
+            urlSexo = "https://cdn-icons-png.flaticon.com/512/1019/1019172.png";
+
+          objAnimal.id = document.getElementById('animal-id').value;
+          objAnimal.imagem = document.getElementById('imagem').value;
+          objAnimal.especie = document.getElementById('especie').value;
+          objAnimal.nome = document.getElementById('nome').value;
+          objAnimal.descricao = document.getElementById('descricao').value;
+          objAnimal.sexo = document.getElementById('sexo').value;
+          objAnimal.urlSexo = urlSexo;
+          objAnimal.idade = document.getElementById('idade').value;
+          objAnimal.raca = document.getElementById('raca').value;
+          objAnimal.porte = document.getElementById('porte').value;
+          objAnimal.vacinado = document.getElementById('vacinado').value;
+          objAnimal.castrado = document.getElementById('castrado').value;
+          objAnimal.historia = document.getElementById('historia').value;
+          objAnimal.etiquetas = [];
+          console.log(objAnimal.id);
+          console.log(objAnimal);
+          atualizarAnimal(objAnimal.id, objAnimal);
+        }
+
+        function recarregarGradeAnimais() {
+            carregarAnimais();
+        }
+
+        document.getElementById('edit-form').addEventListener('submit', salvarAnimal);
+    </script>
+</body>
+</html>
