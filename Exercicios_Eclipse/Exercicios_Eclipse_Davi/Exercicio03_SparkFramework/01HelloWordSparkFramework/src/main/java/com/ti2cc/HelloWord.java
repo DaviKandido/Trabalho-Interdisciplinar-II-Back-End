@@ -6,7 +6,7 @@ public class HelloWord {
 
 	public static void main(String[] args) {
 		port(5678);
-		get("/hello", (request, response) -> "Hello Word!");
+		get("/hello", (request, response) -> "BORAAAAA!");
 	}
 
 }

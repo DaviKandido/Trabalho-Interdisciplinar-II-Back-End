@@ -1,5 +1,4 @@
-cpackage com.patinhas;
-
+package model;
 
 public class Animal {
 	
@@ -10,6 +9,7 @@ public class Animal {
 	private String  idade;	
 	private String  raca;
 	private String  vacinas;
+	private String  cidade;
 	private boolean cadastrado;
 	private String historia;
 	private String  tags;
@@ -25,6 +25,7 @@ public class Animal {
 		idade = "";
 		raca = "";
 		vacinas = "";
+		cidade = "";
 		cadastrado = false;
 		historia = "";
 		tags = "";
@@ -32,7 +33,7 @@ public class Animal {
 		especie = "";
 	}
 
-	public Animal(int id, String url, String nome, char sexo, String idade, String raca, String vacinas, boolean cadastrado, String historia,String tags, char	porte,String especie ){
+	public Animal(int id, String url, String nome, char sexo, String idade, String raca, String vacinas, String cidade, boolean cadastrado, String historia,String tags, char	porte,String especie ){
 		this.id = id;
 		this.url = url;
 		this.nome = nome;
@@ -40,6 +41,7 @@ public class Animal {
 		this.idade = idade;
 		this.raca = raca;
 		this.vacinas = vacinas;
+		this.cidade = cidade;
 		this.cadastrado = cadastrado;
 		this.historia = historia;
 		this.tags = tags;
@@ -110,6 +112,16 @@ public class Animal {
 		this.vacinas = vacinas;
 	}
 
+
+	//---------Cidade----------//
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
 	//---------CADASTRADO----------//
 	public boolean getCadastrado() {
 		return cadastrado;
@@ -164,13 +176,18 @@ public class Animal {
 			   "\nIdade: " + idade +
 			   "\nRaça: " + raca +
 			   "\nVacinas: " + vacinas +
+			   "\nCidade: " + cidade +
 			   "\nCadastrado: " + (cadastrado ? "Sim" : "Não") +
 			   "\nHistória: " + historia +
 			   "\nTags: " + tags +
 			   "\nPorte: " + porte +
 			   "\nEspécie: " + especie + "]\n";
 	}
-	
 
+
+	@Override
+	public boolean equals(Object obj){
+		return (this.getId() == ((Animal) obj).getId());
+	}
 
 }

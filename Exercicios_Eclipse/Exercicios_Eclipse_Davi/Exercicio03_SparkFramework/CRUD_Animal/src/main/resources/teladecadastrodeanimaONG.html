@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Animal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="home">
+            <a href="../../modules/telaInicialONG/telainicialONG.html">
+                <img src="/imgs/patinhaLogo.jpg" alt="logo" class="logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../../modules/requerimentos/requerimentos.html">Requerimentos</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="pagina-container">
+            <div class="pagina-container-info">
+                <h1 class="titulo">Ficha de cadastro do animal</h1>
+                <form id="animalForm" class="formularios-container">
+                    <div id="msg"></div> <!-- Adicione esta linha para exibir mensagens -->
+                    <div class="formulario-circle">
+                        <input id="logo-input" name="imagem" type="file" />
+                        <label for="logo-input">Inserir Foto</label>
+                    </div>
+                    <div class="formulario-box">
+                        <label for="nome-input">Nome</label>
+                        <input class="input-text" id="nome-input" name="nome" />
+                        
+                        <label for="sexo-input">Sexo</label>
+                        <div class="sexo-checkbox">
+                            <input type="radio" id="sexo-input-femea" name="sexo" value="F">
+                            <label for="sexo-input-femea">Fêmea</label>
+                            <input type="radio" id="sexo-input-macho" name="sexo" value="M">
+                            <label for="sexo-input-macho">Macho</label>
+                        </div>
+                        <label for="idade-input">Idade</label>
+                        <input class="input-text" id="idade-input" name="idade" />
+                        <label for="raca-input">Raça</label>
+                        <input class="input-text" id="raca-input" name="raca" />
+
+                        <label for="vacinas-input">Vacinas</label>
+                        <input class="input-text" id="vacinas-input" name="vacinas" />
+                    </div>
+                    <div class="formulario-box">
+                        <label for="cidade-input">Cidade</label>
+                        <input class="input-text" id="cidade-input" name="cidade" />
+                        <label for="historia-input">História</label>
+                        <textarea class="input-text" id="historia-input" name="historia"></textarea>
+
+                        <label for="tags-input">Tags</label>
+                        <div class="tags-checkboxes">
+                            <input type="checkbox" id="tag2" name="tags" value="Brincalhão">
+                              <label for="tag2">Brincalhão</label><br>
+
+                            <input type="checkbox" id="tag3" name="tags" value="Gosta de caminhar"> 
+                              <label for="tag3">Gosta de caminhar</label><br>
+
+                            <input type="checkbox" id="tag4" name="tags" value="Calmo"> 
+                              <label for="tag4">Calmo</label><br>
+
+                            <input type="checkbox" id="tag5" name="tags" value="Caseiro">
+                              <label for="tag5">Caseiro</label><br>
+
+                            <input type="checkbox" id="tag6" name="tags" value="Introvertido">
+                              <label for="tag6">Introvertido</label><br>
+
+                            <input type="checkbox" id="tag7" name="tags" value="Extrovertido">
+                              <label for="tag7">Extrovertido</label><br>
+                        </div>
+
+                        <label for="porte-input" class="porte-input">Porte</label>
+                        <div class="porte-checkbox">
+                            <input type="radio" id="porte-input-grande" name="porte" value="G">
+                            <label for="porte-input-grande">Grande</label>
+                            <input type="radio" id="porte-input-medio" name="porte" value="M">
+                            <label for="porte-input-medio">Médio</label>
+                            <input type="radio" id="porte-input-pequeno" name="porte" value="P">
+                            <label for="porte-input-pequeno">Pequeno</label>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="botao-cadastro-animal">Cadastrar</button>
+                </div>
+                <div class="pagina-container-botoes">
+
+                    <h1 class="titulo">Ficha de gerenciamento de animais</h1>
+
+                    <button type="submit" class="botao-remove-animal">Remover</button>
+                    <input class="input-text" id="id-remove-animal" name="id-remove-animal"  placeholder="Digite o id do animal que quer remover"/>
+
+                    <button type="submit" class="botao-detalha-animal">Detalhar animal</button>
+                    <input class="input-text" id="id-detalha-animal" name="id-detalha-animal"  placeholder="Digite o id do animal que quer visualizar" />
+
+                    <button type="submit" class="botao-lista-animais">Lista animais</button>
+
+                    
+
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="footer-estilizadoJP">
+        <div>
+            <p>&copy; <span id="dataJP"></span> Patinhas Felizes</p>
+            <p>Conexão entre ONGs e Adotantes!</p>
+        </div>
+    </footer>
+    <script src="../../assets/scripts/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            init();
+        });
+
+        function init() {
+            carregarAnimais();
+        }
+    </script>
+</body>
+</html>
