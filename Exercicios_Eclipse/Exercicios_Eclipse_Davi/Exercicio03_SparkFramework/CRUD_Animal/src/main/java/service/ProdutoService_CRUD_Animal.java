@@ -15,11 +15,11 @@ public class ProdutoService_CRUD_Animal {
 
     public ProdutoService_CRUD_Animal(){
         try{
-            animalDAO = new CRUD_Animal_DAO();
+            this.animalDAO = new CRUD_Animal_DAO();
         }catch(Exception e){
             System.out.println("Erro ao criar o objeto DAO: " + e.getMessage());
         }
-    }
+    }   
 
     public Object add(Request request, Response response) {
         String url = request.queryParams("url-animal");

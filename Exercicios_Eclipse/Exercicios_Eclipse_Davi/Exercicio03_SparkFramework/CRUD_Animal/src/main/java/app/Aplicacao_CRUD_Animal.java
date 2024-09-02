@@ -1,7 +1,7 @@
 package app;
 
 import service.ProdutoService_CRUD_Animal;
-import spark.Spark;
+import static spark.Spark.*;
 
 
 
@@ -9,17 +9,19 @@ public class Aplicacao_CRUD_Animal {
 
     private static ProdutoService_CRUD_Animal produtoService_CRUD_Animal = new ProdutoService_CRUD_Animal();
 
-    public static void main(String[] args) {
-        spark.port(6789);
+        public static void main(String[] args) {
+        staticFileLocation("/public");//setando a pasta padrão do arquivo
         
-        spark.post("/animal", (request, response) -> produtoService_CRUD_Animal.add(request, response));
+        port(6789);
+        
+        post("/animal", (request, response) -> produtoService_CRUD_Animal.add(request, response));
 
-        spark.get("/animal/:id", (request, response) -> produtoService_CRUD_Animal.get(request, response));
+        get("/animal/:id", (request, response) -> produtoService_CRUD_Animal.get(request, response));
 
-        spark.get("/animal/update/:id", (request, response) -> produtoService_CRUD_Animal.update(request, response));
+        get("/animal/update/:id", (request, response) -> produtoService_CRUD_Animal.update(request, response));
 
-        spark.get("/animal/delete/:id", (request, response) -> produtoService_CRUD_Animal.remove(request, response));
+        get("/animal/delete/:id", (request, response) -> produtoService_CRUD_Animal.remove(request, response));
     
-        spark.get("/animal", (request, response) -> produtoService_CRUD_Animal.getAll(request, response));
+        get("/animal", (request, response) -> produtoService_CRUD_Animal.getAll(request, response));
     }
 }
