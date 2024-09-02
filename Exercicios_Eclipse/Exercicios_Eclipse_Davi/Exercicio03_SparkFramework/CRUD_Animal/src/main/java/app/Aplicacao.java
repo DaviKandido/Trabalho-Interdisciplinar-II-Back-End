@@ -9,8 +9,18 @@ public class Aplicacao {
     private static ProdutoService_CRUD_Animal produtoService_CRUD_Animal = new ProdutoService_CRUD_Animal();
 
     public static void main(String[] args) {
-        port(8080);
         
+        staticFileLocation("/public");//setando a pasta padrão do arquivo
+        port(6789);
+
+
+        // Redireciona para o arquivo HTML quando acessar a raiz
+        // get("/", (request, response) -> {
+        //     response.redirect("/teladecadastrodeanimaONG.html");
+        //     return null;
+        // });
+
+
         post("/animal", (request, response) -> produtoService_CRUD_Animal.add(request, response));
 
         get("/animal/:id", (request, response) -> produtoService_CRUD_Animal.get(request, response));
