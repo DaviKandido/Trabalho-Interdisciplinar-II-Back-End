@@ -17,6 +17,7 @@ public class Animal {
 	private String especie;
 
 	
+	//---------Construtor Padrão----------//
 	public Animal(){
 		id = -1;
 		url = "";
@@ -33,6 +34,7 @@ public class Animal {
 		especie = "";
 	}
 
+	//---------Construtor----------//
 	public Animal(int id, String url, String nome, char sexo, String idade, String raca, String vacinas, String cidade, boolean cadastrado, String historia,String tags, char	porte,String especie ){
 		this.id = id;
 		this.url = url;

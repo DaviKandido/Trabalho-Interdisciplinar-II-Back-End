@@ -35,7 +35,7 @@ public class ProdutoService_CRUD_Animal {
         char porte = (request.queryParams("porte-animal")).charAt(0);
         String especie = request.queryParams("especie-animal");
 
-        int id = animalDAO.getMaxId() + 1;
+        int id = this.animalDAO.getMaxId() + 1;
 
         Animal animal = new Animal(id, url, nome, sexo, idade, raca, vacinas, cidade, cadastrado, historia, tags,	porte, especie );
 

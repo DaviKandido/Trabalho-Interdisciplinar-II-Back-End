@@ -2,13 +2,13 @@ package dao;
 
 import model.*;
 
-
 import java.sql.*;
 
 public class CRUD_Animal_DAO {
     
     private int maxId = 0;
 
+    //Retorna o id do ultimo animal inserido no banco de dados
     public int getMaxId(){
         return maxId;
     }
@@ -21,8 +21,7 @@ public class CRUD_Animal_DAO {
     }
     
 
-
-
+    //Inicia a conecção com o postgresSQL
     public boolean Conectar(){
         String driverName = "org.postgresql.Driver";
         String serverName = "localhost";
@@ -47,6 +46,7 @@ public class CRUD_Animal_DAO {
         return status;
     }
 
+    //Fecha a conecção com o postgresSQL
     public boolean close(){
         boolean status = false;
 
@@ -59,6 +59,7 @@ public class CRUD_Animal_DAO {
         return status;
     }
 
+    //Inseri um animal no banco de dados
     public boolean inserirAnimal(Animal animal){
         boolean status = false;
         try {
@@ -88,7 +89,7 @@ public class CRUD_Animal_DAO {
         return status;
     }   
 
-
+    //Atualiza o animal pertencente ao id do seu objeto
     public boolean atualizarAnimal(Animal animal) {
         boolean status = false;
         try {
@@ -117,6 +118,7 @@ public class CRUD_Animal_DAO {
         return status;
     }
     
+    //Exclui o animal pertencente ao id informado
     public boolean excluirAnimal(int id){
         boolean status = false;
         try {
@@ -130,6 +132,7 @@ public class CRUD_Animal_DAO {
         return status;
     }
 
+    //Retorna o animal pertencente ao id informado
     public Animal get(int id) {
         Animal[] animais = null;
         try {
@@ -150,6 +153,7 @@ public class CRUD_Animal_DAO {
                     rs.getString("idade"), 
                     rs.getString("raca"), 
                     rs.getString("vacinas"), 
+                    rs.getString("cidade"),
                     rs.getBoolean("cadastrado"), 
                     rs.getString("historia"), 
                     rs.getString("tags"), 
@@ -164,7 +168,7 @@ public class CRUD_Animal_DAO {
         return animais[0];
     }
 
-
+    //Retorna todos os animais presentes no banco de dados
     public Animal[] getAnimais() {
         Animal[] animais = null;
         try {
@@ -185,7 +189,8 @@ public class CRUD_Animal_DAO {
                     rs.getString("sexo").charAt(0), 
                     rs.getString("idade"), 
                     rs.getString("raca"), 
-                    rs.getString("vacinas"), 
+                    rs.getString("vacinas"),
+                    rs.getString("cidade"), 
                     rs.getBoolean("cadastrado"), 
                     rs.getString("historia"), 
                     rs.getString("tags"), 
@@ -200,6 +205,7 @@ public class CRUD_Animal_DAO {
         return animais;
     }
 
+    //Retorna apenas animais machos
     public Animal[] getAnimaisMachos() {
         Animal[] animais = null;
         try {
@@ -221,6 +227,7 @@ public class CRUD_Animal_DAO {
                     rs.getString("idade"), 
                     rs.getString("raca"), 
                     rs.getString("vacinas"), 
+                    rs.getString("cidade"),
                     rs.getBoolean("cadastrado"), 
                     rs.getString("historia"), 
                     rs.getString("tags"), 
@@ -235,7 +242,7 @@ public class CRUD_Animal_DAO {
         return animais;
     }
 
-
+    //Retorna apenas animais Femeas
     public Animal[] getAnimaisFemeas() {
         Animal[] animais = null;
         try {
@@ -257,6 +264,7 @@ public class CRUD_Animal_DAO {
                     rs.getString("idade"), 
                     rs.getString("raca"), 
                     rs.getString("vacinas"), 
+                    rs.getString("cidade"),
                     rs.getBoolean("cadastrado"), 
                     rs.getString("historia"), 
                     rs.getString("tags"), 
