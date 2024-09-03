@@ -11,7 +11,7 @@ public class Aplicacao {
     public static void main(String[] args) {
         
         staticFileLocation("/public");//setando a pasta padrão do arquivo
-        port(6789);
+        port(8080);
 
 
         // Redireciona para o arquivo HTML quando acessar a raiz
@@ -30,5 +30,17 @@ public class Aplicacao {
         get("/animal/delete/:id", (request, response) -> produtoService_CRUD_Animal.remove(request, response));
     
         get("/animal", (request, response) -> produtoService_CRUD_Animal.getAll(request, response));
+        
+        // get("/animal", (request, response) -> {
+        //     try {
+        //         response.type("application/json");
+        //         return produtoService_CRUD_Animal.getAll(request, response);
+        //     } catch (Exception e) {
+        //         e.printStackTrace();
+        //         response.status(500);
+        //         return "Erro ao processar a solicitação";
+        //     }
+        // });   
+        
     }
 }

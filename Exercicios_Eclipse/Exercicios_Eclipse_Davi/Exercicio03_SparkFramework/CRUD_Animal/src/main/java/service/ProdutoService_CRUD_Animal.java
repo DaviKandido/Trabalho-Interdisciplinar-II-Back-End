@@ -4,8 +4,6 @@ package service;
 import dao.CRUD_Animal_DAO;
 import model.Animal;
 import java.io.IOException;
-import java.util.Iterator;
-import model.Animal;
 import spark.Request;
 import spark.Response;
 
@@ -15,25 +13,25 @@ public class ProdutoService_CRUD_Animal {
 
     public ProdutoService_CRUD_Animal(){
         try{
-            animalDAO = new CRUD_Animal_DAO();
+            this.animalDAO = new CRUD_Animal_DAO();
         }catch(Exception e){
             System.out.println("Erro ao criar o objeto DAO: " + e.getMessage());
         }
     }
 
     public Object add(Request request, Response response) {
-        String url = request.queryParams("url-animal");
-        String  nome = request.queryParams("nome-animal");
-        char sexo = (request.queryParams("sexo-animal")).charAt(0);
-        String  idade = request.queryParams("idade-animal");
-        String  raca = request.queryParams("raca-animal");
-        String  vacinas = request.queryParams("vacinas-animal");
-        String  cidade = request.queryParams("cidades-animal");
-        boolean cadastrado = Boolean.parseBoolean(request.queryParams("cadastrado-animal"));
-        String historia = request.queryParams("historia-animal");
-        String  tags = request.queryParams("tags-animal");
-        char porte = (request.queryParams("porte-animal")).charAt(0);
-        String especie = request.queryParams("especie-animal");
+        String url = request.queryParams("url_animal");
+        String  nome = request.queryParams("nome_animal");
+        char sexo = (request.queryParams("sexo_animal")).charAt(0);
+        String  idade = request.queryParams("idade_animal");
+        String  raca = request.queryParams("raca_animal");
+        String  vacinas = request.queryParams("vacinas_animal");
+        String  cidade = request.queryParams("cidades_animal");
+        boolean cadastrado = Boolean.parseBoolean(request.queryParams("cadastrado_animal"));
+        String historia = request.queryParams("historia_animal");
+        String  tags = request.queryParams("tags_animal");
+        char porte = (request.queryParams("porte_animal")).charAt(0);
+        String especie = request.queryParams("especie_animal");
 
         int id = this.animalDAO.getMaxId() + 1;
 
@@ -80,18 +78,18 @@ public class ProdutoService_CRUD_Animal {
         Animal animal = (Animal) animalDAO.get(id);
 
         if (animal != null){
-            animal.setUrl(request.queryParams("url-animal"));
-            animal.setNome(request.queryParams("nome-animal"));
-            animal.setSexo((request.queryParams("sexo-animal")).charAt(0));
-            animal.setIdade(request.queryParams("idade-animal"));
-            animal.setRaca(request.queryParams("raca-animal"));
-            animal.setVacinas(request.queryParams("vacinas-animal"));
-            animal.setCidade(request.queryParams("cidade-animal"));
+            animal.setUrl(request.queryParams("url_Animal"));
+            animal.setNome(request.queryParams("nome_Animal"));
+            animal.setSexo((request.queryParams("sexo_Animal")).charAt(0));
+            animal.setIdade(request.queryParams("idade_Animal"));
+            animal.setRaca(request.queryParams("raca_Animal"));
+            animal.setVacinas(request.queryParams("vacinas_Animal"));
+            animal.setCidade(request.queryParams("cidade_Animal"));
             animal.setCadastrado(true);
-            animal.setHistoria(request.queryParams("historia-animal"));
-            animal.setTags(request.queryParams("tags-animal"));
-            animal.setPorte((request.queryParams("porte-animal")).charAt(0));
-            animal.setEspecie(request.queryParams("especie-animal"));
+            animal.setHistoria(request.queryParams("historia_Animal"));
+            animal.setTags(request.queryParams("tags_Animal"));
+            animal.setPorte((request.queryParams("porte_Animal")).charAt(0));
+            animal.setEspecie(request.queryParams("especie_Animal"));
 
             animalDAO.atualizarAnimal(animal);  
 

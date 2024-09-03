@@ -1689,10 +1689,7 @@ input[type="reset"] {
   color: red;
 }
 
-#logo-input {
-  display: none;
-  cursor: pointer;
-}
+
 
 .AC_input-text {
   margin-bottom: 4px;
@@ -1976,7 +1973,7 @@ footer {
 
 /*--- FIM - Tela inicial - ONG---*/
 
-/*---Tela de Cadastro - ONG---*/
+/*---Tela de Cadastro - ONG - DAVI ---*/
 main {
   flex-grow: 1;
   display: flex;
@@ -1988,7 +1985,7 @@ main {
 
 .pagina-container-info {
   background-color: #a5b79b;
-  width: 60vw;
+  width: 65vw;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -1996,6 +1993,12 @@ main {
   border: 3px black solid;
   border-radius: 12px;
   box-sizing: border-box;
+}
+
+
+.botao-cadastra-animal {
+  margin-top: 10px; /* Espaço acima do botão para separação */
+
 }
 
 .porte-input{
@@ -2022,7 +2025,7 @@ main {
   justify-content: center;
 }
 
-.botao-cadastro-animal {
+.botao-cadastra-animal {
   background-color: #54634b;
   color: white;
   width: 150px;
@@ -2037,7 +2040,7 @@ main {
 .pagina-container-botoes {
   margin-top: 50px;
   background-color: #a5b79b;
-  width: 60vw;
+  width: 65vw;
   padding: 24px;
   display: block;
   flex-direction:row;
@@ -2045,6 +2048,18 @@ main {
   border: 3px black solid;
   border-radius: 12px;
   box-sizing: border-box;
+
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  justify-content: center; /* Opcional: alinha os itens horizontalmente ao centro */
+}
+
+.pagina-container-botoes .btn {
+  display: flex;
+}
+
+.pagina-container-botoes .btn button {
+    margin-top: 0.25rem;
+
 }
 
 .pagina-container-botoes input {
@@ -2062,6 +2077,7 @@ main {
 
 .pagina-container-botoes h1 {
   margin: 1%;
+  margin-bottom: 4%;
 
 }
 
@@ -2098,7 +2114,7 @@ main {
   margin: 10px;
 }
 
-.botao-cadastro:hover {
+.botao-cadastra-animal:hover {
   background-color: black;
 }
 
@@ -2109,11 +2125,12 @@ main {
   width: 100%;
   gap: 20px;
   flex-wrap: nowrap;
+  padding-right: 1%;
 }
 
 .formulario-box {
   background-color: #c9d8bf;
-  width: 48%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   padding: 24px;
@@ -2124,6 +2141,8 @@ main {
   height: 400px;
   flex-grow: 1;
 }
+
+
 
 .sexo-checkbox {
   display: flex;
@@ -2140,24 +2159,32 @@ main {
 .formulario-circle {
   background-color: #c9d8bf;
   height: 120px;
-  width: 120px;
-  border-radius: 50%;
+  width: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   transition: 200ms;
   border: 3px black solid;
+  margin-top: 10px;
   margin-bottom: 24px;
+  box-sizing: border-box;
+  padding: 3%;
+}
+
+.formulario-circle input {
+  margin-top: 1rem;
+  margin-left: 1%;
+  padding: 20px;
+  display: block;
+  flex-direction:row;
+  align-items: center;
+  border: 2.8px black solid;
+  border-radius: 12px;
   box-sizing: border-box;
 }
 
-#logo-input {
-  display: none;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-}
+
 
 .input-text {
   margin-bottom: 12px;
@@ -2224,7 +2251,7 @@ textarea.input-text {
     height: 20px;
   }
 
-  .botao-cadastro {
+  .botao-cadastra-animal {
     width: 120px;
     height: 40px;
   }
