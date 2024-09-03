@@ -2054,10 +2054,12 @@ main {
 }
 
 .pagina-container-botoes .btn {
+  
   display: flex;
 }
 
 .pagina-container-botoes .btn button {
+  
     margin-top: 0.25rem;
 
 }
@@ -2129,6 +2131,8 @@ main {
 }
 
 .formulario-box {
+  box-shadow: 1px 1px 5px black;
+
   background-color: #c9d8bf;
   width: 50%;
   display: flex;
@@ -2170,6 +2174,8 @@ main {
   margin-bottom: 24px;
   box-sizing: border-box;
   padding: 3%;
+  box-shadow: 1px 1px 5px black;
+
 }
 
 .formulario-circle input {
