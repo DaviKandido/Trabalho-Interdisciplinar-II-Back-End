@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function GraverAnimal() {
         const inputUrlAnimal = document.querySelector("#url-input-animal").value;
         const inputNomeAnimal = document.querySelector("#nome-input-animal").value;
-        const inputsexoSelecionado = document.querySelector('input[name="sexo"]:checked').value;
+        const inputsexoAnimal= document.querySelector('input[name="sexo"]:checked').value;
         const inputIdadeAnimal = document.querySelector("#idade-input-animal").value;
         const inputRacaAnimal = document.querySelector("#raca-input-animal").value;
         const inputVacinasAnimal = document.querySelector("#vacinas-input-animal").value;
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let Animal = {
             url: inputUrlAnimal,
             nome: inputNomeAnimal,
-            sexo: inputsexoSelecionado,
+            sexo: inputsexoAnimal,
             idade: inputIdadeAnimal,
             raca: inputRacaAnimal,
             vacinas: inputVacinasAnimal,

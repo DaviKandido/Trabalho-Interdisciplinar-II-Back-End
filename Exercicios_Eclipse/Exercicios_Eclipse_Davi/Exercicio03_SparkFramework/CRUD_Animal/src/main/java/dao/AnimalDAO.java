@@ -1,11 +1,22 @@
+
+// Source code is decompiled from a .class file using FernFlower decompiler.
 package dao;
 
 import model.*;
 
 import java.sql.*;
 
-public class CRUD_Animal_DAO {
+public class AnimalDAO extends DAO {
     
+
+    public AnimalDAO() {
+        this.Conectar();
+     }
+  
+     public void finalize() {
+        this.close();
+     }
+
     private int maxId = 0;
 
     //Retorna o id do ultimo animal inserido no banco de dados
@@ -13,52 +24,8 @@ public class CRUD_Animal_DAO {
         return maxId;
     }
 
-
-    private Connection conexao;
     
-    public CRUD_Animal_DAO(){
-        conexao = null;
-    }
-    
-
-    //Inicia a conecção com o postgresSQL
-    public boolean Conectar(){
-        String driverName = "org.postgresql.Driver";
-        String serverName = "localhost";
-        String mydatabase = "CRUD_Animal";
-        int porta = 5432;
-        String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + mydatabase;
-        String username = "patinhas";
-        String password = "patinhas";
-        boolean status = false;
-
-        try{
-            Class.forName(driverName);
-            conexao = DriverManager.getConnection(url, username, password);
-            status = (conexao == null);
-            System.out.println("Conexão efetuada com o postgres!");
-        } catch(ClassNotFoundException e){
-            System.err.println("Conexão NÃO efetuada com o postgres -- Driver não encontrado --" + e.getMessage());
-        } catch(SQLException e){
-            System.err.println("Conexão NÃO efetuada com o postgres -- " + e.getMessage());
-        }
-
-        return status;
-    }
-
-    //Fecha a conecção com o postgresSQL
-    public boolean close(){
-        boolean status = false;
-
-        try{
-            conexao.close();
-            status = true;
-        }catch(SQLException e){
-            System.err.println("Erro ao fechar a conexão -- " + e.getMessage());
-        }
-        return status;
-    }
-
+     
     //Inseri um animal no banco de dados
     public boolean inserirAnimal(Animal animal){
         boolean status = false;

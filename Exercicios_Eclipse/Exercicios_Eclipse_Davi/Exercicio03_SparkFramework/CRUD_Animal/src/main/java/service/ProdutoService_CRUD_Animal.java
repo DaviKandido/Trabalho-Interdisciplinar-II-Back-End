@@ -1,7 +1,7 @@
 package service;
 
 import com.google.gson.Gson;
-import dao.CRUD_Animal_DAO;
+import dao.AnimalDAO;
 import model.Animal;
 import java.io.IOException;
 import spark.Request;
@@ -9,11 +9,11 @@ import spark.Response;
 
 public class ProdutoService_CRUD_Animal {
     
-	private CRUD_Animal_DAO animalDAO;
+	private AnimalDAO animalDAO;
 
     public ProdutoService_CRUD_Animal(){
         try{
-            this.animalDAO = new CRUD_Animal_DAO();
+            this.animalDAO = new AnimalDAO();
         }catch(Exception e){
             System.out.println("Erro ao criar o objeto DAO: " + e.getMessage());
         }
@@ -30,7 +30,7 @@ public class ProdutoService_CRUD_Animal {
         registro.setId(id);
 
         animalDAO.inserirAnimal(registro);
-        
+
         response.status(201); // 201 Created
         return id;
     }
