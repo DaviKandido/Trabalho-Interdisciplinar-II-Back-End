@@ -11,7 +11,7 @@ public class Aplicacao {
     public static void main(String[] args) {
         
         staticFileLocation("/public");//setando a pasta padrão do arquivo
-        port(8080);
+        port(8081);
 
 
         // Redireciona para o arquivo HTML quando acessar a raiz

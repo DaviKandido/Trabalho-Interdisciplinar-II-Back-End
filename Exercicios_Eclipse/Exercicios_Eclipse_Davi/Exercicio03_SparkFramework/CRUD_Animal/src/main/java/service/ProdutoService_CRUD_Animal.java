@@ -1,6 +1,6 @@
 package service;
 
-
+import com.google.gson.Gson;
 import dao.CRUD_Animal_DAO;
 import model.Animal;
 import java.io.IOException;
@@ -20,25 +20,17 @@ public class ProdutoService_CRUD_Animal {
     }
 
     public Object add(Request request, Response response) {
-        String url = request.queryParams("url_animal");
-        String  nome = request.queryParams("nome_animal");
-        char sexo = (request.queryParams("sexo_animal")).charAt(0);
-        String  idade = request.queryParams("idade_animal");
-        String  raca = request.queryParams("raca_animal");
-        String  vacinas = request.queryParams("vacinas_animal");
-        String  cidade = request.queryParams("cidades_animal");
-        boolean cadastrado = Boolean.parseBoolean(request.queryParams("cadastrado_animal"));
-        String historia = request.queryParams("historia_animal");
-        String  tags = request.queryParams("tags_animal");
-        char porte = (request.queryParams("porte_animal")).charAt(0);
-        String especie = request.queryParams("especie_animal");
+        Gson gson = new Gson();
+
+        Animal registro = gson.fromJson(request.body(), Animal.class);
+        System.out.println(registro);
 
         int id = this.animalDAO.getMaxId() + 1;
+        
+        registro.setId(id);
 
-        Animal animal = new Animal(id, url, nome, sexo, idade, raca, vacinas, cidade, cadastrado, historia, tags,	porte, especie );
-
-        animalDAO.inserirAnimal(animal);
-
+        animalDAO.inserirAnimal(registro);
+        
         response.status(201); // 201 Created
         return id;
     }

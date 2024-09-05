@@ -35,7 +35,7 @@ public class Animal {
 	}
 
 	//---------Construtor----------//
-	public Animal(int id, String url, String nome, char sexo, String idade, String raca, String vacinas, String cidade, boolean cadastrado, String historia,String tags, char	porte,String especie ){
+	public Animal(int id, String url, String nome, char sexo, String idade, String raca, String vacinas, String cidade, boolean cadastrado, String historia,String tags, char porte,String especie){
 		this.id = id;
 		this.url = url;
 		this.nome = nome;

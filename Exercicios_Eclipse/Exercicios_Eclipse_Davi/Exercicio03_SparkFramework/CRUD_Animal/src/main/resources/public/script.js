@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const apiUrl_CRUD_Animal = "http://localhost:6789/animal";
+    const apiUrl_CRUD_Animal = "/animal";
 
     //--------------------------------FUNÇÕES saveData-----------------------------------//
 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }).then(response => response.json())
           .then(dado => {
             console.log(dado);
-            alert("Animal Adicionado com sucesso");
+            alert("Animal adicionado com sucesso");
           })
           .catch(error => {
               console.error('Erro:', error);
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function GraverAnimal() {
         const inputUrlAnimal = document.querySelector("#url-input-animal").value;
         const inputNomeAnimal = document.querySelector("#nome-input-animal").value;
-        const sexoSelecionado = document.querySelector('input[name="sexo"]:checked').value;
+        const inputsexoSelecionado = document.querySelector('input[name="sexo"]:checked').value;
         const inputIdadeAnimal = document.querySelector("#idade-input-animal").value;
         const inputRacaAnimal = document.querySelector("#raca-input-animal").value;
         const inputVacinasAnimal = document.querySelector("#vacinas-input-animal").value;
@@ -70,17 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const tagsSelecionadas = Array.from(document.querySelectorAll('input[name="tags"]:checked')).map(checkbox => checkbox.value);
         
         let Animal = {
-            url_animal: inputUrlAnimal,
-            nome_animal: inputNomeAnimal,
-            sexo_animal: sexoSelecionado,
-            idade_animal: inputIdadeAnimal,
-            raca_animal: inputRacaAnimal,
-            vacinas_animal: inputVacinasAnimal,
-            cidade_animal: inputCidadeAnimal,
-            tags_animal: tagsSelecionadas[0], // Adiciona as tags selecionadas [0] temporária
-            historia_animal: inputHistoriaAnimal,
-            porte_animal: inputPorteAnimal,
-            especie_animal: inputEspecieAnimal
+            url: inputUrlAnimal,
+            nome: inputNomeAnimal,
+            sexo: inputsexoSelecionado,
+            idade: inputIdadeAnimal,
+            raca: inputRacaAnimal,
+            vacinas: inputVacinasAnimal,
+            cidade: inputCidadeAnimal,
+            tags: tagsSelecionadas[0], // Adiciona as tags selecionadas [0] temporária
+            historia: inputHistoriaAnimal,
+            porte: inputPorteAnimal,
+            especie: inputEspecieAnimal
         };
         
         saveDataAnimal(Animal);

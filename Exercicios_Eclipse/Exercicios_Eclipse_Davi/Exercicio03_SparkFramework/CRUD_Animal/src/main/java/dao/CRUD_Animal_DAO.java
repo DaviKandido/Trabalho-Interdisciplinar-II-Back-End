@@ -26,7 +26,7 @@ public class CRUD_Animal_DAO {
         String driverName = "org.postgresql.Driver";
         String serverName = "localhost";
         String mydatabase = "CRUD_Animal";
-        int porta = 6789;
+        int porta = 5432;
         String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + mydatabase;
         String username = "patinhas";
         String password = "patinhas";
