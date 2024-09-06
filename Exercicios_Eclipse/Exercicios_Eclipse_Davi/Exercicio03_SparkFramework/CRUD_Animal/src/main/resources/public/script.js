@@ -31,20 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
      * @param {string} id ID do objeto a ser excluído
      */
     function deleteData(id) {
-        fetch(`${apiUrl_CRUD_Animal}/delete/${id}`, {
-            method: "POST",
+        fetch(`${apiUrl_CRUD_Animal}/delete/`, { // URL base do servidor
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-        }).then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error('Erro na resposta da API');
-        })
-          .then(data => {
-            alert(`Animal ${id} deletado com sucesso`);
-            console.log(data);
+            body: JSON.stringify(id)
+        }).then(response => response.json())
+          .then(id => {
+            console.log(id);
+            alert("Animal removido com sucesso");
           })
           .catch(error => {
               console.error('Erro:', error);
@@ -101,4 +97,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     //--------------------------------End - EventListener Botões-----------------------------------//
-});
+}); // <-- Aqui está a chave de fechamento do primeiro bloco DOMContentLoaded
