@@ -23,11 +23,12 @@ public class ProdutoService_CRUD_Animal {
         Gson gson = new Gson();
 
         Animal registro = gson.fromJson(request.body(), Animal.class);
-        System.out.println(registro);
+       
 
         int id = this.animalDAO.getMaxId() + 1;
         
         registro.setId(id);
+        System.out.println(registro);
 
         animalDAO.inserirAnimal(registro);
 
@@ -60,7 +61,7 @@ public class ProdutoService_CRUD_Animal {
                     + "</Animal>\n";
         } else{
             response.status(404); // 404 Not Found
-            return "Produto" + id + "não encontrado";
+            return "Produto " + id + " não encontrado";
         }
     }
 
@@ -95,7 +96,7 @@ public class ProdutoService_CRUD_Animal {
 
 
     public Object remove(Request request, Response response){
-        int id = Integer.parseInt(request.params(":id"));
+        int id = Integer.parseInt(request.params("id"));
 
         Animal animal = (Animal) animalDAO.get(id);
 

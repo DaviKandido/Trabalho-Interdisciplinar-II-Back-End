@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
      * Apaga do server os objetos
      * @param {string} id ID do objeto a ser excluído
      */
-    function deleteDataArquivo(id) {
-        fetch(`${apiUrl_CRUD_Animal}/${id}`, {
-            method: "DELETE",
+    function deleteData(id) {
+        fetch(`${apiUrl_CRUD_Animal}/delete/${id}`, {
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -91,13 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const CadastrarAnimalBtn = document.querySelector(".botao-cadastra-animal");
     const RemoveAnimalBtn = document.querySelector(".botao-remove-animal");
-    const inputIdRemoveAnimal = document.querySelector("#id-input-animal");
+    const inputIdRemoveAnimal = document.querySelector("#id-remove-animal");
 
     CadastrarAnimalBtn.addEventListener("click", GraverAnimal);
 
     RemoveAnimalBtn.addEventListener("click", function() {
         const idRemoveAnimal = inputIdRemoveAnimal.value;
-        deleteDataArquivo(idRemoveAnimal);
+        deleteData(idRemoveAnimal);
     });
 
     //--------------------------------End - EventListener Botões-----------------------------------//

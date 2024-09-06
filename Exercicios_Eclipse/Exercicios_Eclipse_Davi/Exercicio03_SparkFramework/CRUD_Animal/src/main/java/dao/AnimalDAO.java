@@ -30,6 +30,7 @@ public class AnimalDAO extends DAO {
     public boolean inserirAnimal(Animal animal){
         boolean status = false;
         try {
+            this.maxId = (animal.getId() > this.maxId) ? animal.getId() : this.maxId;
             Statement st = conexao.createStatement();
             String sql = "INSERT INTO animal (id, url, nome, sexo, idade, raca, vacinas, cadastrado, historia, tags, porte, especie) " +
                            "VALUES (" +
