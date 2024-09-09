@@ -31,16 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
      * @param {string} id ID do objeto a ser excluído
      */
     function deleteData(id) {
-        fetch(`${apiUrl_CRUD_Animal}/delete/`, { // URL base do servidor
+        fetch(`${apiUrl_CRUD_Animal}/delete/` + id, { // URL base do servidor
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(id)
         }).then(response => response.json())
           .then(id => {
             console.log(id);
-            alert("Animal removido com sucesso");
+            alert("Animal " + id + " removido com sucesso");
           })
           .catch(error => {
               console.error('Erro:', error);
@@ -96,5 +92,27 @@ document.addEventListener("DOMContentLoaded", () => {
         deleteData(idRemoveAnimal);
     });
 
+
+
+    //---------------- Adiciona id ao caminho url -----------------//
+
+    const DetalharAnimalBtn = document.querySelector(".botao-detalha-animal");
+    // const inputIdDetalhaAnimal = document.querySelector("#id-detalha-animal");
+    // const linkDetalhaAnimal = document.querySelector(".link-detalha-animal");
+
+
+    // DetalharAnimalBtn.addEventListener("click", addIdToPath);
+
+    // function addIdToPath(){
+
+    //     console.log(oi);
+    // }
+
+    
+
+
     //--------------------------------End - EventListener Botões-----------------------------------//
+
+
 }); // <-- Aqui está a chave de fechamento do primeiro bloco DOMContentLoaded
+

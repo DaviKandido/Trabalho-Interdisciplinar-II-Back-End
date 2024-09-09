@@ -27,7 +27,7 @@ public class Aplicacao {
 
         get("/animal/update/:id", (request, response) -> produtoService_CRUD_Animal.update(request, response));
 
-        get("/animal/delete/:id", (request, response) -> produtoService_CRUD_Animal.remove(request, response));
+        post("/animal/delete/:id", (request, response) -> produtoService_CRUD_Animal.remove(request, response));
     
         get("/animal", (request, response) -> produtoService_CRUD_Animal.getAll(request, response));
         
@@ -44,3 +44,6 @@ public class Aplicacao {
         
     }
 }
+
+
+//Azure blockStoreg - para imagem

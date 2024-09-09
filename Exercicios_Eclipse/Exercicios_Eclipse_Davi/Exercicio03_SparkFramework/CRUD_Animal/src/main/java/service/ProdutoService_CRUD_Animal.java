@@ -38,8 +38,7 @@ public class ProdutoService_CRUD_Animal {
 
     public Object get(Request request, Response response){
         int id = Integer.parseInt(request.params(":id"));
-
-        Animal animal = (Animal) animalDAO.get(id);
+        Animal animal = animalDAO.get(id);
 
         if (animal != null){
             response.header("Content-Type", "application/xml");
@@ -52,7 +51,8 @@ public class ProdutoService_CRUD_Animal {
                     "\t<sexo>" + animal.getSexo() + "</sexo>\n" +
                     "\t<idade>" + animal.getIdade() + "</idade>\n" +
                     "\t<raca>" + animal.getRaca() + "</raca>\n" +
-                    "\t<vacinas>" + animal.getVacinas() + "</vacinas>\n"
+                    "\t<vacinas>" + animal.getVacinas() + "</vacinas>\n"+
+                    "\t<cidade>" + animal.getCidade() + "</cidade>\n"
                     + "\t<cadastrado>" + (animal.getCadastrado() ? "TRUE" : "FALSE") + "</cadastrado>\n"
                     + "\t<historia>" + animal.getHistoria() + "</historia>\n"
                     + "\t<tags>" + animal.getTags() + "</tags>\n"
@@ -71,20 +71,12 @@ public class ProdutoService_CRUD_Animal {
         Animal animal = (Animal) animalDAO.get(id);
 
         if (animal != null){
-            animal.setUrl(request.queryParams("url_Animal"));
-            animal.setNome(request.queryParams("nome_Animal"));
-            animal.setSexo((request.queryParams("sexo_Animal")).charAt(0));
-            animal.setIdade(request.queryParams("idade_Animal"));
-            animal.setRaca(request.queryParams("raca_Animal"));
-            animal.setVacinas(request.queryParams("vacinas_Animal"));
-            animal.setCidade(request.queryParams("cidade_Animal"));
-            animal.setCadastrado(true);
-            animal.setHistoria(request.queryParams("historia_Animal"));
-            animal.setTags(request.queryParams("tags_Animal"));
-            animal.setPorte((request.queryParams("porte_Animal")).charAt(0));
-            animal.setEspecie(request.queryParams("especie_Animal"));
+            
+            Gson gson = new Gson();
 
-            animalDAO.atualizarAnimal(animal);  
+            Animal registro = gson.fromJson(request.body(), Animal.class);
+
+            animalDAO.atualizarAnimal(registro);  
 
             return id;
 
@@ -93,14 +85,28 @@ public class ProdutoService_CRUD_Animal {
             return "Produto não encontrado.";
         }
     }
+    
+    //if (animal != null){
+    // animal.setUrl(request.queryParams("url_Animal"));
+    // animal.setNome(request.queryParams("nome_Animal"));
+    // animal.setSexo((request.queryParams("sexo_Animal")).charAt(0));
+    // animal.setIdade(request.queryParams("idade_Animal"));
+    // animal.setRaca(request.queryParams("raca_Animal"));
+    // animal.setVacinas(request.queryParams("vacinas_Animal"));
+    // animal.setCidade(request.queryParams("cidade_Animal"));
+    // animal.setCadastrado(true);
+    // animal.setHistoria(request.queryParams("historia_Animal"));
+    // animal.setTags(request.queryParams("tags_Animal"));
+    // animal.setPorte((request.queryParams("porte_Animal")).charAt(0));
+    // animal.setEspecie(request.queryParams("especie_Animal"));
+
 
 
     public Object remove(Request request, Response response){
-        int id = Integer.parseInt(request.params("id"));
+        int id = Integer.parseInt(request.params(":id"));
+        
 
-        Animal animal = (Animal) animalDAO.get(id);
-
-        if (animal != null){
+        if (id != -1){
 
             animalDAO.excluirAnimal(id);
 
@@ -125,8 +131,9 @@ public class ProdutoService_CRUD_Animal {
             "\t<sexo>" + animal.getSexo() + "</sexo>\n" +
             "\t<idade>" + animal.getIdade() + "</idade>\n" +
             "\t<raca>" + animal.getRaca() + "</raca>\n" +
-            "\t<vacinas>" + animal.getVacinas() + "</vacinas>\n"
-            + "\t<cadastrado>" + (animal.getCadastrado() ? "TRUE" : "FALSE") + ", '" + "</cadastrado>"
+            "\t<vacinas>" + animal.getVacinas() + "</vacinas>\n"+
+            "\t<cidade>" + animal.getCidade() + "</cidade>\n"
+            + "\t<cadastrado>" + (animal.getCadastrado() ? "TRUE" : "FALSE") + "</cadastrado>"
             + "\t<historia>" + animal.getHistoria() + "</historia>\n"
             + "\t<tags>" + animal.getTags() + "</tags>\n"
             + "\t<porte>" + animal.getPorte() + "</porte>\n"

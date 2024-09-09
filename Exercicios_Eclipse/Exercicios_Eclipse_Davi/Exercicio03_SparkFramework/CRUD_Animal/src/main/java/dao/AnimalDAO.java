@@ -32,7 +32,7 @@ public class AnimalDAO extends DAO {
         try {
             this.maxId = (animal.getId() > this.maxId) ? animal.getId() : this.maxId;
             Statement st = conexao.createStatement();
-            String sql = "INSERT INTO animal (id, url, nome, sexo, idade, raca, vacinas, cadastrado, historia, tags, porte, especie) " +
+            String sql = "INSERT INTO animal (id, url, nome, sexo, idade, raca, vacinas, cadastrado, historia, tags, porte, especie, cidade) " +
                            "VALUES (" +
                            animal.getId() + ", '" +
                            animal.getUrl() + "', '" +
@@ -45,7 +45,8 @@ public class AnimalDAO extends DAO {
                            animal.getHistoria() + "', '" +
                            animal.getTags() + "', '" +
                            animal.getPorte() + "', '" +
-                           animal.getEspecie() + "')";
+                           animal.getEspecie() + "', '" +
+                           animal.getCidade() + "')";
 
             //Executa o update com a variavel String query               
             st.executeUpdate(sql);
@@ -73,7 +74,8 @@ public class AnimalDAO extends DAO {
                          "historia = '" + animal.getHistoria() + "', " +
                          "tags = '" + animal.getTags() + "', " +
                          "porte = '" + animal.getPorte() + "', " +
-                         "especie = '" + animal.getEspecie() + "' " +
+                         "especie = '" + animal.getEspecie() + "', " +
+                         "cidade = '" + animal.getCidade() + "' " +
                          "WHERE id = " + animal.getId();
 
             //Executa o update com a variavel String query               
@@ -102,38 +104,35 @@ public class AnimalDAO extends DAO {
 
     //Retorna o animal pertencente ao id informado
     public Animal get(int id) {
-        Animal[] animais = null;
+        Animal animal = null;
         try {
             Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet rs = st.executeQuery("SELECT * FROM animal WHERE id = " + id);
-    
-            if (rs.next()) {
-                rs.last();
-                animais = new Animal[rs.getRow()];
-                rs.beforeFirst();
-            }
-    
-            animais[0] = new Animal(
-                    rs.getInt("id"), 
-                    rs.getString("url"), 
-                    rs.getString("nome"), 
-                    rs.getString("sexo").charAt(0), 
-                    rs.getString("idade"), 
-                    rs.getString("raca"), 
-                    rs.getString("vacinas"), 
-                    rs.getString("cidade"),
-                    rs.getBoolean("cadastrado"), 
-                    rs.getString("historia"), 
-                    rs.getString("tags"), 
-                    rs.getString("porte").charAt(0), 
-                    rs.getString("especie")
-                );
+            String sql = "SELECT * FROM animal WHERE id = " + id;
+            ResultSet rs = st.executeQuery(sql);
 
+            if(rs.next()){
+                animal = new Animal(
+                        rs.getInt("id"), 
+                        rs.getString("url"), 
+                        rs.getString("nome"), 
+                        rs.getString("sexo").charAt(0), 
+                        rs.getString("idade"), 
+                        rs.getString("raca"), 
+                        rs.getString("vacinas"), 
+                        rs.getString("cidade"),
+                        rs.getBoolean("cadastrado"), 
+                        rs.getString("historia"), 
+                        rs.getString("tags"), 
+                        rs.getString("porte").charAt(0), 
+                        rs.getString("especie")
+                    );
+            }
+            st.close();
     
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-        return animais[0];
+        return animal;
     }
 
     //Retorna todos os animais presentes no banco de dados
