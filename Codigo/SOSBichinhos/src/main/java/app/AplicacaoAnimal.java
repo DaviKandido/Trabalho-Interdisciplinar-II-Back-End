@@ -15,21 +15,36 @@ public class AplicacaoAnimal {
 
         //Redireciona para o arquivo HTML quando acessar a raiz
         get("/", (request, response) -> {
-            response.redirect("/modules/TelaCadastroAnimalONG/teladecadastrodeanimaONG.html");
+            response.redirect("/modules/TelaCadastroAnimalONG/teladecadastrodeanimalONG.html");
             return null;
         });
 
+        
 
         post("/animal", (request, response) -> animalService_CRUD_Animal.add(request, response));
 
         get("/animal/:id", (request, response) -> animalService_CRUD_Animal.get(request, response));
 
-        get("/animal/update/:id", (request, response) -> animalService_CRUD_Animal.update(request, response));
+        post("/animal/update/:id", (request, response) -> animalService_CRUD_Animal.update(request, response));
 
         post("/animal/delete/:id", (request, response) -> animalService_CRUD_Animal.remove(request, response));
     
         get("/animal", (request, response) -> animalService_CRUD_Animal.getAll(request, response));
         
+
+
+        post("/tagsAnimal", (request, response) -> animalService_CRUD_Animal.add(request, response));
+
+        get("/tagsAnimal/:id", (request, response) -> animalService_CRUD_Animal.get(request, response));
+
+        post("/tagsAnimal/update/:id", (request, response) -> animalService_CRUD_Animal.update(request, response));
+
+        post("/tagsAnimal/delete/:id", (request, response) -> animalService_CRUD_Animal.remove(request, response));
+    
+        get("/tagsAnimal", (request, response) -> animalService_CRUD_Animal.getAll(request, response));
+
+
+
         // get("/animal", (request, response) -> {
         //     try {
         //         response.type("application/json");

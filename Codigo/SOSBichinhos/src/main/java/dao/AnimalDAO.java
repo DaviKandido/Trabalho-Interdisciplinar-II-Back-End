@@ -18,12 +18,12 @@ public class AnimalDAO extends DAO {
      }
 
     private int maxId = 0;
-
+     
     //Retorna o id do ultimo animal inserido no banco de dados
     public int getMaxId() {
         try {
             Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "SELECT MAX(id) as maxId FROM animal"; // Alias para facilitar a leitura do valor
+            String sql = "SELECT MAX(id_animal) as maxId FROM animal"; // Alias para facilitar a leitura do valor
     
             ResultSet rs = st.executeQuery(sql); // Usa executeQuery para comandos SELECT
             if (rs.next()) { // Verifica se o resultado contém ao menos uma linha
@@ -40,8 +40,6 @@ public class AnimalDAO extends DAO {
     }
 
     
-
-    
      
     //Inseri um animal no banco de dados
     public boolean inserirAnimal(Animal animal){
@@ -49,21 +47,19 @@ public class AnimalDAO extends DAO {
         try {
             this.maxId = (animal.getId() > this.maxId) ? animal.getId() : this.maxId;
             Statement st = conexao.createStatement();
-            String sql = "INSERT INTO animal (id, url, nome, sexo, idade, raca, vacinas, cadastrado, historia, tags, porte, especie, cidade) " +
+            String sql = "INSERT INTO animal (id_animal, imagem, nome, sexo, idade, raca, vacinas, castrado, historia, porte, especie) " +
                            "VALUES (" +
                            animal.getId() + ", '" +
-                           animal.getUrl() + "', '" +
+                           animal.getImagem() + "', '" +
                            animal.getNome() + "', '" +
                            animal.getSexo() + "', '" +
                            animal.getIdade() + "', '" +
                            animal.getRaca() + "', '" +
                            animal.getVacinas() + "', " +
-                           (animal.getCadastrado() ? "TRUE" : "FALSE") + ", '" +
+                           (animal.getCastrado() ? "TRUE" : "FALSE") + ", '" +  // Converte boolean para 'true' ou 'false'
                            animal.getHistoria() + "', '" +
-                           animal.getTags() + "', '" +
                            animal.getPorte() + "', '" +
-                           animal.getEspecie() + "', '" +
-                           animal.getCidade() + "')";
+                           animal.getEspecie() + "')";
 
             //Executa o update com a variavel String query               
             st.executeUpdate(sql);
@@ -81,19 +77,17 @@ public class AnimalDAO extends DAO {
         try {
             Statement st = conexao.createStatement();
             String sql = "UPDATE animal SET " +
-                         "url = '" + animal.getUrl() + "', " +
+                         "imagem = '" + animal.getImagem() + "', " +
                          "nome = '" + animal.getNome() + "', " +
                          "sexo = '" + animal.getSexo() + "', " +
                          "idade = '" + animal.getIdade() + "', " +
                          "raca = '" + animal.getRaca() + "', " +
                          "vacinas = '" + animal.getVacinas() + "', " +
-                         "cadastrado = " + (animal.getCadastrado() ? "TRUE" : "FALSE") + ", " +
+                         "castrado = " + (animal.getCastrado() ? "true" : "false") + ", " +
                          "historia = '" + animal.getHistoria() + "', " +
-                         "tags = '" + animal.getTags() + "', " +
                          "porte = '" + animal.getPorte() + "', " +
                          "especie = '" + animal.getEspecie() + "', " +
-                         "cidade = '" + animal.getCidade() + "' " +
-                         "WHERE id = " + animal.getId();
+                         "WHERE id_animal = " + animal.getId();
 
             //Executa o update com a variavel String query               
             st.executeUpdate(sql);
@@ -106,11 +100,11 @@ public class AnimalDAO extends DAO {
     }
     
     //Exclui o animal pertencente ao id informado
-    public boolean excluirAnimal(int id){
+    public boolean excluirAnimal(int id_animal){
         boolean status = false;
         try {
             Statement st = conexao.createStatement();
-            st.executeUpdate("DELETE FROM animal WHERE id = " + id);
+            st.executeUpdate("DELETE FROM animal WHERE id_animal = " + id_animal);
             st.close();
             status = true;
         } catch(SQLException u){
@@ -120,26 +114,24 @@ public class AnimalDAO extends DAO {
     }
 
     //Retorna o animal pertencente ao id informado
-    public Animal get(int id) {
+    public Animal get(int id_animal) {
         Animal animal = null;
         try {
             Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "SELECT * FROM animal WHERE id = " + id;
+            String sql = "SELECT * FROM animal WHERE id_animal = " + id_animal;
             ResultSet rs = st.executeQuery(sql);
 
             if(rs.next()){
                 animal = new Animal(
-                        rs.getInt("id"), 
-                        rs.getString("url"), 
+                        rs.getInt("id_animal"), 
+                        rs.getString("imagem"), 
                         rs.getString("nome"), 
                         rs.getString("sexo").charAt(0), 
                         rs.getString("idade"), 
                         rs.getString("raca"), 
                         rs.getString("vacinas"), 
-                        rs.getString("cidade"),
-                        rs.getBoolean("cadastrado"), 
+                        rs.getBoolean("castrado"), 
                         rs.getString("historia"), 
-                        rs.getString("tags"), 
                         rs.getString("porte").charAt(0), 
                         rs.getString("especie")
                     );
@@ -167,17 +159,15 @@ public class AnimalDAO extends DAO {
     
             for (int i = 0; rs.next(); i++) {
                 animais[i] = new Animal(
-                    rs.getInt("id"), 
-                    rs.getString("url"), 
+                    rs.getInt("id_animal"), 
+                    rs.getString("imagem"), 
                     rs.getString("nome"), 
                     rs.getString("sexo").charAt(0), 
                     rs.getString("idade"), 
                     rs.getString("raca"), 
-                    rs.getString("vacinas"),
-                    rs.getString("cidade"), 
-                    rs.getBoolean("cadastrado"), 
+                    rs.getString("vacinas"), 
+                    rs.getBoolean("castrado"), 
                     rs.getString("historia"), 
-                    rs.getString("tags"), 
                     rs.getString("porte").charAt(0), 
                     rs.getString("especie")
                 );
@@ -204,17 +194,15 @@ public class AnimalDAO extends DAO {
     
             for (int i = 0; rs.next(); i++) {
                 animais[i] = new Animal(
-                    rs.getInt("id"), 
-                    rs.getString("url"), 
+                    rs.getInt("id_animal"), 
+                    rs.getString("imagem"), 
                     rs.getString("nome"), 
                     rs.getString("sexo").charAt(0), 
                     rs.getString("idade"), 
                     rs.getString("raca"), 
                     rs.getString("vacinas"), 
-                    rs.getString("cidade"),
-                    rs.getBoolean("cadastrado"), 
+                    rs.getBoolean("castrado"), 
                     rs.getString("historia"), 
-                    rs.getString("tags"), 
                     rs.getString("porte").charAt(0), 
                     rs.getString("especie")
                 );
@@ -241,17 +229,15 @@ public class AnimalDAO extends DAO {
     
             for (int i = 0; rs.next(); i++) {
                 animais[i] = new Animal(
-                    rs.getInt("id"), 
-                    rs.getString("url"), 
+                    rs.getInt("id_animal"), 
+                    rs.getString("imagem"), 
                     rs.getString("nome"), 
                     rs.getString("sexo").charAt(0), 
                     rs.getString("idade"), 
                     rs.getString("raca"), 
                     rs.getString("vacinas"), 
-                    rs.getString("cidade"),
-                    rs.getBoolean("cadastrado"), 
+                    rs.getBoolean("castrado"), 
                     rs.getString("historia"), 
-                    rs.getString("tags"), 
                     rs.getString("porte").charAt(0), 
                     rs.getString("especie")
                 );

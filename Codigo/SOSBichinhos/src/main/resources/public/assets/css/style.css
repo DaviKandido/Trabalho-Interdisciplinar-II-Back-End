@@ -34,7 +34,7 @@ main {
 }
 
 header {
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -61,7 +61,7 @@ nav a:hover {
 
 
 .exibir a {
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   text-decoration: none;
   padding: 8px 12px;
@@ -89,7 +89,7 @@ nav a:hover {
 }
 
 .fill_green {
-  background-color: #A4B79A;
+  background-color: #A0D3F2;
   padding: 30px 30px;
   border-radius: 6px;
 }
@@ -108,7 +108,7 @@ nav a:hover {
 
 /* Rodape */
 .rodapeGS {
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   padding: 10px 0;
   text-align: center;
@@ -170,7 +170,7 @@ nav a:hover {
   padding: 30px;
   max-width: 60%;
   /*background-color: rgb(170, 233, 170);*/
-  background-color: #A4B79A;
+  background-color: #A0D3F2;
   border-left: 5px double black;
   border-right: 5px double black;
 }
@@ -195,7 +195,7 @@ nav a:hover {
 .nomeSobreNosJP {
   color: black;
   /*background-image: linear-gradient(to right, orange 1%, rgba(255, 255, 255, .5) 1%, transparent);*/
-  background-image: linear-gradient(to right, #54644B 1%, rgba(255, 255, 255, .5) 1%, transparent);
+  background-image: linear-gradient(to right, #0433BF 1%, rgba(255, 255, 255, .5) 1%, transparent);
   padding: 0.15em 0.15em 0.15em 1em;
   margin-bottom: 20px;
 }
@@ -216,7 +216,7 @@ nav a:hover {
   border-radius: 50%;
   object-fit: cover;
   /*border: 2px solid orange;*/
-  border: 10px solid #54644B;
+  border: 10px solid #0433BF;
   box-shadow: 3px 3px 3px silver;
 }
 
@@ -534,7 +534,7 @@ span.fechar-modalJP {
 }
 
 .footer-estilizadoJP {
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   padding: 20px;
   text-align: center;
@@ -952,7 +952,7 @@ div.row {
 .form-submit {
   display: inline-block;
   margin: 7px 20px;
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   border: 4px;
   border-radius: 4px;
@@ -961,7 +961,7 @@ div.row {
 }
 
 .form-submit:hover {
-  background-color: #54644B;
+  background-color: #0433BF;
   margin: 0px 10px;
   padding: 7px 10px;
   color: white;
@@ -1040,7 +1040,7 @@ div.row {
   margin-bottom: 20px;
   padding: 5px 10px;
   border-style: solid;
-  border-color: #54644B;
+  border-color: #0433BF;
   border-radius: 6px;
   display: flex;
   justify-content: space-between;
@@ -1100,7 +1100,7 @@ div.row {
 
 .LCbtnEdit {
   display: inline-block;
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   margin: 3px 5px 0px 5px;
   padding: 8px 4px;
@@ -1145,7 +1145,7 @@ div.row {
 /* Botão para enviar o formulário */
 
 #LCbtnPublicar {
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   margin: 0px 0px 0px 3%;
   padding: 8px 7px;
@@ -1156,7 +1156,7 @@ div.row {
 
 /* Dropdown Button */
 .LCbtnDropdown {
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   margin: 5px 0px;
   padding: 5px;
@@ -1280,8 +1280,8 @@ div.row {
   transform: translate(-50%, -50%);
   width: 40vw;
   height: 40vw;
-  background: #596652;
-  border: 3px solid #718e71;
+  background: #7f7ff0;
+  border: 3px solid #1c215e;
   border-radius: 20px;
   padding: 10px;
   overflow: auto;
@@ -1322,13 +1322,13 @@ div.row {
 }
 
 .Nreque {
-  color: #54644B;
+  color: #0433BF;
   font-weight: bold;
   text-align: center;
 }
 
 .req-animal {
-  color: #394332;
+  color: #161941;
   font-weight: bold;
   text-align: center;
   padding: 10px;
@@ -1345,7 +1345,7 @@ div.row {
 
 .Requerimentos {
   box-sizing: border-box;
-  background-color: #889a7e;
+  background-color: #232ca9;
   margin: 30px;
   border-radius: 6px;
   padding: 30px;
@@ -1414,7 +1414,7 @@ div.row {
 .footerLS {
   padding: 20px;
   line-height: 0;
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   text-align: center;
   width: 100%;
@@ -1433,7 +1433,7 @@ div.row {
     transform: translate(-50%, -50%);
     width: 100vw;
     height: 80%;
-    background: #A4B79A;
+    background: #A0D3F2;
     border: 1px solid black;
     border-radius: 20px;
     padding: 10px;
@@ -1453,7 +1453,7 @@ div.row {
     transform: translate(-50%, -50%);
     width: 80vw;
     height: 80%;
-    background: #A4B79A;
+    background: #A0D3F2;
     border: 1px solid black;
     border-radius: 20px;
     padding: 10px;
@@ -1473,7 +1473,7 @@ div.row {
     transform: translate(-50%, -50%);
     width: 800px;
     height: 80%;
-    background: #A4B79A;
+    background: #A0D3F2;
     border: 1px solid black;
     border-radius: 20px;
     padding: 10px;
@@ -1491,6 +1491,10 @@ div.row {
   padding: 0px;
 }
 
+main.HG_container {
+ margin-top: 5%;
+ margin-bottom: 5%;
+}
 
 .HG_titulo {
   margin: 0px;
@@ -1498,20 +1502,20 @@ div.row {
 }
 
 .HG_fill_green {
-  background-color: #A4B79A;
+  background-color: #A0D3F2;
   padding: 30px 30px;
   border-radius: 6px;
 }
 
 .HG_fill_green_perfil {
-  background-color: #A4B79A;
+  background-color: #A0D3F2;
   padding: 30px 50px;
   border-radius: 50px;
   border: 1px solid #000000;
 }
 
 .HG_fill_green_cadastro {
-  background-color: #C7D9BF;
+  background-color: #bfc2d9;
   padding: 50px;
   border-radius: 6px;
   border: 1px solid #000000;
@@ -1524,11 +1528,10 @@ div.row {
 }
 
 .HG_fill_green_cadastro_maior {
-  background-color: #A4B79A;
+  background-color: #A0D3F2;
   padding: 30px 50px;
   border-radius: 50px;
   border: 1px solid #000000;
-  max-width: 500px;
   margin: 0 auto;
   flex-grow: 1;
   display: flex;
@@ -1537,16 +1540,19 @@ div.row {
 }
 
 .HG_label_box {
-  display: block;
+  display: flex;
+  flex-direction: row; /* Alinha os itens em uma linha */
   padding: 0.375rem 0.75rem;
   border: 1px solid #000000;
   border-radius: 0.25rem;
-  background-color: #54644b;
+  background-color: #252988;
   color: white;
   margin-bottom: 10px;
   margin-right: 20px;
   margin-left: 25px;
+  align-items: center; /* Centraliza os itens verticalmente */
 }
+
 
 .HG_perfil-img {
   width: 150px;
@@ -1609,7 +1615,7 @@ input[type="reset"] {
 }
 
 .AC_footer {
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   text-align: center;
   margin-bottom: 0px;
@@ -1736,7 +1742,7 @@ Sobre a ONG
 }
 
 .Perfil-boxONG {
-  background-color: #54644B;
+  background-color: #0433BF;
   height: 200%;
   width: 100%;
   display: inline;
@@ -1754,7 +1760,7 @@ Sobre a ONG
 }
 
 .Dados-boxONG {
-  background-color: #54644B;
+  background-color: #0433BF;
   height: 180%;
   width: 50%;
   padding: 12px;
@@ -1928,7 +1934,7 @@ Sobre a ONG
 
 footer {
   margin-top: auto;
-  background-color: #54644B;
+  background-color: #0433BF;
   color: white;
   text-align: center;
   padding: 10px 0;

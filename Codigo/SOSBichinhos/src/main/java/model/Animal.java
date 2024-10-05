@@ -2,71 +2,66 @@ package model;
 
 public class Animal {
 	
-	private int id;
-	private String url;
+	private int id_animal;
+	private String imagem;
 	private String  nome;
 	private char sexo;
 	private String  idade;	
 	private String  raca;
 	private String  vacinas;
-	private String  cidade;
-	private boolean cadastrado;
+	private boolean castrado;
 	private String historia;
-	private String  tags;
 	private char porte;
 	private String especie;
 
 	
 	//---------Construtor Padrão----------//
 	public Animal(){
-		id = -1;
-		url = "";
+		id_animal = -1;
+		imagem = "";
 		nome = "";
 		sexo = ' ';
 		idade = "";
 		raca = "";
 		vacinas = "";
-		cidade = "";
-		cadastrado = false;
+		castrado = false;
 		historia = "";
-		tags = "";
 		porte = ' ';
 		especie = "";
 	}
 
 	//---------Construtor----------//
-	public Animal(int id, String url, String nome, char sexo, String idade, String raca, String vacinas, String cidade, boolean cadastrado, String historia,String tags, char porte,String especie){
-		this.id = id;
-		this.url = url;
+	public Animal(int id_animal, String imagem, String nome, char sexo, String idade, String raca, String vacinas, boolean castrado, String historia, char porte,String especie){
+		this.id_animal = id_animal;
+		this.imagem = imagem;
 		this.nome = nome;
 		this.sexo = sexo;
 		this.idade = idade;
 		this.raca = raca;
 		this.vacinas = vacinas;
-		this.cidade = cidade;
-		this.cadastrado = cadastrado;
+		this.castrado = castrado;
 		this.historia = historia;
-		this.tags = tags;
 		this.porte = porte;
 		this.especie = especie;
 	}
 
 	//---------ID----------//
 	public int getId(){
-		return id;
+		return id_animal;
 	}
 
-	public void setId(int id){
-		this.id = id;
+	public void setId(int id_animal){
+		this.id_animal = id_animal;
 	}
 
-	//---------URL----------//
-	public String getUrl() {
-		return url;
+	//---------imagem----------//
+	public String getImagem() {
+		return imagem;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setImagem(String imagem) {
+
+		this.imagem = imagem;
 	}
 
 	//---------NOME----------//
@@ -115,22 +110,13 @@ public class Animal {
 	}
 
 
-	//---------Cidade----------//
-	public String getCidade() {
-		return cidade;
+	//---------castrado----------//
+	public boolean getCastrado() {
+		return castrado;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	//---------CADASTRADO----------//
-	public boolean getCadastrado() {
-		return cadastrado;
-	}
-
-	public void setCadastrado(boolean cadastrado) {
-		this.cadastrado = cadastrado;
+	public void setCastrado(boolean castrado) {
+		this.castrado = castrado;
 	}
 
 	//---------HISTÓRIA----------//
@@ -140,15 +126,6 @@ public class Animal {
 
 	public void setHistoria(String historia) {
 		this.historia = historia;
-	}
-
-	//---------TAGS----------//
-	public String getTags() {
-		return tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
 	}
 
 	//---------PORTE----------//
@@ -171,17 +148,15 @@ public class Animal {
 
 	@Override
 	public String toString() {
-		return "\nANIMAL [ID: " + id +
-			   "\nURL: " + url +
+		return "\nANIMAL [ID: " + id_animal +
+			   "\nimagem: " + imagem +
 			   "\nNome: " + nome +
 			   "\nSexo: " + sexo +
 			   "\nIdade: " + idade +
 			   "\nRaça: " + raca +
 			   "\nVacinas: " + vacinas +
-			   "\nCidade: " + cidade +
-			   "\nCadastrado: " + (cadastrado ? "Sim" : "Não") +
+			   "\ncastrado: " + (castrado ? "Sim" : "Não") +
 			   "\nHistória: " + historia +
-			   "\nTags: " + tags +
 			   "\nPorte: " + porte +
 			   "\nEspécie: " + especie + "]\n";
 	}

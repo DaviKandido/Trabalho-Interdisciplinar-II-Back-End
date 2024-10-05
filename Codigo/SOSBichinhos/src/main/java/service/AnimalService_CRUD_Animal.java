@@ -65,16 +65,14 @@ public class AnimalService_CRUD_Animal {
             Animal registroAtualizado = gson.fromJson(request.body(), Animal.class);
 
             // Atualizando os campos do objeto animal
-            animal.setUrl(registroAtualizado.getUrl());
+            animal.setImagem(registroAtualizado.getImagem());
             animal.setNome(registroAtualizado.getNome());
             animal.setSexo(registroAtualizado.getSexo());
             animal.setIdade(registroAtualizado.getIdade());
             animal.setRaca(registroAtualizado.getRaca());
             animal.setVacinas(registroAtualizado.getVacinas());
-            animal.setCidade(registroAtualizado.getCidade());
-            animal.setCadastrado(registroAtualizado.getCadastrado());
+            animal.setCastrado(registroAtualizado.getCastrado());
             animal.setHistoria(registroAtualizado.getHistoria());
-            animal.setTags(registroAtualizado.getTags());
             animal.setPorte(registroAtualizado.getPorte());
             animal.setEspecie(registroAtualizado.getEspecie());
 

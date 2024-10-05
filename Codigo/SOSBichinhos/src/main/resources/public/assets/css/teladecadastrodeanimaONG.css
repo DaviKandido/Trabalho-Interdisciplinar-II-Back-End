@@ -293,10 +293,6 @@ main {
 
 
 
-.botao-cadastra-animal {
-  margin-top: 10px; /* Espaço acima do botão para separação */
-
-}
 
 .porte-input{
   margin-top: 3%;
@@ -333,6 +329,20 @@ main {
   border-radius: 20px;
   transition: 200ms;
   cursor: pointer;
+  margin-top: 10px; /* Espaço acima do botão para separação */
+
+}
+
+.botao-cadastra-animal:hover {
+  background-color: black;
+}
+
+
+
+
+
+.botao-fechaAba-Animal-Visualiz:hover {
+  background-color: black;
 }
 
 /* botões designer */
@@ -411,9 +421,7 @@ main {
 
 
 
-.botao-cadastra-animal:hover {
-  background-color: black;
-}
+
 
 
 
@@ -591,40 +599,58 @@ textarea.input-text {
 
 
 
-.pagina-container-Animal-Visualizavel{
-  margin-top: 50px;
-  background-color: #A0D3F2;
-  width: 65vw;
-  padding: 24px;
-  flex-direction:row;
-  align-items: center;
-  border: 3px black solid;
-  border-radius: 12px;
-  box-sizing: border-box;
-
-  align-items: center; /* Alinha os itens verticalmente ao centro */
-  justify-content: center; /* Opcional: alinha os itens horizontalmente ao centro */
-
-  display: block ;
-}
-
-
-/* ----------- Estilos de visualização de animal por JP  --------------*/
-
 .pagina-container-Animal-Visualizavel {
   display: none;
-  flex-direction: column; /* Alinha os elementos do container em uma coluna */
-  align-items: center; /* Centraliza o conteúdo na horizontal */
-  width: 100%;
-  padding: 20px; /* Adiciona padding para espaçamento interno */
+  flex-wrap: wrap; /* Permite que os elementos "quebrem" para a próxima linha */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Alinha os itens no topo verticalmente */
+  width: 65vw;
+  margin-top: 50px;
+  background-color: #A0D3F2;
+  border: 3px black solid;
+  border-radius: 12px;
 
-  
+  flex-flow: wrap;
 }
 
 .pagina-container-Animal-Visualizavel h1 {
+  width: 100%; /* Faz o título ocupar toda a largura do container */
   text-align: center;
   margin-bottom: 20px;
   font-size: 2rem; /* Aumenta o tamanho do título */
+}
+
+.botao-fechaAba-Animal-Visualizavel {
+
+  background-color: #1F54F2;
+  color: white;
+  width: 150px;
+  height: 48px;
+  border-radius: 20px;
+  transition: 200ms;
+  cursor: pointer;
+
+  width: 100%; 
+  text-align: center;
+  margin: 5px;
+}
+
+.Card-Animal-Visualizavel {
+  flex: 1 1 calc(33.33% - 20px); /* Cards ocupam até 33.33% da largura do container, com espaçamento */
+  margin: 10px; /* Espaçamento entre os cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text-wrap: wrap;
+  align-items: center;
+  padding: 15px;
+  border-radius: 1.5rem;
+  background-color: #fff;
+  border: 2px solid #000000;
+  min-height: 300px; /* Define uma altura mínima */
+  max-width: 300px; /* Define uma largura máxima para os cards */
+  box-sizing: border-box;
 }
 
 .flexContainer {
@@ -635,18 +661,7 @@ textarea.input-text {
   width: 100%;
 }
 
-.flexPerfilJP {
-  margin: 1%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  border-radius: 1.5rem;
-  background-color: #fff;
-  width: 300px;
-  border: 2px solid #000000;
-}
+
 
 #avatarPrincipalJP {
   width: 250px;

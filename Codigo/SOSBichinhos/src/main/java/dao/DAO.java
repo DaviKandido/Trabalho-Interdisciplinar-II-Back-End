@@ -47,8 +47,5 @@ public class DAO {
             System.err.println("Erro ao fechar a conexão -- " + e.getMessage());
         }
         return status;
-    }
-
-
-    
+    }   
 }
