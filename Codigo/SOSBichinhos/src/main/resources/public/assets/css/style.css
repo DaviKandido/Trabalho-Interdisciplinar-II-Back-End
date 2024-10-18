@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url(/imgs/Fundo2.png);
+  background-image: url(../../imgs\Fundo2.png);
   background-repeat: repeat;
   background-size: auto;
   display: flex;
@@ -1734,6 +1734,7 @@ input[type="reset"] {
 Sobre a ONG
 */
 
+/* aqui */
 .AC_input-text {
   margin: 4px;
   border: autofill;
@@ -1755,7 +1756,7 @@ Sobre a ONG
 }
 
 .Perfil-boxONG:hover {
-  background-color: #20271d;
+  background-color: #1d1181;
   color: white;
 }
 
@@ -1770,12 +1771,12 @@ Sobre a ONG
 }
 
 .Dados-boxONG:hover {
-  background-color: #20271d;
+  background-color: #0433BF;
   color: white;
 }
 
 .AC_foto-container {
-  background-color: #899681;
+  background-color: #A0D3F2;
   padding: 9px;
   position: absolute;
   left: calc(22vw - 36px);
@@ -1787,7 +1788,7 @@ Sobre a ONG
 }
 
 .AC_foto-container2 {
-  background-color: #899681;
+  background-color: #A0D3F2;
   padding: 36px;
   position: absolute;
   left: calc(38vw - 36px);
@@ -1800,7 +1801,7 @@ Sobre a ONG
 }
 
 .AC_pagina-container {
-  background-color: #899681;
+  background-color: #A0D3F2;
   height: 3wh;
   width: 30vw;
   padding: 34px;
@@ -1815,7 +1816,7 @@ Sobre a ONG
 
 
 .AC_Historia-container {
-  background-color: #899681;
+  background-color: #A0D3F2;
   position: absolute;
   left: calc(22vw - 36px);
   top: calc(53vh - 36px);
@@ -1849,6 +1850,7 @@ Sobre a ONG
   bottom: 0%;
 
 }
+
 
 /*------------------------------Fim - Ana Clara -----------------------------*/
 /*------------------------------ Inicio - Gabriel -----------------------------*/
@@ -2098,7 +2100,7 @@ main {
 
 textarea.input-text {
   height: 200px;
-  /* Aumente a altura aqui */
+  /* Aumente a altura  */
 }
 
 /* CSS para ajustar o espaço dentro do primeiro formulario-box */

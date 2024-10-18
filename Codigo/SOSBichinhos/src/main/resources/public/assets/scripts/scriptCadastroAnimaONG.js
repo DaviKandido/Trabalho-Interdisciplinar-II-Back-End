@@ -1,15 +1,49 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const apiUrl_CRUD_Animal = "/animal";
+    const apiUrlAnimal = "/animal";
+
+    const apiUrlAnimalForImagem = "/animalImagem";
 
     //--------------------------------FUNÇÕES saveData-----------------------------------//
+
+
+
+    /**
+     * @param {object} imagem imagem a ser salvado pelo backend
+     */
+
+    function saveDataImageAnimal(imagem) {
+      const formData = new FormData();
+      formData.append('imagem', imagem); // Adiciona a imagem ao FormData
+  
+      fetch(apiUrlAnimalForImagem, { // URL base do servidor para upload da imagem
+          method: 'POST',
+          body: formData, // Envia o FormData diretamente
+          headers: {
+              'Content-Type': 'multipart/form-data',
+          }
+      })
+      .then(response => {
+          if (!response.ok) throw new Error('Erro ao enviar imagem');
+          return response.json();
+      })
+      .then(dado => {
+          console.log(dado);
+          alert("Imagem adicionada com sucesso");
+      })
+      .catch(error => {
+          console.error('Erro:', error);
+          alert("Erro ao adicionar a imagem");
+      });
+  }
+  
 
     /**
      * Manda para o JSON qualquer objeto
      * @param {object} dado objeto a ser salvado no JSON server
      */
     function saveDataAnimal(dado) {
-        fetch(apiUrl_CRUD_Animal, { // URL base do servidor
+        fetch(apiUrlAnimal, { // URL base do servidor
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     async function deleteData(id) {
       try {
-          const response = await fetch(`${apiUrl_CRUD_Animal}/delete/${id}`, { // URL base do servidor
+          const response = await fetch(`${apiUrlAnimal}/delete/${id}`, { // URL base do servidor
               method: 'POST',
           });
 
@@ -48,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
    async function getAnimal(FunctionCallBack, id) {
-        fetch(`${apiUrl_CRUD_Animal}/${id}`)
+        fetch(`${apiUrlAnimal}/${id}`)
           .then((res) => res.json())
           .then(data => {
             FunctionCallBack(data);
@@ -61,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
     async function getTodosAnimais(FunctionCallBack) {
-        fetch(`${apiUrl_CRUD_Animal}`)
+        fetch(`${apiUrlAnimal}`)
           .then((res) => res.json())
           .then(data => {
             FunctionCallBack(data);
@@ -77,6 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function GraverAnimal() {
       // Selecionando os elementos diretamente
+      let inputImagemAnimal = document.querySelector("#imagem-input-animal"); // input imagem
+
       let inputNomeAnimal = document.querySelector("#nome-input-animal");
       let inputSexoAnimal = document.querySelector('#sexo-input-animal');
       let inputIdadeAnimal = document.querySelector("#idade-input-animal");
@@ -94,9 +130,12 @@ document.addEventListener("DOMContentLoaded", () => {
       
       // Agora, acessamos os valores dos inputs
       let castradoBoolean = inputCastradoAnimal.value === "true";
+
+      //Trata a image, inserida
+      let imagemInserida = inputImagemAnimal.files[0] != null ? inputImagemAnimal.files[0].name : "ImagemInexistente.png";
   
       let Animal = {
-          imagem: "inputImagemAnimal", // Concertar input imagem
+          imagem: imagemInserida,
           nome: inputNomeAnimal.value,
           sexo: inputSexoAnimal.value,
           idade: inputIdadeAnimal.value,
@@ -108,26 +147,33 @@ document.addEventListener("DOMContentLoaded", () => {
           especie: inputEspecieAnimal.value
       };
       
-      console.log(Animal);
-      
+
+      // Chama a função para salvar os dados
+      saveDataAnimal(Animal);
+
+      if (inputImagemAnimal.files[0]) {
+        saveDataImageAnimal(inputImagemAnimal.files[0]); // Envia o arquivo para ser salvo no backEnd
+
+        console.log(inputImagemAnimal.files[0]); //teste recebimento da imagem
+      }
+
+
       // Limpar os campos após o salvamento
+      inputImagemAnimal.value = "";
       inputNomeAnimal.value = "";
       inputSexoAnimal.value = "";
       inputIdadeAnimal.value = "";
       inputRacaAnimal.value = "";
       inputVacinasAnimal.value = "";
-      inputCastradoAnimal.value = "";
+      inputCastradoAnimal.value = ""; 
       inputHistoriaAnimal.value = "";
       inputPorteAnimal.value = "";
       inputEspecieAnimal.value = "";
+      inputImagemAnimal.value = ""; //Limpa imagem do campo
 
       inputTag1Animal.value = "";
       inputTag2Animal.value = "";
       inputTag3Animal.value = "";
-      
-  
-      // Chama a função para salvar os dados
-      saveDataAnimal(Animal);
   }
 
     //--------------------------------EventListener - Botões-----------------------------------//

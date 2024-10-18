@@ -1,0 +1,76 @@
+
+$FundoImg : url(/imgs/Fundo2.png);
+
+$FundoColor: white;
+$AzulEscuroTrasparente : rgba(33, 85, 242, 0.775);
+$AzulEscuro : #1F54F2;
+$AzulClaro : #A0D3F2;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body{
+    background-color: $FundoColor;
+}
+
+nav{
+    position: absolute; /* Posiciona a nav sobre o conteúdo */
+    width: 96%; /* Faz a nav ocupar toda a largura da página */
+    background-color: $AzulEscuroTrasparente;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 2rem 2rem 2rem 2rem;
+
+    img{
+        height: 6rem;
+        margin-left: 1.5rem;
+    }
+
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        margin-right: 5rem;
+        flex-wrap: wrap;
+
+        li{
+            font-size: 1.15em;
+            list-style: none;
+            margin-left: 3rem;
+            a{
+                text-decoration: none;
+                color: white;
+                &:hover{
+                    opacity: 0.7;
+                    color: $AzulClaro;
+                }
+            }
+        }
+    }
+    
+}
+
+
+
+
+.conteudoApresentacao{
+    float: right;
+    margin-top: -0.1rem;
+    display: flex;
+    .fundoApresentacao img{
+        float: right;
+        height: 45rem;
+        
+    }
+    h1{
+        
+    }
+}

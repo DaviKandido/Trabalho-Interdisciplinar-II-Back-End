@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imgs/logo.jpg" type="image/x-icon">
+    <!-- Links css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/style/index.css">
+
+    <!-- Link para o jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>SOSBichinhos</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <i class="fa-solid fa-dog" id="nav_logo">SOSBichinhos</i>
+
+            <ul id="nav_list">
+                <li class="nav-item active"><a href="#home">Inicio</a></li>
+                <li class="nav-item"><a href="#ApoieONG">Apoie a ONG</a></li>
+                <li class="nav-item"><a href="#SobreNos">Sobre nos</a></li>
+                <li class="nav-item"><a href="Login.html">Login</a></li>
+                <li class="nav-item"><a href="Cadastrar.html">Cadastrar</a></li>
+            </ul>
+
+            <button class="btn-default">
+                Doe aqui
+            </button>
+
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item"><a href="#home">Inicio</a></li>
+                <li class="nav-item"><a href="#ApoieONG">Apoie a ONG</a></li>
+                <li class="nav-item"><a href="#SobreNos">Sobre nos</a></li>
+                <li class="nav-item"><a href="Login.html">Login</a></li>
+                <li class="nav-item"><a href="Cadastrar.html">Cadastrar</a></li>
+            </ul>
+
+            <button class="btn-default">
+                Doe aqui
+            </button>
+        </div>
+    </header>
+
+    <main id="content">
+        <section id="home">
+            <div class="shape"></div>
+            <div id="cta">
+                <h1 class="title"><span>SOS</span>Bichinhos</h1>
+
+                <p class="description">Bem-vindo ao SOSBichinhos! Nosso projeto é dedicado a apoiar ONGs no resgate, acolhimento e adoção de animais abandonados. Facilitamos a conexão entre ONGs e adotantes, ajudando as ONGs a gerenciar com eficiência todo o processo, desde o resgate inicial até o momento em que um animal encontra um novo lar..</p>
+
+                <div id="cta_buttons">
+                    <a href="#" class="btn-default"> Doar</a>
+
+                    <a href="tel:+5531973067259" id="phone_button">
+                      <button class="btn-default"><i class="fa-solid fa-phone"></i></button> (31) 973067259
+                    </a>
+                </div>
+            
+                <div class="social-media-buttons">
+
+                    <a href="https://api.whatsapp.com/send?phone=5531973067259" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+                    <a href="https://www.facebook.com/sosbichinhos/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+
+                    <a href="https://www.instagram.com/sosbichinhos/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+                </div>
+                <img class="apresentation" src="src/imgs/apresentacao2.png" alt="Apresentacao2">
+                <img class="apresentation" src="src/imgs/apresentacao3.png" alt="Apresentacao3">
+            </div>
+            <div id="banner">
+                <img src="src/imgs/FundoApresentacao.png" alt="bunner">
+            </div>
+        </section>
+    </main>
+
+    <!-- links js -->
+     <script src="src/scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -61,7 +61,7 @@ public class AnimalDAO extends DAO {
                            animal.getPorte() + "', '" +
                            animal.getEspecie() + "')";
 
-            //Executa o update com a variavel String query               
+            //Executa o update com a variavel String sql               
             st.executeUpdate(sql);
             st.close();
             status = true;

@@ -1,0 +1,6 @@
+Nome do servidor:
+sosbichinhos.postgres.database.azure.com
+
+Nome de logon do adm(user): sosbichinhos
+senha: Patinhas02
+

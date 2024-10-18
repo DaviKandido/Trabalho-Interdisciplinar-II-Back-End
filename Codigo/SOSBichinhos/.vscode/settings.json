@@ -1,4 +1,5 @@
 {
     "java.debug.settings.onBuildFailureProceed": true,
-    "maven.view": "flat"
+    "maven.view": "flat",
+    "liveServer.settings.port": 5501
 }

@@ -1,12 +1,12 @@
 package app;
 
-import service.AnimalService_CRUD_Animal;
+import service.AnimalService;
 import static spark.Spark.*;
 
 
 public class AplicacaoAnimal {
 
-    private static AnimalService_CRUD_Animal animalService_CRUD_Animal = new AnimalService_CRUD_Animal();
+    private static AnimalService animalService = new AnimalService();
 
     public static void main(String[] args) {
         
@@ -21,27 +21,29 @@ public class AplicacaoAnimal {
 
         
 
-        post("/animal", (request, response) -> animalService_CRUD_Animal.add(request, response));
+        post("/animal", (request, response) -> animalService.add(request, response));
 
-        get("/animal/:id", (request, response) -> animalService_CRUD_Animal.get(request, response));
+        post("/animalImagem", (request, response) -> animalService.addImagem(request, response));
 
-        post("/animal/update/:id", (request, response) -> animalService_CRUD_Animal.update(request, response));
+        get("/animal/:id", (request, response) -> animalService.get(request, response));
 
-        post("/animal/delete/:id", (request, response) -> animalService_CRUD_Animal.remove(request, response));
+        post("/animal/update/:id", (request, response) -> animalService.update(request, response));
+
+        post("/animal/delete/:id", (request, response) -> animalService.remove(request, response));
     
-        get("/animal", (request, response) -> animalService_CRUD_Animal.getAll(request, response));
+        get("/animal", (request, response) -> animalService.getAll(request, response));
         
 
 
-        post("/tagsAnimal", (request, response) -> animalService_CRUD_Animal.add(request, response));
+        post("/tagsAnimal", (request, response) -> animalService.add(request, response));
 
-        get("/tagsAnimal/:id", (request, response) -> animalService_CRUD_Animal.get(request, response));
+        get("/tagsAnimal/:id", (request, response) -> animalService.get(request, response));
 
-        post("/tagsAnimal/update/:id", (request, response) -> animalService_CRUD_Animal.update(request, response));
+        post("/tagsAnimal/update/:id", (request, response) -> animalService.update(request, response));
 
-        post("/tagsAnimal/delete/:id", (request, response) -> animalService_CRUD_Animal.remove(request, response));
+        post("/tagsAnimal/delete/:id", (request, response) -> animalService.remove(request, response));
     
-        get("/tagsAnimal", (request, response) -> animalService_CRUD_Animal.getAll(request, response));
+        get("/tagsAnimal", (request, response) -> animalService.getAll(request, response));
 
 
 
