@@ -54,7 +54,7 @@ public class Main {
                 .thenAccept(response -> {
                     // Formata e imprime a resposta JSON de forma organizada
                     Object jsonResponse = gson.fromJson(response, Object.class); // Converte a resposta para um objeto
-                    String prettyJson = gson.toJson(jsonResponse); // Converte o objeto de volta para JSON formatado
+                    Strin   g prettyJson = gson.toJson(jsonResponse); // Converte o objeto de volta para JSON formatado
                     System.out.println(prettyJson); // Imprime a resposta formatada
                 })
                 .join();
