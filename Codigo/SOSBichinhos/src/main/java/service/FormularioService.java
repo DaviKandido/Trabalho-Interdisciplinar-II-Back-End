@@ -1,10 +1,11 @@
 package service;
 
-import com.google.gson.Gson;
-import dao.FormularioDAO;
-import model.Formulario;
+import java.util.List;
 import spark.Request;
 import spark.Response;
+import com.google.gson.*;
+import dao.FormularioDAO;
+import model.Formulario;
 
 public class FormularioService {
 
@@ -20,18 +21,30 @@ public class FormularioService {
         }
     }
 
+    // Inserir Novo Formulario 
     public Object insert(Request request, Response response) {
-        Formulario form = gson.fromJson(request.body(), Formulario.class);
-        int id = this.formularioDAO.getMaxId() + 1;
-        form.setId(id);
-        System.out.println(form);
+        Gson gson = new Gson();
+        System.out.println("Corpo da requisição: " + request.body());
+        
+        Formulario registro = gson.fromJson(request.body(), Formulario.class);
+        System.out.println("Objeto Formulario mapeado: " + registro);
+        System.out.println("ID do Animal no objeto Formulario: " + registro.getIdAnimal());
 
-        formularioDAO.insert(form);
-
-        response.status(201); // 201 Created
-        return id;
+        try {
+            int id = this.formularioDAO.getMaxId() + 1;  
+            System.out.println("Novo ID de Formulario: " + id);
+            registro.setIdFormulario(id);
+            System.out.println("Inserindo formulário: " + registro);
+            formularioDAO.insert(registro);
+            response.status(201); // 201 Created
+            return id;
+        } catch (Exception e) {
+            System.out.println("Erro ao inserir no service: " + e.getMessage());
+            return false;
+        }
     }
 
+    //Buscar Formulario
     public Object get(Request request, Response response) {
         try {
             int id = Integer.parseInt(request.params(":id"));
@@ -55,55 +68,43 @@ public class FormularioService {
         }
     }
 
-    public Object getAll(Request request, Response response) {
-        response.header("Content-Type", "application/json");
-        response.header("Content-Encoding", "UTF-8");
-        return gson.toJson(formularioDAO.getForms());
+    //Buscar todos os formularios submetidos
+    public String getAll(Request request, Response response) {
+        List<Formulario> formularios = formularioDAO.getAll();
+        response.status(200); // Success
+        return gson.toJson(formularios);
     }
 
-    public Object update(Request request, Response response) {
-        int id = Integer.parseInt(request.params(":id"));
-        Formulario formulario = (Formulario) formularioDAO.get(id);
+    //Atualizar Formulario
+    public boolean update(Request request, Response response) {
+        Formulario formulario = gson.fromJson(request.body(), Formulario.class);
 
         if (formulario != null) {
-            Formulario update = gson.fromJson(request.body(), Formulario.class);
-
-            formulario.setNome(update.getNome());
-            formulario.setIdade(update.getIdade());
-            formulario.setSexo(update.getSexo());
-            formulario.setCidade(update.getCidade());
-            formulario.setCiente(update.getCiente());
-            formulario.setTeveAnimal(update.getTeveAnimal());
-            formulario.setPermissao(update.getPermissao());
-            formulario.setApLiberado(update.getApLiberado());
-            formulario.setAnimalSozinho(update.getAnimalSozinho());
-            formulario.setAondeFica(update.getAondeFica());
-            formulario.setTelefone(update.getTelefone());
-            formulario.setEmail(update.getEmail());
-            formulario.setNomeAnimal(update.getNomeAnimal());
-            formulario.setUrlImagem(update.getUrlImagem());
-            formulario.setMoradia(update.getMoradia());
-
-            formularioDAO.update(formulario);
             response.status(200); // success
-            return "Registro (ID " + formulario.getId() + ") atualizado!";
+            return formularioDAO.update(formulario);
         } else {
             response.status(404); // 404 Not found
-            return "Registro (ID " + id + ") não encontrado!";
+            return false;
         }
     }
 
+    //Deletar Formulario  
     public Object delete(Request request, Response response) {
         int id = Integer.parseInt(request.params(":id"));
-        Formulario formulario = formularioDAO.get(id);
+        Formulario form = formularioDAO.get(id);
         
-        if (formulario != null) {
-            formularioDAO.delete(id);
-            response.status(204); 
-            return ""; 
+        if (form != null) {
+            boolean deleted = formularioDAO.delete(id);
+            if (deleted) {
+                response.status(200); // Sucesso
+                return id; // Retorna o ID do formulário deletado
+            } else {
+                response.status(500); // Erro interno no servidor
+                return "Erro ao deletar o formulário.";
+            }
         } else {
             response.status(404); // 404 Not Found
-            return "Registro (" + id + ") não encontrado!";
+            return "Formulário não encontrado";
         }
     }
 }

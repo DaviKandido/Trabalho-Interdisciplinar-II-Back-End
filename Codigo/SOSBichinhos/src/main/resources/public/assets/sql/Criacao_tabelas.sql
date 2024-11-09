@@ -5,18 +5,21 @@ CREATE TABLE pessoa (
     id_pessoa int NOT NULL PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    senha VARCHAR(20) NOT NULL,
-    imagem VARCHAR(30) NOT NULL,
+    senha VARCHAR(100) NOT NULL,
+    imagem VARCHAR(200),
     moradia VARCHAR(15) NOT NULL CHECK (moradia IN ('Casa', 'Apartamento', 'Outros')),
     idade int NOT NULL,
     sexo char(1) NOT NULL CHECK (sexo IN ('M', 'F'))
 );
 
+--Altera o tipo varchar para varchar(200) em imagem
+-- ALTER TABLE pessoa
+-- ALTER COLUMN imagem TYPE VARCHAR(200);
 
 -- Tabela Animal
 CREATE TABLE animal (
     id_animal int NOT NULL PRIMARY KEY ,
-    imagem VARCHAR(30) NOT NULL,
+    imagem VARCHAR(200) NOT NULL,
     nome VARCHAR(50) NOT NULL,
     sexo char (1) NOT NULL CHECK (sexo IN ('M', 'F')),
     idade VARCHAR(20) NOT NULL,
@@ -24,9 +27,15 @@ CREATE TABLE animal (
     raca VARCHAR(30) NOT NULL,
     vacinas VARCHAR(50) NOT NULL,
     historia text,
-    porte CHAR(1) NOT NULL CHECK (sexo IN ('P', 'M', 'G')),
+    porte CHAR(1) NOT NULL CHECK (porte IN ('P', 'M', 'G')),
     especie VARCHAR(30) NOT NULL
 );
+
+
+
+--Altera o tipo varchar para varchar(200) em imagem
+-- ALTER TABLE animal
+-- ALTER COLUMN imagem TYPE VARCHAR(200);
 
 -- Tabela comentario
 CREATE TABLE comentario(
@@ -58,7 +67,7 @@ CREATE TABLE formulario (
 -- Tabela tagsAnimal
 CREATE TABLE tagsAnimal (
    id_tagAnimal int NOT NULL PRIMARY KEY,
-   conteudo_tag VARCHAR(15),
+   conteudo_tag VARCHAR(20),
 
    id_animal int NOT NULL,
    CONSTRAINT FK_tagsAnimal_animal FOREIGN KEY (id_animal) REFERENCES animal(id_animal)
@@ -68,7 +77,7 @@ CREATE TABLE tagsAnimal (
 -- Tabela tagPessoas
 CREATE TABLE tagsPessoa (
    id_tagPessoa int NOT NULL PRIMARY KEY,
-   conteudo_tag VARCHAR(15),
+   conteudo_tag VARCHAR(20),
 
    id_pessoa int NOT NULL,
    CONSTRAINT FK_tagsPessoa_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)
@@ -76,12 +85,35 @@ CREATE TABLE tagsPessoa (
 
 CREATE TABLE endereco (
     id_endereco int NOT NULL PRIMARY KEY,
-    bairro VARCHAR(30) NOT NULL,
-    rua VARCHAR(30) NOT NULL,
-    numero VARCHAR(10) NOT NULL,
-    cidade VARCHAR(30) NOT NULL,
+    bairro VARCHAR(50) NOT NULL,
+    rua VARCHAR(50) NOT NULL,
+    numero VARCHAR(20) NOT NULL,
+    cidade VARCHAR(40) NOT NULL,
     estado VARCHAR(20) NOT NULL,
 
    id_pessoa int NOT NULL ,
-   CONSTRAINT FK_tagsPessoa_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)
+   CONSTRAINT FK_endereco_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)
 );
+
+CREATE TABLE enviado (
+    id_enviado int NOT NULL PRIMARY KEY,
+    imagem VARCHAR(200) NOT NULL,
+    sexo char (1) NOT NULL CHECK (sexo IN ('M', 'F')),
+    especie VARCHAR(300) NOT NULL,
+    raça VARCHAR(300) NOT NULL,
+    idade VARCHAR(300) NOT NULL,
+    porte VARCHAR(300) NOT NULL,
+    temperamento VARCHAR(300) NOT NULL,
+    necessidades_especiais VARCHAR(300) NOT NULL,
+    estado_de_saude VARCHAR(300) NOT NULL,
+    carcateristicas_gerais VARCHAR(300) NOT NULL,
+
+    id_pessoa int NOT NULL ,
+    CONSTRAINT FK_enviado_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)
+);
+
+
+
+
+-- Caso haja nescessidade de recriar as tabelas, basta apagar e criar novamente
+--DROP TABLE IF EXISTS comentario, endereco, formulario, pessoa, tagsanimal, tagspessoa, animal CASCADE;

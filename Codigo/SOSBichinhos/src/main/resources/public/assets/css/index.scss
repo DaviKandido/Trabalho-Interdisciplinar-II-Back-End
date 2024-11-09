@@ -1,140 +1,14 @@
 
-$FundoImg : url(/imgs/Fundo2.png);
+@import "./Componentes/headerIndex";
+@import "./Componentes/variaveis";
+@import "./Componentes/footer";
 
-$FundoColor: #eaf3ff;
-$AzulEscuroTrasparente : rgba(33, 85, 242, 0.775);
-$AzulEscuro : #1F54F2;
-$AzulClaro : #A0D3F2;
 
-// @import './header';
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", serif;
-}
 
 
 body{
     background-color: $FundoColor;
 }
-
-
-// -----------------------------header
-header{
-    width: 100%;
-    padding: 28px 8%;
-    #navbar{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    #nav_logo{
-        font-size: 24px;
-        font-weight: 600;
-        color: $AzulEscuro;
-    }
-
-    #nav_list{
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        gap: 3rem;
-        list-style: none;
-    }
-
-    .nav-item a {
-        text-decoration: none;
-        color: $AzulEscuro;
-        font-weight: 500;
-        &:hover{
-            color: #1d1d1d;
-            border-bottom: 3px solid #1d1d1d;
-        }
-    }
-
-    // .nav-item.active a {
-    //     color: blue;
-    //     border-bottom: 3px solid $AzulEscuro;
-
-    //     &:hover{
-    //         color: #1d1d1d;
-    //     }
-    // }
-}
-
-#mobile_btn{
-    display: none;
-}
-
-#mobile_menu{
-    display: none;
-}
-
-@media screen and (max-width: 1170px){
-
-    header #nav_list, #navbar .btn-default{
-        display: none;
-    }
-
-    #mobile_btn{
-        display: block;
-        border: none;
-        background-color: transparent;
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
-
-    #mobile_menu.active{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        #mobile_nav_list{
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 1rem 0px;
-        }
-        #mobile_nav_list .nav-item{
-            list-style: none;
-            text-align: center;
-        }
-
-    }
-}
-
-// -----------------------------end header
-
-.btn-default{
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 0, 0, 0.834);
-    border-radius: 12px;
-    padding: 10px 14px;
-    font-weight: 600;
-    font-size: 17px;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-
-    a{
-        color:#1d1d1d;
-        text-decoration: none;
-    }
-
-    &:hover{
-        background-color: $AzulEscuroTrasparente;
-    }
-}
-
 
 
 section{
@@ -211,30 +85,6 @@ section{
     }
 }
 
-.social-media-buttons{
-    display: flex;
-    gap: 18px;
-
-    a{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 45px;
-        background-color: #ffffff;
-        font-size: 1.4rem;
-        border-radius: 10px;
-        text-decoration: none;
-        color: #1d1d1d;
-        box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease;
-
-        &:hover{
-            color: $AzulEscuroTrasparente;
-            box-shadow: 0px 0px 12px 8px rgba(0, 8, 254, 0.1);
-        }
-    }
-}
 
 
 #banner{
@@ -311,58 +161,5 @@ section{
 
 
 
-.footer-estilizadoJP {
-    background-color: $FundoColor;
-    color: black;
-    padding: 20px;
-    text-align: center;
-    font-size: 1rem;
-    margin-top: 0px;
-  }
-  
-  .footer-estilizadoJP p {
-    margin: 0;
-  }
-  
-  .footer-estilizadoJP span {
-    font-weight: bold;
-  }
-
-
 //-----------------END home css
 
-
-//----------------- footer css
-
-
-footer{
-    background-color: $AzulEscuroTrasparente;
-
-    img{
-        margin-top: -1px;
-    }
-
-    #footer_items{
-        display: flex;
-        justify-content: space-between;
-        padding: 0px 8% 24px 8%;
-        align-items: center;
-        font-size: 1.15rem;
-        font-weight: 600;
-    }
-
-    #copyright{
-        color: #1d1d1d;
-        font-weight: 500;
-    }
-}
-
-@media screen and (max-width: 600px){
-
-    #footer_items{
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-
-//-----------------END footer css

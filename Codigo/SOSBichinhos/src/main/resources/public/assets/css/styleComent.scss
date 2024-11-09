@@ -1,0 +1,279 @@
+@import './Componentes/variaveis';
+@import './Componentes/header';
+@import './Componentes/footer';
+
+/* Div que contém o título e a seção de comentários */
+#LCcommentsContainer {
+  margin: 2% 5%;
+  padding: 0px;
+}
+
+/* Div que contém a linha do título */
+
+#LCcommentsTitleRow {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+/* h1 do título */
+
+#LCtitle {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Div que contém a linha da seção dos comentários */
+
+#LCcommentsHolderRow {
+  margin: 0px;
+  padding: 2%;
+}
+
+/* Div que contém os comentários mostrados e o input de novos comentários */
+
+#LCcommentsSectionContainer {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Div que contém os comentários a serem mostrados */
+
+#LCcommentsShowDiv {
+  margin: 0px;
+  padding: 2%;
+}
+
+/* Comentários */
+
+.LCcomment {
+  margin-right: 10px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border-style: solid;
+  border-color: #0433BF;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.LCcommentUsername {
+  margin: 0px;
+  padding: 0px;
+  font-size: 150%;
+  font-weight: 500;
+}
+
+.LCcommentContent {
+  margin-left: 10px;
+  padding: 0px;
+  font-size: 150%;
+}
+
+.col-11 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.LCcommentP {
+  margin: 0px;
+  padding: 5px 7px;
+}
+
+#LCcommentsHolderRow {
+  margin: 0% 3%;
+}
+
+.LCcontentHolder {
+  display: inline-block;
+}
+
+.LCcommentEdit {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.LCformEdit {
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr;
+  margin: 0px;
+  padding: 0px;
+}
+
+.LCcampoUpdateComment {
+  display: inline-block;
+  margin: 0px;
+  margin-top: 3px;
+  padding: 8px;
+  border: 0px;
+  border-radius: 6px;
+}
+
+.LCbtnEdit {
+  display: inline-block;
+  background-color: #0433BF;
+  color: white;
+  margin: 3px 5px 0px 5px;
+  padding: 8px 4px;
+  border: 0;
+  border-radius: 6px;
+}
+
+.LCbtnCancelEdit {
+  display: inline-block;
+  background-color: rgba(255, 0, 0, 0.664);
+  color: white;
+  margin: 3px 0px 0px 0px;
+  padding: 8px 8px;
+  border: 0;
+  border-radius: 6px;
+}
+
+/* Div que contém o formulário de comentários novos */
+
+#LCcommentsFormDiv {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Formulário a ser enviado */
+
+#LCform {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Input do comentário */
+
+#LCcampoComment {
+  margin: 0px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 6px;
+  width: 88%;
+}
+
+/* Botão para enviar o formulário */
+
+#LCbtnPublicar {
+  background-color: #0433BF;
+  color: white;
+  margin: 0px 0px 0px 3%;
+  padding: 8px 7px;
+  border: 0;
+  border-radius: 6px;
+  width: 8%;
+}
+
+/* Dropdown Button */
+.LCbtnDropdown {
+  background-color: #0433BF;
+  color: white;
+  margin: 5px 0px;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Mouse sobre o Dropdown Buton */
+.LCdropbtn:hover,
+.LCdropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* Div que contém o botão Dropdown e os botões a serem mostrados */
+.LCdropdown {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
+/* Div que contém o conteúdo a ser mostrado - Escondido por padrão */
+.LCdropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Botões dentro do Dropdown Button */
+.LCdropdownContent button {
+  color: black;
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+  min-width: 100%;
+  border: none;
+}
+
+/* Mudar a cor dos botões escondidos ao passar o mouse */
+.LCdropdownContent button:hover {
+  background-color: #ddd;
+}
+
+/* Classe para mostrar os botões escondidos */
+.show {
+  display: block;
+}
+
+/* ----- login ------- */
+
+.div-titulo {
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+.titulo {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+.fill_green_cadastro {
+  background-color: #C7D9BF;
+  padding: 50px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  max-width: 600px;
+  margin: 0 auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.label-box {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #000000;
+  border-radius: 0.25rem;
+  background-color: #54644b;
+  color: white;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 25px;
+}
+
+.btn {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.container_login {
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.caixa {
+  padding: 15px;
+}
+
+.imagem {
+  margin-bottom: 10px;
+}

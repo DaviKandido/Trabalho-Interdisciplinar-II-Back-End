@@ -1,35 +1,44 @@
+const LCapiUrl = "/comentario";
+
 function LCdisplayMessage(mensagem) {
     msg = document.getElementById('LCmsg');
     msg.innerHTML = '<div class="alert alert-warning">' + mensagem + '</div>';
 } // end displayMessage ( )
 
 async function LCreadComments(animalId) {
-    //  definir dados locais
+    // Definir dados locais
     let comments = {};
-    //  tentar fazer a chamada
-    try {
-        //  definir a chamade HTTP do JSON Server
-        const response = await fetch(`${LCapiUrl}comments?animalid=${animalId}`);
-        comments = await response.json();
-        //  mostrar resultado
-        //console.log("Success:", comments);
-        //  displayMessage("Sucesso ao ler comentario!");
-    }
-    catch (error) {
-        console.error("Error:", error);
-        LCdisplayMessage("Erro ao ler comentario (JSON Server indisponível).");
-    }
-    //  retornar
-    return (comments);
-} // end readComments ( )
 
+    try {
+        // Fazer a chamada HTTP para o JSON Server
+        const response = await fetch(`/comentario/animal/${animalId}`);
+
+        // Verificar se a resposta foi bem-sucedida (status 200-299)
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status} - ${response.statusText}`);
+        }
+
+        // Processar a resposta JSON
+        comments = await response.json();
+        console.log("Success:", comments); // Mostrar resultado no console
+       // LCdisplayMessage("Sucesso ao ler comentário!");
+
+    } catch (error) {
+        // Lidar com erros de conexão ou HTTP
+        console.error("Error:", error);
+       // LCdisplayMessage("Erro ao ler comentário (JSON Server indisponível ou erro na requisição).");
+    }
+
+    // Retornar os comentários (ou objeto vazio em caso de falha)
+    return comments;
+}
 async function LCreadComment(commentId) {
     //  definir dados locais
     let comment = {};
     //  tentar fazer a chamada
     try {
         //  definir a chamade HTTP do JSON Server
-        const response = await fetch(`${LCapiUrl}comments/${commentId}`);
+        const response = await fetch(`${LCapiUrl}/${commentId}`);
         comment = await response.json();
         //  mostrar resultado
         //console.log("Success:", comment);
@@ -47,7 +56,7 @@ async function LCcreateComment(comment) {
     //  tentar fazer a chamada
     try {
         //  definir a chamada HTTP do JSON Server
-        const response = await fetch(`${LCapiUrl}comments`, {
+        const response = await fetch(`${LCapiUrl}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -70,8 +79,8 @@ async function LCupdateComment(id, comentario) {
     //  tentar fazer a chamada
     try {
         //  definir a chamada HTTP do JSON Server
-        const response = await fetch(`${LCapiUrl}comments/${id}`, {
-            method: 'PUT',
+        const response = await fetch(`${LCapiUrl}/update/${id}`, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -91,8 +100,8 @@ async function LCdeleteComment(id) {
     //  tentar fazer a chamada
     try {
         //  definir a chamada HTTP do JSON Server
-        const response = await fetch(`${LCapiUrl}comments/${id}`, {
-            method: 'DELETE',
+        const response = await fetch(`${LCapiUrl}/delete/${id}`, {
+            method: 'POST',
         });
         //  mostrar resultado
         LCdisplayMessage("Sucesso ao excluir comentario!");
@@ -103,22 +112,6 @@ async function LCdeleteComment(id) {
         LCdisplayMessage("Erro ao excluir comentario (JSON Server indisponível).");
     }
 } // end deleteComment ( )
-
-/*
-    Manipular a obtenção do usuário
-*/
-
-function LCgetUser() {
-    //  definir dados locais
-    let strUser = localStorage.getItem('db');
-    let objUser = {};
-    //  testar leitura
-    if (strUser) {
-        objUser = JSON.parse(strUser);
-    }
-    //  retornar
-    return (objUser);
-} // end getUser ( )
 
 /*
     Manipular a exibição de dados
@@ -145,12 +138,12 @@ async function LCmostrarComentarios() {
         //  repetir para cada elemento dos dados
         for (let x = 0; x < objComentarios.length; x++) {
             //  definir dados locais
-            let user = await HG_readUser(objComentarios[x].userid);
+            let user = await HG_readUser(objComentarios[x].id_pessoa);
             //  testar o usuario
             if (Object.keys(user).length > 0) {
                 //  definir dados locais
                 let username = user.nome;
-                let content = objComentarios[x].content;
+                let content = objComentarios[x].conteudo;
                 let id = objComentarios[x].id;
                 //  adicionar os valores à formatação de string a ser inserida
                 strHTML += `<div class="LCcomment" id=${id}>
@@ -188,38 +181,50 @@ async function LCmostrarComentarios() {
 */
 
 async function LClerInputComentario() {
-    //  definir dados locais
     const urlParams = new URLSearchParams(window.location.search);
     let strAnimalId = urlParams.get('id');
     let animalId = parseInt(strAnimalId);
-    let strContent = '';
-    let novoComentario = {};
-    let objUser = LCgetUser();
-    let login = LCverificarLogin();
-    //  ler um comentario novo
-    strContent = document.getElementById('LCcampoComment').value;
-    document.getElementById('LCcampoComment').value = ''
-    //  testar se há algo a ser publicado
+
+    const commentField = document.getElementById('LCcampoComment');
+    if (!commentField) {
+        console.error("Campo de comentário não encontrado.");
+        return;
+    }
+
+    let strContent = commentField.value;
+    commentField.value = '';  // Limpar campo
+
     if (strContent) {
-        // testar se esta logado
+        let objUser = LCgetUser();
+        let login = LCverificarLogin();
+
+        if (!objUser || !objUser.id) {
+            console.error("Usuário não encontrado ou inválido.");
+            return;
+        }
+
         if (!login) {
             window.location.href = "../../modules/login/login.html";
+            return;
         }
-        else {
-            //  criar objeto novoComentario
-            novoComentario = {
-                userid: objUser.id,
-                animalid: animalId,
-                id: LCrandomNumber(),
-                content: strContent
-            }; console.log(novoComentario);
-            //  salvar dados no JSON Server
-            LCcreateComment(novoComentario);
-            //  atualizar os dados na tela
-            LCmostrarComentarios();
+
+        let novoComentario = {
+            id_pessoa: objUser.id,
+            id_animal: animalId,
+            id_comentario: LCrandomNumber(),
+            conteudo: strContent
+        };
+        console.log(novoComentario);
+
+        try {
+            await LCcreateComment(novoComentario);
+            LCmostrarComentarios();  // Atualizar comentários na tela
+        } catch (error) {
+            console.error("Erro ao salvar o comentário:", error);
         }
     }
-} // end lerInput ( )
+}
+
 
 /*
     Manipular a edição de comentário
@@ -230,7 +235,7 @@ async function LCeditarComentario(e) {
     let id = e.currentTarget.closest('.LCcomment').id;
     let contentHolder = document.querySelector(`div.LCcomment[id="${id}"] .LCcontentHolder`);
     let previousComment = await LCreadComment(id);
-    let user = await HG_readUser(previousComment.userid);
+    let user = await HG_readUser(previousComment.id_pessoa);
     let strHTML = '';
     //  testar se o usuario pode editar
     if (user.id != LCgetUser().id) {
@@ -244,7 +249,7 @@ async function LCeditarComentario(e) {
                       </div>
                       <div>
                           <div class="LCformEdit">
-                              <input type="text" placeholder="Digite o seu novo comentário..." name="comment" value="${previousComment.content}" class="LCcampoUpdateComment">
+                              <input type="text" placeholder="Digite o seu novo comentário..." name="comment" value="${previousComment.conteudo}" class="LCcampoUpdateComment">
                               <button type="submit" class="LCbtnEdit">OK</button>
                               <button type="submit" class="LCbtnCancelEdit">Cancelar</button>
                           </div>   
@@ -262,7 +267,7 @@ async function LCeditarComentario(e) {
             //  esvaziar o input
             inputEdit.value = '';
             //  editar o objeto
-            previousComment.content = strContent;
+            previousComment.conteudo = strContent;
             //  editar o JSON Server
             await LCupdateComment(id, previousComment);
             //  mostrar os comentarios novamente
@@ -286,7 +291,7 @@ async function LCexcluirComentarios(e) {
     let id = e.currentTarget.closest('.LCcomment').id;
     let comment = await LCreadComment(id);
     let user = LCgetUser();
-    if (comment.userid != user.id) {
+    if (comment.id_pessoa != user.id) {
         LCdisplayMessage('Não é possível excluir o comentário de outro usuário!');
     }
     else {
@@ -349,35 +354,3 @@ function LCdropdownButton(individualDropdownButton) {
         container.classList.remove('show');
     }
 } // end dropdownButton ( )
-
-//iniciando o processo de integração de JAVA com Js
-
-const obj = {
-    id: 1,
-    conteudo: "sdadasds",
-    id_animal: 12,
-    id_pessoa: 21,
-};
-
-document.addEventListener('DOMContentLoaded', function(e){
-    fetch('/comentario', {
-        method: 'POST', // Definindo o método como POST
-        headers: {
-            'Content-Type': 'application/json' // Definindo o tipo do conteúdo como JSON
-        },
-        body: JSON.stringify(obj) // Convertendo o objeto para JSON antes de enviar
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json(); // Se a resposta for bem-sucedida, retorna o JSON da resposta
-        } else {
-            throw new Error('Erro na requisição: ' + response.status);
-        }
-    })
-    .then(data => {
-        console.log('Sucesso:', data); // Exibe a resposta do servidor
-    })
-    .catch(error => {
-        console.error('Erro:', error); // Trata qualquer erro que ocorra durante a requisição
-    });
-})

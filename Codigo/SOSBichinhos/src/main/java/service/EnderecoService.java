@@ -32,8 +32,10 @@ public class EnderecoService {
         // Gera o próximo id para o Endereco
         int id = this.enderecoDAO.getMaxId_endereco() + 1; // Altere para getMaxIdEndereco()
         int id_pessoa = this.pessoaDAO.getMaxId_pessoa();
+        
         registro.setId_pessoa(id_pessoa);
         registro.setId_endereco(id); // Altere para setId_endereco
+        
         System.out.println(registro);
 
         enderecoDAO.inserirEndereco(registro); // Altere para inserirEndereco

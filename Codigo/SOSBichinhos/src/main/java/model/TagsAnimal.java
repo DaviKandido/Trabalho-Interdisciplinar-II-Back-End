@@ -1,20 +1,21 @@
 package model;
+import java.util.*;
 
 public class TagsAnimal {
     
     private int id_tagAnimal;
-    private String conteudo_tag;
+    private ArrayList<String> conteudo_tag;
     private int id_animal;
 
     //---------Construtor Padrão----------//
     public TagsAnimal(){
-        this.id_animal = -1;
-        this.conteudo_tag = "";
+        this.id_tagAnimal = -1;
+        this.conteudo_tag = new ArrayList<>();
         this.id_animal = -1;
     }
 
-    public TagsAnimal(int id_tagAnimal, String conteudo_tag, int id_animal){
-        this.id_animal = id_tagAnimal;
+    public TagsAnimal(int id_tagAnimal, ArrayList<String> conteudo_tag, int id_animal){
+        this.id_tagAnimal = id_tagAnimal;
         this.conteudo_tag = conteudo_tag;
         this.id_animal = id_animal;
     }
@@ -24,16 +25,16 @@ public class TagsAnimal {
         return id_tagAnimal;
     }
 
-    public void setId_tagAnimal(int id_animal){
-        this.id_animal = id_tagAnimal;
+    public void setId_tagAnimal(int id_tagAnimal){
+        this.id_tagAnimal = id_tagAnimal;
     }
 
     //---------Conteudo TagAnimal----------//
-    public String getConteudo_tag(){
+    public ArrayList<String> getConteudo_tag(){
         return conteudo_tag;
     }
 
-    public void setConteudo_tag(String conteudo_tag){
+    public void setConteudo_tag(ArrayList<String> conteudo_tag){
         this.conteudo_tag = conteudo_tag;
     }
 

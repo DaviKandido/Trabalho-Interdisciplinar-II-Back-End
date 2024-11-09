@@ -4,7 +4,7 @@ package model;
 //[cabecalho]
 /**
  * @author: matheusEduardoCamposSoares - 837435
- * @data: 23.09.2024 - modelComentario
+ * @data: 19.10.2024 - modelComentario
 **/
 
 public class Comentario {

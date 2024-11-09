@@ -6,7 +6,7 @@ import model.*;
 
 import java.sql.*;
 
-public class AnimalDAO extends DAO {
+public class AnimalDAO extends DAOAzure {
     
 
     public AnimalDAO() {
@@ -44,6 +44,9 @@ public class AnimalDAO extends DAO {
     //Inseri um animal no banco de dados
     public boolean inserirAnimal(Animal animal){
         boolean status = false;
+
+        System.out.println(animal);
+
         try {
             this.maxId = (animal.getId() > this.maxId) ? animal.getId() : this.maxId;
             Statement st = conexao.createStatement();
@@ -73,6 +76,9 @@ public class AnimalDAO extends DAO {
 
     //Atualiza o animal pertencente ao id do seu objeto
     public boolean atualizarAnimal(Animal animal) {
+
+        System.out.println("Atualizando animal: " + animal);
+
         boolean status = false;
         try {
             Statement st = conexao.createStatement();
@@ -86,8 +92,8 @@ public class AnimalDAO extends DAO {
                          "castrado = " + (animal.getCastrado() ? "true" : "false") + ", " +
                          "historia = '" + animal.getHistoria() + "', " +
                          "porte = '" + animal.getPorte() + "', " +
-                         "especie = '" + animal.getEspecie() + "', " +
-                         "WHERE id_animal = " + animal.getId();
+                         "especie = '" + animal.getEspecie() + "' " +
+                         "WHERE id_animal = " + animal.getId(); 
 
             //Executa o update com a variavel String query               
             st.executeUpdate(sql);

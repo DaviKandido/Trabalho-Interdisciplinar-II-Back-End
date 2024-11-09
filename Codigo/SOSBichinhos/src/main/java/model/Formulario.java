@@ -2,158 +2,82 @@ package model;
 
 public class Formulario {
 	
-    private int id;
-    private String nome;
-    private int idade;
-    private char sexo;
-    private String cidade;
-    private String ap_liberado;
-    private String ciente;
-    private String teve_animal;
-    private String permissao;
+    //---- Atributods Formulario ----//
+    private int id_formulario;
     private String animal_sozinho;
-    private String aonde_fica;
+    private boolean familia_ciente;
+    private boolean permissao;
+    private boolean teve_animal;
+    private int id_pessoa; // fk Usuario
+    private int id_animal; // fk animal
     private String telefone;
-    private String email;
-    private String nome_animal;
-    private String imagem_animal;
-    private String moradia;
+    private boolean ap_liberado;
 
+    //---- Construtores ----//
     public Formulario() {
-        this.id = -1;
-        this.nome = "";
-        this.idade = 0;
-        this.sexo = '*';
-        this.cidade = "";
-        this.ap_liberado = "";
-        this.ciente = "";
-        this.teve_animal = "";
-        this.permissao = "";
+        this.id_formulario = -1;
+        this.id_pessoa = -1; // Inicializa como null
+        this.id_animal = -1; // Inicializa como null
         this.animal_sozinho = "";
-        this.aonde_fica = "";
-        this.telefone = "";
-        this.email = "";
-        this.nome_animal = "";
-        this.imagem_animal = "";
-        this.moradia = "";
+        this.familia_ciente = false; 
+        this.permissao = false; 
+        this.teve_animal = false;
+        this.telefone = ""; 
+        this.ap_liberado = false;
     }
 
-    public Formulario(int id, String nome, int idade, char sexo, String cidade, String ap_liberado, 
-            		  String ciente, String teve_animal, String permissao, String animal_sozinho, 
-            		  String aonde_fica, String telefone, String email, String nome_animal, 
-            		  String imagem_animal, String moradia) {
-		setId(id);
-		setNome(nome);
-		setIdade(idade);
-		setSexo(sexo);
-		setCidade(cidade);
-		setApLiberado(ap_liberado);
-		setCiente(ciente);
-		setTeveAnimal(teve_animal);
-		setPermissao(permissao); 
-		setAnimalSozinho(animal_sozinho);
-		setAondeFica(aonde_fica);
-		setTelefone(telefone);
-		setEmail(email);
-		setNomeAnimal(nome_animal);
-		setUrlImagem(imagem_animal); 
-		setMoradia(moradia);
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public char getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
+    public Formulario(int id, String animal_sozinho, boolean familia_ciente, boolean permissao, 
+        boolean teve_animal, int id_animal, int id_pessoa, String telefone, boolean ap_liberado) {
+        this.id_formulario = id;
+        this.animal_sozinho = animal_sozinho;
+        this.familia_ciente = familia_ciente;
+        this.permissao = permissao;
+        this.teve_animal = teve_animal;
+        this.id_animal = id_animal;  // ID Animal
+        this.id_pessoa = id_pessoa;  // ID Pessoa
         this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getMoradia() {
-        return moradia;
-    }
-
-    public void setMoradia(String moradia) {
-        this.moradia = moradia;
-    }
-
-    public String getCiente() {
-        return ciente;
-    }
-
-    public void setCiente(String ciente) {
-        this.ciente = ciente;
-    }
-
-    public String getApLiberado() {
-        return ap_liberado;
-    }
-
-    public void setApLiberado(String ap_liberado) {
         this.ap_liberado = ap_liberado;
     }
 
-    public String getTeveAnimal() {
+    //---- Metodos get e set ----//
+    public int getIdFormulario() {
+        return id_formulario;
+    }
+
+    public void setIdFormulario(int idFormulario) {
+        this.id_formulario = idFormulario;
+    }
+
+    public int getIdPessoa() {
+        return id_pessoa; 
+    }
+
+    public void setIdPessoa(int id_pessoa) {
+        this.id_pessoa = id_pessoa;
+    }
+
+    public int getIdAnimal() {
+        return id_animal;
+    }
+
+    public void setIdAnimal(int id_animal) {
+        this.id_animal = id_animal;
+    }
+
+    public boolean isFamiliaCiente() { 
+        return familia_ciente;
+    }
+
+    public void setFamiliaCiente(boolean familia_ciente) { 
+        this.familia_ciente = familia_ciente;
+    }
+
+    public boolean isTeveAnimal() { 
         return teve_animal;
     }
 
-    public void setTeveAnimal(String teve_animal) {
+    public void setTeveAnimal(boolean teve_animal) { 
         this.teve_animal = teve_animal;
-    }
-
-    public String getAondeFica() {
-        return aonde_fica;
-    }
-
-    public void setAondeFica(String aonde_fica) {
-        this.aonde_fica = aonde_fica;
     }
 
     public String getAnimalSozinho() {
@@ -164,52 +88,51 @@ public class Formulario {
         this.animal_sozinho = animal_sozinho;
     }
 
-    public String getPermissao() {
+    public boolean isPermissao() { 
         return permissao;
     }
 
-    public void setPermissao(String permissao) {
+    public void setPermissao(boolean permissao) { 
         this.permissao = permissao;
     }
 
-    public String getNomeAnimal() {
-        return nome_animal;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setNomeAnimal(String nome_animal) {
-        this.nome_animal = nome_animal;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public String getUrlImagem() {
-    	return imagem_animal;
+    public boolean isApLiberado() { 
+        return ap_liberado;
     }
-    
-    public void setUrlImagem(String imagem_animal) {
-        this.imagem_animal = imagem_animal;
+
+    public void setApLiberado(boolean ap_liberado) { 
+        this.ap_liberado = ap_liberado;
     }
-    
+
+
     @Override
     public String toString() {
-    	 return "Formulario [id=" + id + 
-    	           ", nome=" + nome + 
-    	           ", idade=" + idade + 
-    	           ", sexo=" + sexo + 
-    	           ", cidade=" + cidade + 
-    	           ", ciente=" + ciente + 
-    	           ", teve_animal=" + teve_animal + 
-    	           ", permissao=" + permissao + 
-                   ", animal_sozinho=" + animal_sozinho +
-    	           ", ap_liberado=" + ap_liberado + 
-    	           ", aonde_fica=" + aonde_fica + 
-    	           ", telefone=" + telefone + 
-    	           ", email=" + email + 
-    	           ", nome_animal=" + nome_animal + 
-    	           ", imagem_animal=" + imagem_animal + 
-    	           ", moradia=" + moradia + "]";
+        return "Formulario [id=" + id_formulario + 
+               ", animal_sozinho=" + animal_sozinho + 
+               ", familia_ciente=" + familia_ciente + 
+               ", permissao=" + permissao + 
+               ", teve_animal=" + teve_animal + 
+               ", id_animal=" + id_animal + 
+               ", id_pessoa=" + id_pessoa +
+               ", telefone=" + telefone +
+               ", ap_liberado=" + ap_liberado + "]";
     }
 
     @Override
-	public boolean equals(Object obj) {
-		return (this.getId() == ((Formulario) obj).getId());
-	}
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (obj == null || getClass() != obj.getClass()) return false;
+        
+        Formulario other = (Formulario) obj;
+        return this.getIdFormulario() == other.getIdFormulario();
+    }
 }

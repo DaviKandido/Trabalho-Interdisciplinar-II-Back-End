@@ -6,215 +6,169 @@ import java.util.List;
 
 import model.*;
 
+public class FormularioDAO extends DAOAzure {
 
-public class FormularioDAO extends DAO {
-	
-	public FormularioDAO() {
+    public FormularioDAO() {
         this.Conectar();
-     }
+    }
 
-	@Override
-	public void finalize() {
-		this.close();
-	}
-	
-	 private int maxId = 0;
+    @Override
+    public void finalize() {
+        this.close();
+    }
 
-	 public int getMaxId() {
-		 String sql = "SELECT MAX(id) as maxId FROM \"Formulario\"";
-	     try {
-	    	 Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-	    
-	         ResultSet rs = st.executeQuery(sql); 
-	         if (rs.next()) {
-	        	 maxId = rs.getInt("maxId");
-	         }
-	         rs.close(); 
-	         st.close(); 
-	      } catch (SQLException u) {
-	         u.printStackTrace();
-	      }
-	        
-	        return maxId;
-	    }
+    private int maxId_form = 0;
+     
+    //Retorna o id do ultimo formulario inserido no banco de dados
+    public int getMaxId() {
+        try {  
+            String sql = "SELECT MAX(id_formulario) as maxId FROM formulario";
+            // para evitar SQL Injection
+            try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+                ResultSet rs = stmt.executeQuery();  // Usa executeQuery para comandos SELECT
+                if (rs.next()) { // Verifica se o resultado contém ao menos uma linha
+                    maxId_form = rs.getInt("maxId"); // Obtem o valor
+                }
+                rs.close(); // Fecha o ResultSet
+                stmt.close(); //Fecha o Statement
+            }
+        } catch (SQLException u) {
+            u.printStackTrace();
+        }
+        
+        return maxId_form; // Retorna o valor de maxId
+    }
 
-	//inserir um formulario no banco de dados
-	public boolean insert(Formulario formulario) {
-		boolean status = false;
-		try {  
-			this.maxId = (formulario.getId() > this.maxId) ? formulario.getId() : this.maxId;
-	        Statement st = conexao.createStatement();
-	        String sql = "INSERT INTO \"Formulario\" (id, nome, idade, sexo, cidade, ap_liberado, ciente, teve_animal, permissao, animal_sozinho, aonde_fica, telefone, email, nome_animal, imagem_animal, moradia) "
-	                   + "VALUES (" + formulario.getId() + ", '" + formulario.getNome() + "', "  
-	                   + formulario.getIdade() + ", '" + formulario.getSexo() + "', '" + formulario.getCidade() + "', '"
-	                   + formulario.getApLiberado() + "', '" + formulario.getCiente() + "', '"  + formulario.getTeveAnimal() + "', '"
-	                   + formulario.getPermissao() + "', '" + formulario.getAnimalSozinho() + "', '"  + formulario.getAondeFica() + "', '"
-	                   + formulario.getTelefone() + "', '" + formulario.getEmail() + "', '"  + formulario.getNomeAnimal() + "', '"
-	                   + formulario.getUrlImagem() + "', '" + formulario.getMoradia() + "');";
-			st.executeUpdate(sql);
-			st.close();
-			status = true;
-		} catch (SQLException u) {  
-			throw new RuntimeException(u);
-		}
-		return status;
-	}
+    // Inserir Formulario para adotar animal
+    public boolean insert(Formulario formulario) {
+        boolean status = false;
+        try {  
+            this.maxId_form = (formulario.getIdFormulario() > this.maxId_form) ? formulario.getIdFormulario() : this.maxId_form;
+            String sql = "INSERT INTO formulario (id_formulario, animal_sozinho, familia_ciente, permissao, teve_animal, id_animal, id_pessoa, telefone, ap_liberado) VALUES(?,?,?,?,?,?,?,?,?)";
+        
+            try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+                stmt.setInt(1, formulario.getIdFormulario());
+                stmt.setString(2, formulario.getAnimalSozinho());
+                stmt.setBoolean(3, formulario.isFamiliaCiente());  
+                stmt.setBoolean(4, formulario.isPermissao());  
+                stmt.setBoolean(5, formulario.isTeveAnimal());  
+                stmt.setInt(6, formulario.getIdAnimal());  
+                stmt.setInt(7, formulario.getIdPessoa());  
+                stmt.setString(8, formulario.getTelefone());  
+                stmt.setBoolean(9, formulario.isApLiberado());  
+                
+                stmt.executeUpdate();  
+            }
+            status = true;
+        } catch (SQLException u) {  
+            throw new RuntimeException(u);
+        }
+        return status;
+    }
 
-	
-	//obter o formulario pelo if
-	public Formulario get(int id) {
-	    Formulario formulario = null;
-	    
-        try { 
-        	Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "SELECT * FROM \"Formulario\" WHERE id = " + id;
-            ResultSet rs = st.executeQuery(sql);
-           
+    // Obter Formulario pelo ID
+    public Formulario get(int id) {
+        Formulario formulario = null;
+        String sql = "SELECT id_formulario, animal_sozinho, familia_ciente, permissao, teve_animal, id_animal, id_pessoa, telefone, ap_liberado FROM formulario WHERE id_formulario = ?";
+    
+        try {
+            PreparedStatement st = conexao.prepareStatement(sql);
+            st.setInt(1, id); 
+            ResultSet rs = st.executeQuery(); 
+    
             if (rs.next()) {
-            	formulario = new Formulario(
-                        rs.getInt("id"),
-                        rs.getString("nome"),
-                        rs.getInt("idade"),
-                        rs.getString("sexo").charAt(0),
-                        rs.getString("cidade"),
-                        rs.getString("ap_liberado"),
-                        rs.getString("ciente"),
-                        rs.getString("teve_animal"),
-                        rs.getString("permissao"),
-                        rs.getString("animal_sozinho"),
-                        rs.getString("aonde_fica"),
-                        rs.getString("telefone"),
-                        rs.getString("email"),
-                        rs.getString("nome_animal"),
-                        rs.getString("imagem_animal"),
-                        rs.getString("moradia")
-                    );
-           }
+                formulario = new Formulario(
+                    rs.getInt("id_formulario"),
+                    rs.getString("animal_sozinho"),
+                    rs.getBoolean("familia_ciente"),
+                    rs.getBoolean("permissao"),
+                    rs.getBoolean("teve_animal"),
+                    rs.getInt("id_animal"),
+                    rs.getInt("id_pessoa"),
+                    rs.getString("telefone"),
+                    rs.getBoolean("ap_liberado")
+                );
+            }
+            st.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return formulario;
-    }
-	
-	//obter todos os formularios
-	public Formulario[] getForms() {
-        Formulario[] form = null;
+        return formulario; // Retorna o formulário ou null se não encontrado
+    }    
+
+    //Listar todos os formularios submetidos
+    public List<Formulario> getAll() {
+        List<Formulario> formularios = new ArrayList<Formulario>();
+        
         try {
-            Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet rs = st.executeQuery("SELECT * FROM \"Formulario\" ");
-    
-            if (rs.next()) {
-                rs.last();
-                form = new Formulario[rs.getRow()];
-                rs.beforeFirst();
-            }
-    
-            for (int i = 0; rs.next(); i++) {
-                form[i] = new Formulario(
-                		rs.getInt("id"),
-                    	rs.getString("nome"),
-                    	rs.getInt("idade"),
-                    	rs.getString("sexo").charAt(0),
-                    	rs.getString("cidade"),
-                    	rs.getString("ap_liberado"),
-                    	rs.getString("ciente"),
-                    	rs.getString("teve_animal"),
-                    	rs.getString("permissao"),
-                    	rs.getString("animal_sozinho"),
-                    	rs.getString("aonde_fica"),
-                    	rs.getString("telefone"),
-                    	rs.getString("email"),
-                    	rs.getString("nome_animal"),
-                    	rs.getString("imagem_animal"),
-                    	rs.getString("moradia")
+            String sql = "SELECT id_formulario, animal_sozinho, familia_ciente, permissao, teve_animal, id_animal, id_pessoa, telefone, ap_liberado FROM formulario";
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+                  
+            while(rs.next()) {
+                Formulario f = new Formulario(
+                    rs.getInt("id_formulario"),
+                    rs.getString("animal_sozinho"),
+                    rs.getBoolean("familia_ciente"),
+                    rs.getBoolean("permissao"),
+                    rs.getBoolean("teve_animal"),
+                    rs.getInt("id_animal"),
+                    rs.getInt("id_pessoa"),
+                    rs.getString("telefone"),
+                    rs.getBoolean("ap_liberado")
                 );
+
+                formularios.add(f);
             }
-    
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
+            
+            rs.close(); // Fechar ResultSet
+            stmt.close(); // Fechar Statement
+        } catch (SQLException e) {
+            System.err.println("Erro ao buscar formularios: " + e.getMessage());
+            e.printStackTrace();
         }
-        return form;
+        return formularios;
     }
-	
-	public List<Formulario> get(String orderBy) {	
-	
-		List<Formulario> formularios = new ArrayList<Formulario>();
-		
-		try {
-			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-			String sql = "SELECT * FROM \"Formulario\"" + ((orderBy.trim().length() == 0) ? "" : (" ORDER BY " + orderBy));
-			ResultSet rs = st.executeQuery(sql);	           
-	        while(rs.next()) {	            	
-	        	Formulario f = new Formulario(
-	        			rs.getInt("id"),
-	                    rs.getString("nome"),
-	                    rs.getInt("idade"),
-	                    rs.getString("sexo").charAt(0), 
-	                    rs.getString("cidade"),
-	                    rs.getString("ap_liberado"),
-	                    rs.getString("ciente"),
-	                    rs.getString("teve_animal"),
-	                    rs.getString("permissao"),
-	                    rs.getString("animal_sozinho"),
-	                    rs.getString("aonde_fica"),
-	                    rs.getString("telefone"),
-	                    rs.getString("email"),
-	                    rs.getString("nome_animal"),
-	                    rs.getString("imagem_animal"),
-	                    rs.getString("moradia")
-	        	);
-	           formularios.add(f);
-	        }
-	        st.close();
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
-		}
-		return formularios;
-	}
-	
-	//atualizar informacoes do formulario
-	public boolean update(Formulario formulario) {
-	    boolean status = false;
-	    try {  
-	    	Statement st = conexao.createStatement();
-	        String sql = "UPDATE \"Formulario\" SET " +
-	                "nome = '" + formulario.getNome() + "', " +
-	                "idade = " + formulario.getIdade() + ", " +
-	                "sexo = '" + formulario.getSexo() + "', " +
-	                "cidade = '" + formulario.getCidade() + "', " +
-	                "ap_liberado = '" + formulario.getApLiberado() + "', " + // Corrigido
-	                "ciente = '" + formulario.getCiente() + "', " +
-	                "teve_animal = '" + formulario.getTeveAnimal() + "', " +
-	                "permissao = '" + formulario.getPermissao() + "', " +
-	                "animal_sozinho = '" + formulario.getAnimalSozinho() + "', " +
-	                "aonde_fica = '" + formulario.getAondeFica() + "', " +
-	                "telefone = '" + formulario.getTelefone() + "', " +
-	                "email = '" + formulario.getEmail() + "', " +
-	                "nome_animal = '" + formulario.getNomeAnimal() + "', " + 
-	                "imagem_animal = '" + formulario.getUrlImagem() + "', " +
-	                "moradia = '" + formulario.getMoradia() + "' " + 
-	                "WHERE id = " + formulario.getId();
-	        st.executeUpdate(sql);
-	        st.close();
-	        status = true;
-	    } catch (SQLException u) {  
-	        throw new RuntimeException(u);
-	    }
-	    return status;
-	}
-	
-	//deletar formulario
-	public boolean delete(int id) {
-		boolean status = false;
-		try {  
-			Statement st = conexao.createStatement();
-			st.executeUpdate("DELETE FROM \"Formulario\" WHERE id = " + id);
-			st.close();
-			status = true;
-		} catch (SQLException u) {  
-			throw new RuntimeException(u);
-		}
-		return status;
-	}
-	
+
+    //Atualizar informacoes do formulario
+    public boolean update(Formulario formulario) {
+        boolean status = false;
+        try {  
+            Statement st = conexao.createStatement();
+            this.maxId_form = (formulario.getIdFormulario() > this.maxId_form) ? formulario.getIdFormulario() : this.maxId_form;
+            String sql = "UPDATE formulario SET " +
+                    "familia_ciente = '" + formulario.isFamiliaCiente() + "', " +
+                    "teve_animal = '" + formulario.isTeveAnimal() + "', " +
+                    "permissao = '" + formulario.isPermissao() + "', " +
+                    "animal_sozinho = '" + formulario.getAnimalSozinho() + "', " +
+                    "id_pessoa = '" + formulario.getIdPessoa() + "', " +
+                    "id_animal = " + formulario.getIdAnimal() + ", " +
+                    "telefone = " + formulario.getTelefone() + ", " +
+                    "ap_liberado = " + formulario.isApLiberado() + ", " +
+                    "WHERE id = " + formulario.getIdFormulario();
+            st.executeUpdate(sql);
+            st.close();
+            status = true;
+        } catch (SQLException u) {  
+            throw new RuntimeException(u);
+        }
+        return status;
+    }
+
+    //Deletar Formulário
+    public boolean delete(int id) {
+        boolean status = false;
+        
+        String sql = "DELETE FROM formulario WHERE id_formulario = ?";
+        
+        try (PreparedStatement pst = conexao.prepareStatement(sql)) {
+            pst.setInt(1, id);
+            int affectedRows = pst.executeUpdate();
+            status = affectedRows > 0; //se conseguir deletar retorna true
+        } catch (SQLException e) {  
+            System.err.println("Erro ao deletar formulário com ID: " + id);
+            e.printStackTrace(); 
+        }
+        return status;
+    }    
 }

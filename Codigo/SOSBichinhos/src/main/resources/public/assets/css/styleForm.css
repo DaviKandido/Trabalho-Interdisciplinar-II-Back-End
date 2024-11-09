@@ -1,0 +1,1687 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", serif;
+}
+
+header {
+  border: 3px solid rgb(255, 255, 255);
+  margin: 20px 40px;
+  border-radius: 30px 30px 30px 30px;
+  background-color: rgba(31, 84, 242, 0.8823529412);
+  padding: 20px 8%;
+}
+header:hover {
+  border: 3px solid #1d1d1d;
+}
+header #navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .logo {
+  width: 80px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+header #nav_list {
+  margin-top: 20px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  list-style: none;
+}
+header #nav_list .active a {
+  color: #1d1d1d;
+  border-bottom: 3px solid #1d1d1d;
+}
+header .nav-item a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+header .nav-item a:hover {
+  color: #1d1d1d;
+  border-bottom: 3px solid #1d1d1d;
+}
+
+#mobile_btn {
+  display: none;
+}
+
+#mobile_menu {
+  display: none;
+}
+
+@media screen and (max-width: 1170px) {
+  header #nav_list, #navbar .btn-default {
+    display: none;
+  }
+  #mobile_btn {
+    display: block;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  #mobile_menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #mobile_menu.active #mobile_nav_list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0px;
+  }
+  #mobile_menu.active #mobile_nav_list .nav-item {
+    list-style: none;
+    text-align: center;
+  }
+}
+.btn-default {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 0, 0, 0.834);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 17px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-default a {
+  color: #1d1d1d;
+  text-decoration: none;
+}
+.btn-default:hover {
+  background-color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", serif;
+}
+
+#main-content {
+  flex: 1; /* Faz o conteúdo principal crescer para ocupar o espaço disponível */
+}
+
+/* Footer na parte inferior */
+footer {
+  background-color: rgba(31, 84, 242, 0.8823529412);
+  width: 100%;
+}
+footer img {
+  margin-top: -1px;
+}
+footer #footer_items {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 8% 24px 8%;
+  align-items: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+footer #copyright {
+  color: #1d1d1d;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    background-color: rgba(33, 85, 242, 0.775);
+  }
+  footer img {
+    margin-top: -1px;
+  }
+  footer .social-media-buttons {
+    display: none;
+  }
+  #footer_items {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+/* Estilo dos botões de mídias sociais */
+.social-media-buttons {
+  display: flex;
+  gap: 18px;
+}
+.social-media-buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 45px;
+  background-color: #ffffff;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1d1d1d;
+  box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+.social-media-buttons a:hover {
+  color: rgba(33, 85, 242, 0.775);
+  box-shadow: 0px 0px 12px 8px rgba(0, 8, 254, 0.1);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url(../../imgs/Fundo2.png);
+  background-repeat: repeat;
+  background-size: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Conteudo principal */
+
+.div-titulo {
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+.titulo {
+  margin: 0px;
+  padding: 0px;
+}
+
+.fill_green {
+  background-color: #A0D3F2;
+  padding: 30px 30px;
+  border-radius: 6px;
+}
+
+.container {
+  margin: 9% 0;
+}
+
+.caixa {
+  padding: 15px;
+}
+
+.imagem {
+  margin-bottom: 10px;
+}
+
+
+
+/* Exibição Animais */
+
+.modalJP.visivelJP~#mascaraJP {
+
+  opacity: 0.1;
+  pointer-events: initial;
+
+}
+
+.flexPerfilJP {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.flexPerfilJP>div {
+  margin-right: 20px;
+}
+
+#descricaoJP {
+  text-align: justify;
+}
+
+#avatarPrincipalJP {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+#avatarPrincipalMatchAnimalJP {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+#avatarPrincipalMatchUsuarioJP {
+
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+.informacoesJP p {
+  color: black;
+  margin: 10px 0px;
+}
+
+#nomeAutorJP {
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.button-44JP {
+  background: #e62143;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: Mija, -apple-system, BlinkMacSystemFont, Roboto, "Roboto Slab", "Droid Serif", "Segoe UI", system-ui, Arial, sans-serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 33.4929px;
+  padding: .8em 1em;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
+  text-underline-offset: 1px;
+  transition: all .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  word-break: break-word;
+  border: 0;
+  margin-bottom: 10px;
+}
+
+.button-44JP:active,
+.button-44JP:focus {
+  border-bottom-style: none;
+  border-color: #dadada;
+  box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
+  outline: 0;
+}
+
+.button-44JP:hover {
+  border-bottom-style: none;
+  border-color: #dadada;
+}
+
+.M {
+  background-color: lightblue;
+}
+
+.M .button-44JP {
+  background-color: rgb(26, 137, 173);
+}
+
+
+#filtro-containerJP {
+  margin: 0 auto;
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  color: black;
+}
+
+.filter-containerJP {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.filter-containerJP label {
+  font-weight: bold;
+}
+
+.filter-containerJP select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-containerJP select:hover {
+  border-color: #888;
+}
+
+
+#botaoModalMatchJP {
+
+  border: solid black 1px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+#botaoModalMatch2JP {
+
+  display: none;
+  border: solid black 1px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+#botaoPerfilJP {
+
+  border: solid black 1px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+#iconeMatch {
+  width: 100%;
+  height: 100%;
+}
+
+#iconePerfilJP {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.modalMatchJP {
+
+  position: fixed;
+  z-index: 10;
+  width: 40vw;
+  height: 40vw;
+  left: 30vw;
+  top: 50vh;
+  background-color: antiquewhite;
+  transform: translateY(-25%);
+  padding: 1rem;
+  border: 1px solid silver;
+  box-shadow: 4px 4px 8px black;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 200ms ease-out;
+  max-height: 90%;
+}
+
+.modalMatchJP ul {
+
+  list-style-type: none;
+
+}
+
+.modalMatchJP.visivelJP {
+
+  opacity: 1;
+  transform: translateY(-50%);
+  pointer-events: initial;
+
+}
+
+.modalMatch2JP {
+
+  position: fixed;
+  z-index: 10;
+  width: 40vw;
+  height: 40vw;
+  left: 30vw;
+  top: 50vh;
+  background-color: antiquewhite;
+  transform: translateY(-25%);
+  padding: 1rem;
+  border: 1px solid silver;
+  box-shadow: 4px 4px 8px black;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 200ms ease-out;
+  max-height: 90%;
+}
+
+.modalMatch2JP ul {
+
+  list-style-type: none;
+
+}
+
+.modalMatch2JP.visivelJP {
+
+  opacity: 1;
+  transform: translateY(-50%);
+  pointer-events: initial;
+
+}
+
+span.fechar-modal-Match2JP {
+
+  background-color: silver;
+  border-radius: 50%;
+  display: flex;
+  width: 1.25em;
+  height: 1.25em;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+
+span.fechar-modal-MatchJP {
+
+  background-color: silver;
+  border-radius: 50%;
+  display: flex;
+  width: 1.25em;
+  height: 1.25em;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+.modalMatchJP.rotate-out {
+  transform: rotateY(90deg);
+}
+
+.modalMatchJP.rotate-in {
+  transform: rotateY(-90deg);
+}
+
+.modalMatchJP.corFundo {
+  background-color: lightblue;
+}
+
+.modalMatch2JP.corFundo {
+  background-color: lightblue;
+}
+
+#voltarMatchJP.corFundo {
+  background-color: rgb(26, 137, 173);
+}
+
+#adotarMatchJP.corFundo {
+  background-color: rgb(26, 137, 173);
+}
+
+#cabecalhoModalJP {
+
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black
+}
+
+
+.section_Modal_MatchJP {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.section_Modal_Match_ResultadoJP {
+
+  display: flex;
+  margin: 5% 0;
+  margin-left: 10%;
+  align-items: center;
+  position: relative;
+}
+
+.section_Modal_MatchJP img {
+
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px black;
+  height: 400px;
+  width: 450px;
+
+}
+
+.informacoesModalMatchJP {
+  color: white;
+  position: absolute;
+  bottom: 0%;
+  left: 10%;
+  padding: 10px;
+}
+
+.informacoesModalMatchResultadoJP {
+  position: absolute;
+  right: 10%;
+  padding: 10px;
+}
+
+
+#nomeMatchJP {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+
+#descricaoMatchJP {
+  color: white;
+  font-size: 20px;
+  margin: 5px 0;
+  max-width: 80%;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#slideEsquerdaJP {
+  color: white;
+  position: absolute;
+  font-size: 32px;
+  top: 40%;
+  left: 10%;
+  padding: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#slideDireitaJP {
+  color: white;
+  position: absolute;
+  font-size: 32px;
+  top: 40%;
+  right: 10%;
+  padding: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.flexIconesMatchJP {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+#iconeLikeJP {
+  height: 85px;
+  width: 85px;
+}
+
+#iconeXJP {
+  height: 100px;
+  width: 100px;
+}
+
+.button-matchJP {
+  background: #e62143;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: Mija, -apple-system, BlinkMacSystemFont, Roboto, "Roboto Slab", "Droid Serif", "Segoe UI", system-ui, Arial, sans-serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 33.4929px;
+  padding: .8em 1em;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
+  text-underline-offset: 1px;
+  transition: all .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 50%;
+  word-break: break-word;
+  border: 0;
+  margin: 10px auto;
+}
+
+#textoResultadoMatchJP {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+/* ------------------------------ Gabriel Silva ------------------------------ */
+
+
+/* Conteudo principal */
+
+.div-titulo {
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+.titulo {
+  margin: 0px;
+  padding: 0px;
+}
+
+.caixa {
+  padding: 15px;
+}
+
+.imagem {
+  margin-bottom: 10px;
+}
+
+
+/* Formulario */
+
+div.row {
+  border-radius: 10px;
+
+}
+
+/* Container Principal */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos para o Título */
+.div-titulo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.titulo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilos do Formulário */
+
+.resposta {
+  margin: 10px 0px;
+  padding: 5px 10px;
+  border: 0px;
+  border-radius: 5px;
+}
+
+.question {
+  margin: 10px 0px;
+  font-size: 20px;
+}
+
+.pergunta button {
+  margin: 0px 0px;
+}
+
+.custom-form {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #80bdff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+}
+
+.form-textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.form-submit {
+  display: inline-block;
+  margin: 7px 20px;
+  background-color: #0433BF;
+  color: white;
+  border: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-submit:hover {
+  background-color: #0433BF;
+  margin: 0px 10px;
+  padding: 7px 10px;
+  color: white;
+}
+
+#container_encontreiAnimal {
+  margin-bottom: 98px;
+}
+
+/* Estilos para Row */
+.rowGS {
+  margin-bottom: 20px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+  color: green;
+  margin-top: 10px;
+  /* Ajuste conforme necessário */
+}
+
+/* ------------------------------ Lucas Carneiro ------------------------------ */
+
+/* Div que contém o título e a seção de comentários */
+
+#LCcommentsContainer {
+  margin: 2% 5%;
+  padding: 0px;
+}
+
+/* Div que contém a linha do título */
+
+#LCcommentsTitleRow {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+/* h1 do título */
+
+#LCtitle {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Div que contém a linha da seção dos comentários */
+
+#LCcommentsHolderRow {
+  margin: 0px;
+  padding: 2%;
+}
+
+/* Div que contém os comentários mostrados e o input de novos comentários */
+
+#LCcommentsSectionContainer {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Div que contém os comentários a serem mostrados */
+
+#LCcommentsShowDiv {
+  margin: 0px;
+  padding: 2%;
+}
+
+/* Comentários */
+
+.LCcomment {
+  margin-right: 10px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border-style: solid;
+  border-color: #0433BF;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.LCcommentUsername {
+  margin: 0px;
+  padding: 0px;
+  font-size: 150%;
+  font-weight: 500;
+}
+
+.LCcommentContent {
+  margin-left: 10px;
+  padding: 0px;
+  font-size: 150%;
+}
+
+.col-11 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.LCcommentP {
+  margin: 0px;
+  padding: 5px 7px;
+}
+
+#LCcommentsHolderRow {
+  margin: 0% 3%;
+}
+
+.LCcontentHolder {
+  display: inline-block;
+}
+
+.LCcommentEdit {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.LCformEdit {
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr;
+  margin: 0px;
+  padding: 0px;
+}
+
+.LCcampoUpdateComment {
+  display: inline-block;
+  margin: 0px;
+  margin-top: 3px;
+  padding: 8px;
+  border: 0px;
+  border-radius: 6px;
+}
+
+.LCbtnEdit {
+  display: inline-block;
+  background-color: #0433BF;
+  color: white;
+  margin: 3px 5px 0px 5px;
+  padding: 8px 4px;
+  border: 0;
+  border-radius: 6px;
+}
+
+.LCbtnCancelEdit {
+  display: inline-block;
+  background-color: rgba(255, 0, 0, 0.664);
+  color: white;
+  margin: 3px 0px 0px 0px;
+  padding: 8px 8px;
+  border: 0;
+  border-radius: 6px;
+}
+
+/* Div que contém o formulário de comentários novos */
+
+#LCcommentsFormDiv {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Formulário a ser enviado */
+
+#LCform {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Input do comentário */
+
+#LCcampoComment {
+  margin: 0px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 6px;
+  width: 88%;
+}
+
+/* Botão para enviar o formulário */
+
+#LCbtnPublicar {
+  background-color: #0433BF;
+  color: white;
+  margin: 0px 0px 0px 3%;
+  padding: 8px 7px;
+  border: 0;
+  border-radius: 6px;
+  width: 8%;
+}
+
+/* Dropdown Button */
+.LCbtnDropdown {
+  background-color: #0433BF;
+  color: white;
+  margin: 5px 0px;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Mouse sobre o Dropdown Buton */
+.LCdropbtn:hover,
+.LCdropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* Div que contém o botão Dropdown e os botões a serem mostrados */
+.LCdropdown {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
+/* Div que contém o conteúdo a ser mostrado - Escondido por padrão */
+.LCdropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Botões dentro do Dropdown Button */
+.LCdropdownContent button {
+  color: black;
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+  min-width: 100%;
+  border: none;
+}
+
+/* Mudar a cor dos botões escondidos ao passar o mouse */
+.LCdropdownContent button:hover {
+  background-color: #ddd;
+}
+
+/* Classe para mostrar os botões escondidos */
+.show {
+  display: block;
+}
+
+/* ----- login ------- */
+
+.div-titulo {
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+.titulo {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+.fill_green_cadastro {
+  background-color: #C7D9BF;
+  padding: 50px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  max-width: 600px;
+  margin: 0 auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.label-box {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #000000;
+  border-radius: 0.25rem;
+  background-color: #54644b;
+  color: white;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 25px;
+}
+
+.btn {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.container_login {
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.caixa {
+  padding: 15px;
+}
+
+.imagem {
+  margin-bottom: 10px;
+}
+
+
+/* ------------------------------ FIM - Lucas Carneiro ------------------------------ */
+
+/* ------------------------------ Letícia Silva ------------------------------ */
+/* formulario */
+#requerimentosDisplay {
+  display: flex;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  font-size: 18px !important;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  height: 40vw;
+  border: 3px solid #1c215e;
+  border-radius: 20px;
+  padding: 10px;
+  overflow: auto;
+  z-index: 1;
+  margin-top: 10px;
+  margin-left: 15px !important;
+}
+
+div#formulario-detalhado{
+  list-style-type: none;
+}
+
+#closeButton {
+  padding: 10px;
+  background-color: #DB5656;
+  border-radius: 20px;
+  font-weight: bold;
+  border: 2px solid red;
+}
+
+#closeButton:hover {
+  transform: scale(1.1);
+  /* (110% tamanho original) */
+}
+
+.requerimento2 {
+  margin-top: 20px;
+
+}
+
+
+.req {
+  display: flex;
+  gap: 10px;
+  font-weight: bold;
+  color: black;
+  margin-left: 40px;
+
+}
+
+.preq {
+  color: white;
+}
+
+.Nreque {
+  color: #0433BF;
+  font-weight: bold;
+  text-align: center;
+}
+
+.req-animal {
+  color: #161941;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+
+/* Conteudo principal */
+
+.titulo {
+  margin-left: 25px;
+  padding: 0px;
+}
+
+.Requerimentos {
+  box-sizing: border-box;
+  background-color: #ffffff;
+  margin: 30px;
+  border-radius: 6px;
+  padding: 30px;
+  border: 2px solid #000000;
+}
+
+
+.centerB {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  margin: 17px;
+  height: 20px;
+}
+
+.adotou:hover {
+  transform: scale(1.1);
+  /* (110% tamanho original) */
+}
+
+.adotou {
+  background-color: green;
+  padding: 3px 5px;
+  border-radius: 10px;
+  transition: transform 0.2s;
+  font-weight: bold;
+  border: 2px solid #69BE3C;
+
+}
+
+.nao-adotou {
+  background-color: #972626;
+  padding: 3px 5px;
+  border-radius: 10px;
+  transition: transform 0.2s;
+  font-weight: bold;
+  border: 2px solid #f57575;
+
+}
+
+.nao-adotou:hover {
+  transform: scale(1.1);
+  /* (110% tamanho original) */
+}
+
+.imagemreq {
+  transition: transform 0.2s;
+  /* Animação */
+}
+
+.img-animal {
+  height: 200px;
+  width: 400px;
+  border: 2px solid #000000;
+  border-radius: 10px;
+}
+
+.imagemreq:hover {
+  transform: scale(1.1);
+  /* (110% tamanho original) */
+}
+
+
+/* Estilo para dispositivos com largura de tela menor que 600px (como celulares) */
+@media only screen and (max-width: 600px) {
+
+  #requerimentosDisplay {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 80%;
+    background: #A0D3F2;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    overflow: auto;
+    z-index: 1;
+    margin-top: 10px;
+  }
+}
+
+/* Estilo para dispositivos com largura de tela entre 600px e 1200px (como tablets) */
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+  #requerimentosDisplay {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 80%;
+    background: #A0D3F2;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    overflow: auto;
+    z-index: 1;
+    margin-top: 10px;
+  }
+}
+
+/* Estilo para dispositivos com largura de tela maior que 1200px (como desktops) */
+@media only screen and (min-width: 1000px) and (max-width: 1732px) {
+  #requerimentosDisplay {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 80%;
+    background: #A0D3F2;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    overflow: auto;
+    z-index: 1;
+    margin-top: 10px;
+  }
+}
+
+/* ------------------------------FIM - Letícia Silva ------------------------------ */
+
+/*------------------------------Henrique Giberti ------------------------------*/
+.HG_div-titulo {
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+main.HG_container {
+ margin-top: 5%;
+ margin-bottom: 5%;
+}
+
+.HG_titulo {
+  margin: 0px;
+  padding: 0px;
+}
+
+.HG_fill_green {
+  background-color: #A0D3F2;
+  padding: 30px 30px;
+  border-radius: 6px;
+}
+
+.HG_fill_green_perfil {
+  background-color: #A0D3F2;
+  padding: 30px 50px;
+  border-radius: 50px;
+  border: 1px solid #000000;
+}
+
+.HG_fill_green_cadastro {
+  background-color: #bfc2d9;
+  padding: 50px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  max-width: 500px;
+  margin: 0 auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.HG_fill_green_cadastro_maior {
+  background-color: #A0D3F2;
+  padding: 30px 50px;
+  border-radius: 50px;
+  border: 1px solid #000000;
+  margin: 0 auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.HG_label_box {
+  display: flex;
+  flex-direction: row; /* Alinha os itens em uma linha */
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #000000;
+  border-radius: 0.25rem;
+  background-color: #252988;
+  color: white;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 25px;
+  align-items: center; /* Centraliza os itens verticalmente */
+}
+
+
+.HG_perfil-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #000;
+}
+
+.HG_btn {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.HG_container {
+  max-width: 800px;
+  margin: 0 auto;
+  /* Ajuste a margem superior conforme necessário */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.HG_caixa {
+  padding: 15px;
+}
+
+.HG_imagem {
+  margin-bottom: 20px;
+}
+
+.HG_imagem_cadastro {
+  margin-bottom: 10px;
+}
+
+.HG_file-input-container {
+  margin-bottom: 20px;
+}
+
+/*------------------------------Fim - Henrique Giberti -----------------------------*/
+
+/*------------------------------ Inicio - Ana Clara -----------------------------*/
+
+/*
+Tela de Cadastro
+*/
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+
+.ACac_pagina-container {
+  background-color: #96aa8c;
+  height: 50vh;
+  width: 60vw;
+  padding: 36px;
+  position: absolute;
+  left: calc(20vw - 36px);
+  top: calc(25vh - 36px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.AC_botao-cadastro-container {
+  width: 100%;
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.AC_botao-cadastro {
+  background-color: #54634b;
+  color: white;
+  width: 150px;
+  height: 48px;
+  border-radius: 20px;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.botao_adocao{
+  background-color: #178b0d;
+  color: white;
+  width: 150px;
+  height: 48px;
+  border-radius: 20px;
+  transition: 200ms;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.botao_adocao:hover{
+  background-color: #45a049; /* Cor quando o botão é hover */
+  transform: scale(1.1); 
+}
+
+.botaoListar{
+  background-color: #0433BF;
+  color: white;
+  width: 150px;
+  height: 48px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.botaoListar:hover{
+  background-color: #32a6db; /* Cor quando o botão é hover */
+  transform: scale(1.1); 
+}
+
+.botaoListarAnimais{
+  background-color: #0433BF;
+  margin-left: 750px;
+  color: white;
+  width: 150px;
+  height: 48px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.botaoListarAnimais:hover{
+  background-color: #32a6db; /* Cor quando o botão é hover */
+  transform: scale(1.1); 
+}
+
+.botao-excluir{
+  background-color: #df120b;
+  color: white;
+  width: 150px;
+  height: 48px;
+  border-radius: 20px;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+/*--- FIM - Tela inicial - ONG---*/
+
+/*---Tela de Cadastro - ONG---*/
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.pagina-container {
+  background-color: #438dbb;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px black solid;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.titulo {
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: #333;
+}
+
+
+.botao-cadastro:hover {
+  background-color: black;
+}
+
+.formularios-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.formulario-box {
+  background-color: #A0D3F2;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 3px black solid;
+  border-radius: 12px;
+  margin: 12px 0;
+  box-sizing: border-box;
+  height: 420px;
+  flex-grow: 1;
+}
+
+.sexo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.sexo-checkbox input[type="radio"] {
+  margin-left: 10px;
+}
+
+/* CSS para tornar o campo "inserir foto" mais redondo */
+.formulario-circle {
+  background-color: #c9d8bf;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: 200ms;
+  border: 3px black solid;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+}
+
+#logo-input {
+  display: none;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.input-text {
+  margin-bottom: 12px;
+  border: none;
+  height: 24px;
+  padding: 4px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+textarea.input-text {
+  height: 200px;
+  /* Aumente a altura  */
+}
+
+/* CSS para ajustar o espaço dentro do primeiro formulario-box */
+.formulario-box:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.formulario-box label {
+  flex-grow: 1;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .pagina-container {
+    width: 80vw;
+  }
+
+  .formularios-container {
+    flex-direction: column;
+  }
+
+  .formulario-box {
+    width: 80%;
+    height: auto;
+  }
+
+  .botao-cadastro-container {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagina-container {
+    width: 90vw;
+  }
+
+  .formulario-circle {
+    height: 100px;
+    width: 100px;
+  }
+
+  .formulario-box {
+    width: 90%;
+    height: auto;
+  }
+
+  .input-text {
+    height: 20px;
+  }
+
+  .botao-cadastro {
+    width: 120px;
+    height: 40px;
+  }
+}

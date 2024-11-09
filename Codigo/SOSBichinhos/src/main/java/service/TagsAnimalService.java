@@ -11,6 +11,8 @@ import java.io.IOException;
 import spark.Request;
 import spark.Response;
 
+import java.util.*;
+
 public class TagsAnimalService {
     
     private TagsAnimalDAO tagsAnimalDAO;
@@ -29,12 +31,8 @@ public class TagsAnimalService {
         TagsAnimal registro = gson.fromJson(request.body(), TagsAnimal.class);
        
         int idTag = this.tagsAnimalDAO.getMaxId() + 1;  // Corrigido o getMaxId
-        int idAnimal = this.tagsAnimalDAO.getMaxIdAnimal();  // Corrigido o getMaxId
         
         registro.setId_tagAnimal(idTag);
-        registro.setId_animal(idAnimal);
-
-        System.out.println(registro);
 
         tagsAnimalDAO.inserirTagAnimal(registro);
 
@@ -45,7 +43,7 @@ public class TagsAnimalService {
     public Object get(Request request, Response response){
         int id = Integer.parseInt(request.params(":id"));
         
-        TagsAnimal[] tagsAnimal = tagsAnimalDAO.get(id);
+        TagsAnimal tagsAnimal = tagsAnimalDAO.get(id);
 
         if (tagsAnimal != null){
             Gson gson = new Gson();
@@ -63,7 +61,9 @@ public class TagsAnimalService {
     public Object update(Request request, Response response){
         int id = Integer.parseInt(request.params(":id"));
 
-        TagsAnimal[] tagsAnimal = (TagsAnimal[]) tagsAnimalDAO.get(id);
+        System.out.println("\n Id do animal atualizado as tags: " + id);
+
+        TagsAnimal tagsAnimal =  (TagsAnimal) tagsAnimalDAO.get(id);
 
         if (tagsAnimal != null){
             
@@ -71,15 +71,12 @@ public class TagsAnimalService {
 
             TagsAnimal registroAtualizado = gson.fromJson(request.body(), TagsAnimal.class);
 
-            // Atualizando os campos do objeto animal
-            tagsAnimal[0].setConteudo_tag(registroAtualizado.getConteudo_tag());
-            tagsAnimal[1].setConteudo_tag(registroAtualizado.getConteudo_tag());
-            tagsAnimal[2].setConteudo_tag(registroAtualizado.getConteudo_tag());
+            // Atualizando os campos do objeto tagsAnimal
+            tagsAnimal.setConteudo_tag(registroAtualizado.getConteudo_tag());
+            tagsAnimal.setId_animal(registroAtualizado.getId_animal());
 
+            tagsAnimalDAO.atualizarTagAnimal(tagsAnimal);  // Usando o objeto `tagsAnimal` atualizado
 
-            tagsAnimalDAO.atualizarTagAnimal(tagsAnimal[0]);  // Usando o objeto `animal` atualizado
-            tagsAnimalDAO.atualizarTagAnimal(tagsAnimal[1]);
-            tagsAnimalDAO.atualizarTagAnimal(tagsAnimal[2]);
 
             return id;
 
@@ -92,7 +89,10 @@ public class TagsAnimalService {
     public Object remove(Request request, Response response){
         int id = Integer.parseInt(request.params(":id"));
         
-        TagsAnimal[] tagsAnimal = tagsAnimalDAO.get(id);
+        System.out.println("\n Id do animal removido as tags: " + id);
+
+
+        TagsAnimal tagsAnimal = tagsAnimalDAO.get(id);
         
         if (tagsAnimal != null){
             tagsAnimalDAO.excluirTagAnimal(id);
@@ -104,14 +104,14 @@ public class TagsAnimalService {
         }
     }
 
-    public Object getAll(Request request, Response response){
-        Gson gson = new Gson();
+    // public Object getAll(Request request, Response response){
+    //     Gson gson = new Gson();
 
-        response.header("Content-type", "application/json");
-        response.header("Content-Encoding", "UTF-8");
+    //     response.header("Content-type", "application/json");
+    //     response.header("Content-Encoding", "UTF-8");
 
-        // Retorna a lista de animais como JSON
-        return gson.toJson(animalDAO.getAnimais());
-    }
+    //     // Retorna a lista de animais como JSON
+    //     return gson.toJson(tagsAnimalDAO.getTagsAnimal());
+    // }
 }
 

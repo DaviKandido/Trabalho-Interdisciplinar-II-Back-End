@@ -6,7 +6,7 @@ import model.*;
 
 import java.sql.*;
 
-public class PessoaDAO extends DAO {
+public class PessoaDAO extends DAOAzure {
     
 
     public PessoaDAO() {
@@ -40,59 +40,61 @@ public class PessoaDAO extends DAO {
     }
 
     
-
-    
-     
-    //Inseri um pessoa no banco de dados
-    public boolean inserirpessoa(Pessoa pessoa){
+    public boolean inserirpessoa(Pessoa pessoa) {
         boolean status = false;
         try {
             this.maxId_pessoa = (pessoa.getId() > this.maxId_pessoa) ? pessoa.getId() : this.maxId_pessoa;
+            String senhaCriptografada = CriptografiaAES.criptografar(pessoa.getSenha());
+    
             Statement st = conexao.createStatement();
             String sql = "INSERT INTO pessoa (id_pessoa, nome, email, senha, moradia, imagem, idade, sexo) " +
-             "VALUES (" +
-             pessoa.getId() + ", '" +
-             pessoa.getNome() + "', '" +
-             pessoa.getEmail() + "', '" +
-             pessoa.getSenha() + "', '" +
-             pessoa.getMoradia() + "', '" +
-             pessoa.getImagem() + "', " +
-             pessoa.getIdade() + ", '" +
-             pessoa.getSexo() + "')";
-
-
-            //Executa o update com a variavel String query               
+                         "VALUES (" +
+                         pessoa.getId() + ", '" +
+                         pessoa.getNome() + "', '" +
+                         pessoa.getEmail() + "', '" +
+                         senhaCriptografada + "', '" +
+                         pessoa.getMoradia() + "', '" +
+                         pessoa.getImagem() + "', " +
+                         pessoa.getIdade() + ", '" +
+                         pessoa.getSexo() + "')";
+    
             st.executeUpdate(sql);
             st.close();
             status = true;
-        } catch (SQLException u) {
-            u.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return status;
-    }   
-
+    }
+    
     //Atualiza o pessoa pertencente ao id do seu objeto
     public boolean atualizarpessoa(Pessoa pessoa) {
         boolean status = false;
         try {
+            // Atualiza o ID máximo, caso a pessoa tenha um ID maior que o registrado
+            this.maxId_pessoa = (pessoa.getId() > this.maxId_pessoa) ? pessoa.getId() : this.maxId_pessoa;
+            
+            // Criptografa a senha
+            String senhaCriptografada = CriptografiaAES.criptografar(pessoa.getSenha());
+    
+            // Cria a instrução SQL de atualização
             Statement st = conexao.createStatement();
             String sql = "UPDATE pessoa SET " +
-             "nome = '" + pessoa.getNome() + "', " +
-             "email = '" + pessoa.getEmail() + "', " +
-             "senha = '" + pessoa.getSenha() + "', " +
-             "moradia = '" + pessoa.getMoradia() + "', " +
-             "imagem = '" + pessoa.getImagem() + "', " +
-             "idade = " + pessoa.getIdade() + ", " +
-             "sexo = '" + pessoa.getSexo() + "' " +
-             "WHERE id_pessoa = " + pessoa.getId();
-
-
-            //Executa o update com a variavel String query               
+                         "nome = '" + pessoa.getNome() + "', " +
+                         "email = '" + pessoa.getEmail() + "', " +
+                         "senha = '" + senhaCriptografada + "', " +
+                         "moradia = '" + pessoa.getMoradia() + "', " +
+                         "imagem = '" + pessoa.getImagem() + "', " +
+                         "idade = " + pessoa.getIdade() + ", " +
+                         "sexo = '" + pessoa.getSexo() + "' " +
+                         "WHERE id_pessoa = " + pessoa.getId();
+    
+            // Executa a instrução SQL e fecha o statement
             st.executeUpdate(sql);
             st.close();
             status = true;
-        } catch (SQLException u) {
-            throw new RuntimeException(u);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return status;
     }
@@ -111,34 +113,45 @@ public class PessoaDAO extends DAO {
         return status;
     }
 
-    //Retorna o pessoa pertencente ao id informado
-    public Pessoa get(int id) {
-        Pessoa pessoa = null;
-        try {
-            Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "SELECT * FROM pessoa WHERE id_pessoa = " + id;
-            ResultSet rs = st.executeQuery(sql);
+   // Retorna o objeto Pessoa correspondente ao ID informado
+public Pessoa get(int id) {
+    Pessoa pessoa = null;
+    try {
+        Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        String sql = "SELECT * FROM pessoa WHERE id_pessoa = " + id;
+        ResultSet rs = st.executeQuery(sql);
 
-            if (rs.next()) {
-                pessoa = new Pessoa(
-                    rs.getInt("id_pessoa"),
-                    rs.getString("nome"),
-                    rs.getString("email"),
-                    rs.getString("senha"),
-                    rs.getString("moradia"),
-                    rs.getString("imagem"),
-                    rs.getInt("idade"),
-                    rs.getString("sexo")
-                );
+        if (rs.next()) {
+            String senhaDescriptografada;
+            try {
+                senhaDescriptografada = CriptografiaAES.descriptografar(rs.getString("senha"));
+            } catch (Exception e) {
+                System.err.println("Erro ao descriptografar a senha para ID: " + id);
+                senhaDescriptografada = "";  // Ou um valor padrão
             }
-            
-            st.close();
-    
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
+
+            pessoa = new Pessoa(
+                rs.getInt("id_pessoa"),
+                rs.getString("nome"),
+                rs.getString("email"),
+                senhaDescriptografada,
+                rs.getString("moradia"),
+                rs.getString("imagem"),
+                rs.getInt("idade"),
+                rs.getString("sexo")
+            );
+        } else {
+            System.out.println("Nenhuma pessoa encontrada com o ID: " + id);
         }
-        return pessoa;
+
+        rs.close();  // Fechando o ResultSet
+        st.close();  // Fechando o Statement
+
+    } catch (Exception e) {
+        e.printStackTrace();  // Exibe o stack trace completo para diagnóstico
     }
+    return pessoa;
+}
 
     //Retorna todos os animais presentes no banco de dados
     public Pessoa[] getpessoas() {
@@ -147,31 +160,39 @@ public class PessoaDAO extends DAO {
             Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = st.executeQuery("SELECT * FROM pessoa");
     
-            if (rs.next()) {
-                rs.last();
-                pessoas = new Pessoa[rs.getRow()];
-                rs.beforeFirst();
-            }
+            if (rs.next()) {  // Verifica se há pelo menos uma linha
+                rs.last();  // Move para a última linha
+                int rowCount = rs.getRow();  // Número total de linhas
+                pessoas = new Pessoa[rowCount];
+                rs.beforeFirst();  // Volta para antes da primeira linha
     
-            for (int i = 0; rs.next(); i++) {
-                pessoas[i] = new Pessoa(
-                    rs.getInt("id_pessoa"),
-                    rs.getString("nome"),
-                    rs.getString("email"),
-                    rs.getString("senha"),
-                    rs.getString("moradia"),
-                    rs.getString("imagem"),
-                    rs.getInt("idade"),
-                    rs.getString("sexo")
-                );
+                String senhaDescriptografada;
+                for (int i = 0; rs.next(); i++) {
+                    try {
+                        senhaDescriptografada = CriptografiaAES.descriptografar(rs.getString("senha"));
+                    } catch (Exception e) {
+                        System.err.println("Erro ao descriptografar a senha para ID: " + rs.getInt("id_pessoa"));
+                        senhaDescriptografada = "";  // Ou uma mensagem de erro
+                    }
+    
+                    pessoas[i] = new Pessoa(
+                        rs.getInt("id_pessoa"),
+                        rs.getString("nome"),
+                        rs.getString("email"),
+                        senhaDescriptografada,
+                        rs.getString("moradia"),
+                        rs.getString("imagem"),
+                        rs.getInt("idade"),
+                        rs.getString("sexo")
+                    );
+                }
             }
-            
     
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();  // Exibe o stack trace completo para diagnóstico
         }
         return pessoas;
     }
-
+    
     
 }

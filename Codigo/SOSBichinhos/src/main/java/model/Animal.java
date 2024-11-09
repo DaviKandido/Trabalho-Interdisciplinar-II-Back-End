@@ -6,9 +6,9 @@ public class Animal {
 	private String imagem;
 	private String  nome;
 	private char sexo;
-	private String  idade;	
-	private String  raca;
-	private String  vacinas;
+	private String idade;	
+	private String raca;
+	private String vacinas;
 	private boolean castrado;
 	private String historia;
 	private char porte;

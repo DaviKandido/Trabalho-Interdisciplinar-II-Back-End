@@ -4,7 +4,7 @@ import model.Endereco;
 
 import java.sql.*;
 
-public class EnderecoDAO extends DAO {
+public class EnderecoDAO extends DAOAzure {
 
     public EnderecoDAO() {
         this.Conectar();
@@ -59,29 +59,28 @@ public class EnderecoDAO extends DAO {
     }
     
 
-    // Atualiza o endereço pertencente ao id do seu objeto
     public boolean atualizarEndereco(Endereco endereco) {
         boolean status = false;
-        try {
-            Statement st = conexao.createStatement();
-            String sql = "UPDATE endereco SET " +
-                "bairro = '" + endereco.getBairro() + "', " +
-                "rua = '" + endereco.getRua() + "', " +
-                "numero = " + endereco.getNumero() + ", " +
-                "cidade = '" + endereco.getCidade() + "', " +
-                "estado = '" + endereco.getEstado() + "', " +
-                "id_pessoa = " + endereco.getId_pessoa() + " " +
-                "WHERE id_endereco = " + endereco.getId_endereco();
-
-            // Executa o update
-            st.executeUpdate(sql);
-            st.close();
+        String sql = "UPDATE endereco SET bairro = ?, rua = ?, numero = ?, cidade = ?, estado = ?, id_pessoa = ? WHERE id_endereco = ?";
+    
+        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+            ps.setString(1, endereco.getBairro());
+            ps.setString(2, endereco.getRua());
+            ps.setString(3, endereco.getNumero());
+            ps.setString(4, endereco.getCidade());
+            ps.setString(5, endereco.getEstado());
+            ps.setInt(6, endereco.getId_pessoa());
+            ps.setInt(7, endereco.getId_endereco());
+    
+            ps.executeUpdate();
             status = true;
-        } catch (SQLException u) {
-            throw new RuntimeException(u);
+        } catch (SQLException e) {
+            System.err.println("Erro ao atualizar endereço: " + e.getMessage());
+            e.printStackTrace();
         }
         return status;
     }
+    
 
     // Exclui o endereço pertencente ao id informado
     public boolean excluirEndereco(int id) {

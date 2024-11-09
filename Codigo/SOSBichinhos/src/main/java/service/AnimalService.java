@@ -6,13 +6,13 @@ import dao.AnimalDAO;
 import model.Animal;
 import java.io.IOException;
 
-import javax.servlet.http.Part;
 
 import spark.Request;
 import spark.Response;
 
-import java.util.Collection;
-import javax.servlet.http.Part;
+// import javax.servlet.http.Part;
+// import java.util.Collection;
+// import javax.servlet.http.Part;
 
 
 public class AnimalService {
@@ -71,7 +71,6 @@ public class AnimalService {
         int id = this.animalDAO.getMaxId() + 1;  // Corrigido o getMaxId
         
         registro.setId(id);
-        System.out.println(registro);
 
         animalDAO.inserirAnimal(registro);
 
@@ -98,7 +97,10 @@ public class AnimalService {
     }
 
     public Object update(Request request, Response response){
+
         int id = Integer.parseInt(request.params(":id"));
+
+        System.out.println("\n Id do animal atualizado: " + id);
 
         Animal animal = (Animal) animalDAO.get(id);
 
@@ -120,6 +122,9 @@ public class AnimalService {
             animal.setPorte(registroAtualizado.getPorte());
             animal.setEspecie(registroAtualizado.getEspecie());
 
+            animal.setId(id); //Coloca o id do animal a ser atualizado
+
+
             animalDAO.atualizarAnimal(animal);  // Usando o objeto `animal` atualizado
 
             return id;
@@ -132,6 +137,8 @@ public class AnimalService {
 
     public Object remove(Request request, Response response){
         int id = Integer.parseInt(request.params(":id"));
+
+        System.out.println("\n Id do animal removido: " + id);
         
         Animal animal = animalDAO.get(id);
         
