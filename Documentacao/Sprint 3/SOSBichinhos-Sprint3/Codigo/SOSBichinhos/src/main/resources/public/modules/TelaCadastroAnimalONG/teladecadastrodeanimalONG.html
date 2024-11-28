@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Animal</title>
+
+    <!-- links css -->
+    <link rel="stylesheet" href="../../assets/css/teladecadastrodeanimaONG.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="../../imgs/logo.jpg" type="image/x-icon">
+    <title>Cadatro de Animais - SOSBichinhos</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+
+            <img src="../../imgs/indexImgs/logoSemFundo.png" alt="logo"class="logo">
+
+            <ul id="nav_list">
+                <li class="nav-item"><a href="../../modules/telaInicialONG/telainicialONG.html">Inicio</a></li>
+                <li class="nav-item active"><a href="../../modules/TelaCadastroAnimalONG/teladecadastrodeanimalONG.html">Cadatro de animal</a></li>
+                <li class="nav-item"><a href="../../modules/reporteResgate/reportederesgate.html"> Reportes</a></li>
+
+            </ul>
+
+            <button class="btn-default" type="button">
+                <a href="../../modules/requerimentos/requerimentos.html"> Requerimentos</a>
+            </button>
+
+            <button id="mobile_btn" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+
+            <ul id="nav_list">
+                <li class="nav-item"><a href="../../modules/telaInicialONG/telainicialONG.html">Inicio</a></li>
+                <li class="nav-item active"><a href="../../modules/TelaCadastroAnimalONG/teladecadastrodeanimalONG.html">Cadatro de animal</a></li>
+                <li class="nav-item"><a href="../../modules/reporteResgate/reportederesgate.html"> Reportes</a></li>
+
+            </ul>
+
+            <button class="btn-default">
+                <a href="../../modules/requerimentos/requerimentos.html"> Requerimentos</a>
+            </button>
+        </div>
+    </header>
+
+    <!-- <header>
+        <div class="home">
+            <a href="../../modules/telaInicialONG/telainicialONG.html">
+                <img src="../../imgs/logo.jpg" alt="logo"class="logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../../modules/requerimentos/requerimentos.html">Requerimentos</a>
+        </nav>
+    </header> -->
+
+    <main>
+        <div class="pagina-container">
+            <div class="pagina-container-info">
+                <h1 class="titulo">Ficha de cadastro do animal</h1>
+
+                    <!-- Imagem -->
+                    <div class="form-group row align-items-center mb-3">
+                    <label for="imagem-input-animal" class="HG_label_box col-sm-3">Inserir Foto:</label>
+                    <div class="col-sm-7">
+                        <input type="file" class="form-control" id="imagem-input-animal" accept="image/*" required>
+                    </div>
+                </div>
+
+                <!-- <div class="formulario-circle">
+                    <label for="logo-input">Inserir Foto</label>
+                    <input class="input-text" id="url-input-animal" name="imagem" type="url" placeholder="Digite a url da foto do animal" />
+                </div> -->
+                <form id="animalForm" class="formularios-container">
+                    <div id="msg"></div> <!-- Adicione esta linha para exibir mensagens -->
+                    <div class="formulario-box">
+
+                        <!-- Nome -->
+                        <div class="form-group row align-items-center mb-3">
+                            <label for="nome-input-animal" class="HG_label_box col-sm-3">Nome:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="nome-input-animal" name="nome" required
+                                    placeholder="Informe o nome do animal">
+                            </div>
+                        </div>
+
+                        <!-- Especie -->
+                        <div class="form-group row align-items-center mb-3">
+                            <label for="especie-input-animal" class="HG_label_box col-sm-3">Especie:</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="especie-input-animal" required>
+                                    <option value="" disabled selected>Informe a especie do animal</option>
+                                    <option value="Cachorro">Cachorro</option>
+                                    <option value="Gato">Gato</option>
+                                    <option value="Coelho">Coelho</option>
+                                    <option value="Roedor">Roedor</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Sexo -->
+                        <div class="form-group row align-items-center mb-3">
+                            <label for="sexo-input-animal" class="HG_label_box col-sm-3">Sexo:</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="sexo-input-animal" required>
+                                    <option value="" disabled selected >Selecione o sexo do animal</option>
+                                    <option value="M">Macho</option>
+                                    <option value="F">Fêmea</option>
+                                </select>
+                            </div>
+                       </div>
+
+                        <!-- Idade -->
+                        <div class="form-group row align-items-center mb-3">
+                            <label for="idade-input-animal" class="HG_label_box col-sm-3">Idade:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="idade-input-animal" required
+                                    placeholder="Informe a idade do animal">
+                            </div>
+                        </div>
+
+
+                        <!-- Vacinas -->
+                        <div class="form-group row align-items-center mb-3">
+                            <label for="vacinas-input-animal" class="HG_label_box col-sm-3">vacinas:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="vacinas-input-animal" required
+                                    placeholder="Quais vacinas ele já tomou?">
+                            </div>
+                        </div>
+
+                        <!-- Raça -->
+                        <div class="form-group row align-items-center mb-3">
+                            <label for="raca-input-animal" class="HG_label_box col-sm-3">Raça:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="raca-input-animal" required
+                                    placeholder="Informe a raça do animal">
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="formulario-box">
+
+                        <!-- Historia -->
+                        <div class="form-group row align-items-center mb-3">
+                            <label for="historia-input-animal" class="HG_label_box col-sm-3">Historia:</label>
+                            <div class="col-sm-9">
+                                <textarea type="text" class="form-control" id="historia-input-animal" name="historia" placeholder="Conte a historia desse animal" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Castrado -->
+                        <div class="form-group row align-items-center mb-3">
+                            <label for="castrado-input-animal" class="HG_label_box col-sm-3">Castrado:</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="castrado-input-animal" required>
+                                    <option value="" disabled selected>O animal é castrado?</option>
+                                    <option value="true">Sim</option>
+                                    <option value="false">Não</option>
+                                </select>
+                            </div>
+                       </div>
+
+
+                        <!-- Porte -->
+                        <div class="form-group row align-items-center mb-3">
+                            <label for="porte-input-animal" class="HG_label_box col-sm-3">Porte:</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="porte-input-animal" required>
+                                    <option value="" disabled selected>Qual o porte do animal?</option>
+                                    <option id="porte-input-grande" value="G">Grande</option>
+                                    <option id="porte-input-medio" value="M">Médio</option>
+                                    <option id="porte-input-pequeno" value="P">Pequeno</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    <!-- Tag 1 -->
+                    <div class="form-group row align-items-center mb-3">
+                        <label for="tag1-input-animal" class="HG_label_box col-sm-3">Tag 1:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="tag1-input-animal" required>
+                                <option value="" disabled selected>Selecionar opção</option>
+                                <option value="Brincalhão">Brincalhão</option>
+                                <option value="Calmo">Calmo</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <!-- Tag 2 -->
+                    <div class="form-group row align-items-center mb-3">
+                        <label for="tag2-input-animal" class="HG_label_box col-sm-3">Tag 2:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="tag2-input-animal" required>
+                                <option value="" disabled selected>Selecionar opção</option>
+                                <option value="Gosta de caminhar">Gosta de caminhar</option>
+                                <option value="Caseiro">Caseiro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Tag 3 -->
+                    <div class="form-group row align-items-center mb-3">
+                        <label for="tag3-input-animal" class="HG_label_box col-sm-3">Tag 3:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="tag3-input-animal" required>
+                                <option value="" disabled selected>Selecionar opção</option>
+                                <option value="Introvertido">Introvertido</option>
+                                <option value="Extrovertido">Extrovertido</option>>
+                            </select>
+                        </div>
+                    </div>                    
+                     
+
+                    </div>
+                </form>
+                    <button type="submit" class="botao-cadastra-animal">Cadastrar</button>
+                </div>
+                <div class="pagina-container-botoes">
+
+                    <h1 class="titulo">Ficha de gerenciamento de animais</h1>
+
+                    <div class="btn">
+                        <input class="input-text" id="id-atualiza-animal" name="id-atualiza-animal"  placeholder="Digite o id do animal que quer atualizar"/>
+                        <button type="submit" class="botao-atualiza-animal">Atualizar</button>
+                    </div>
+
+                    <div class="btn">
+                        <input class="input-text" id="id-remove-animal" name="id-remove-animal"  placeholder="Digite o id do animal que quer remover"/>
+                        <button type="submit" class="botao-remove-animal">Remover</button>
+                    </div>
+
+                    <div class="btn">
+                        <input class="input-text" id="id-detalha-animal" name="id-detalha-animal"  placeholder="Digite o id do animal que quer visualizar" />
+                        <button type="submit" class="botao-detalha-animal">Detalhar animal</button>
+                        <button type="submit" class="botao-detalha-animal-JSON">Detalhar animal em JSON</button>
+                    </div>
+
+                    <div class="btn">
+                        
+                    <button type="submit" class="botao-lista-animais">Lista animais</button>
+                    <a href="http://localhost:8080/animal"><button type="submit" class="botao-lista-animais-JSON">Lista animais em JSON</button></a>
+                    </div>
+                </div>
+
+                <div class="pagina-container-Animal-Visualizavel">
+                    
+                    <!---Animal visualizável inserido em JS---->
+
+                    <!-- <h1 class="titulo">Animal Visualizaveis</h1>
+
+                        <section class="flexPerfilJP">
+
+                    <div>
+                        <img id="avatarPrincipalJP" src="../../imgs/jasmin.jpg" alt="animal">
+                    </div>
+                    <div class="informacoesJP">
+                        <div id="nomeAutorJP">
+                        <p>${animal.nome}</p>
+                        </div>
+                            <p><strong>id do animal:</strong> ${animal.id}</p>
+                            <p><strong>Cidade:</strong> ${animal.cidade}</p>
+                            <p><strong>Idade:</strong>${animal.idade}</p>
+                            <p><strong>Sexo:</strong> ${animal.sexo}</p>
+                            <p><strong>Raça:</strong> ${animal.raca}</p>
+                            <p><strong>Vacinação:</strong> ${animal.vacinas}</p>
+                            <p><strong>Castrado:</strong> ${animal.cadastrado}</p>
+                            <p><strong>Porte:</strong> ${animal.porte}</p>
+                            <p><strong>Espécie:</strong> ${animal.especie}</p>
+                            <p><strong>Tags:</strong> ${animal.tags}</p>
+                        <div id="descricaoJP">
+                        <h4>História:</h4>
+                        <p>
+                            ${animal.historia}
+                        </p>
+                        </div>
+                    </div>
+                </section> -->
+                    
+                </div>
+            
+        </div>
+        
+    </main>
+    <footer>
+        <img src="../../imgs/indexImgs/wave2.svg" alt="FooterImg">
+        <div id="footer_items">
+            <span id="copyright">&copy; SOS Bichinhos</span>
+            <p>Conexão entre ONGs e Adotantes!</p>
+
+                <div class="social-media-buttons">
+
+                    <a href="https://api.whatsapp.com/send?phone=5531971412007" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+
+                    <a href="https://www.facebook.com/sosbichinhos/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+
+                    <a href="https://www.instagram.com/sosbichinhos/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+
+                </div>
+        </div>
+    </footer>
+    
+    <!-- Link para o jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- link js navBar-->
+    <script src="../../assets/scripts/index.js"></script>
+    <script src="../../assets/scripts/scriptCadastroAnimaONG.js"></script>
+
+</body>
+</html>

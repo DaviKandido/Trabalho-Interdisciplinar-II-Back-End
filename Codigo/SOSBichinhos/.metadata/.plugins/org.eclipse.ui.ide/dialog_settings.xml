@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/home/cliente/Documentos/GitHub/plmg-cc-ti2-2024-2-g02-sosbichinhos/Codigo"/>
 			<item value="/home/cliente/Documentos/GitHub/plmg-cc-ti2-2024-2-g02-sosbichinhos/Codigo/SOSBichinhos"/>
 		</list>
 		<section name="SmartImportWizard.dialogBounds">

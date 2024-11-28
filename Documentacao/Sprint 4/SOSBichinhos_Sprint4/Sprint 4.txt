@@ -1,0 +1,14 @@
+Aqui ficara contido os arquivos e links referentes a sprint 4:
+
+
+Repositorio: git@github.com:ICEI-PUC-Minas-CC-TI/plmg-cc-ti2-2024-2-g02-sosbichinhos.git
+
+Video no youtube: https://youtu.be/59DVDa1RGp0?si=6I_WsFQ_mVktPgyE
+
+Video no drive: https://drive.google.com/file/d/1Mjx5uT818vRnQGDmrgJ9dbcuhAT5Y4-c/view?usp=drivesdk
+
+Apresentação: https://www.canva.com/design/DAGXOblqW1s/FkWcK8wdPM3PDk5pH9MQhw/edit?utm_content=DAGXOblqW1s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+link das atas de cada reunião de sprint: https://docs.google.com/document/d/1xKbceyfPQcHZoUhxvfDJ_fOlBunva9uVzfy8MYXx_0Y/edit?usp=sharing
+
+link do deploy do projeto: https://sosbichinhos.azurewebsites.net/s

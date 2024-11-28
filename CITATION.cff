@@ -1,31 +1,32 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: "SOSBichinos"
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: Cândido de Almeida
+    given-names: Davi
+  - family-names: da Silva Rocha
+    given-names: Letica
+  - family-names: Campos Soares
+    given-names: Matheus Eduardo
+  - family-names: de Souza Silva
+    given-names: Rayssa Mell
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: do Val Machado
+    given-names: Max
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Jerônimo de Almeida
+    given-names: Sandro
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Cardoso Brandao
+    given-names: Wladmir
 keywords:
-  - 
-  - 
-repository-code: 
+  - ONG
+  - Animais
+  - Resgate
+repository-code: "https://github.com/ICEI-PUC-Minas-CC-TI/plmg-cc-ti2-2024-2-g02-sosbichinhos.git"
 license: CC-BY-4.0
-version: 1.0.0
-date-released: 2022-07-14
+version: 1.0.1
+date-released: 2024-11-22

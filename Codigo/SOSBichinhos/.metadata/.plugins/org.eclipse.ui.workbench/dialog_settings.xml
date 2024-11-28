@@ -9,4 +9,36 @@
 			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|11.0|0|GTK|1|"/>
 		</section>
 	</section>
+	<section name="WorkbenchPreferenceDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="503"/>
+		<item key="DIALOG_Y_ORIGIN" value="0"/>
+		<item key="DIALOG_WIDTH" value="920"/>
+		<item key="DIALOG_HEIGHT" value="1025"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|11.0|0|GTK|1|"/>
+	</section>
+	<section name="FileSystemImportWizard">
+		<section name="FileSystemImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="657"/>
+			<item key="DIALOG_Y_ORIGIN" value="135"/>
+			<item key="DIALOG_WIDTH" value="715"/>
+			<item key="DIALOG_HEIGHT" value="718"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|11.0|0|GTK|1|"/>
+		</section>
+	</section>
+	<section name="PropertyDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="462"/>
+		<item key="DIALOG_Y_ORIGIN" value="91"/>
+		<item key="DIALOG_WIDTH" value="1002"/>
+		<item key="DIALOG_HEIGHT" value="632"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|11.0|0|GTK|1|"/>
+	</section>
+	<section name="NewWizardAction">
+		<section name="NewWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="657"/>
+			<item key="DIALOG_Y_ORIGIN" value="186"/>
+			<item key="DIALOG_WIDTH" value="613"/>
+			<item key="DIALOG_HEIGHT" value="512"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|11.0|0|GTK|1|"/>
+		</section>
+	</section>
 </section>

@@ -1,0 +1,6 @@
+{
+    "java.debug.settings.onBuildFailureProceed": true,
+    "maven.view": "flat",
+    "liveServer.settings.port": 5501,
+    "workbench.colorTheme": "Default Dark Modern"
+}

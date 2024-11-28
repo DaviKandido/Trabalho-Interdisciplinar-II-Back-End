@@ -24,18 +24,18 @@ Bem-vindo ao **SOSBichinhos**, um projeto desenvolvido para a disciplina de **TI
 
 ## 🛠️ Tecnologias Utilizadas
 - **Java** para o backend
-- **HTML/CSS/JavaScript** para o frontend
+- **HTML/SCSS/JavaScript** para o frontend
 - **Maven** para o gerenciamento de dependências
 - **API REST** para integração dos serviços
 - **Eclipse IDE** como ambiente de desenvolvimento
 - **PostgreSQL** como banco de dados
 - **Spark Framewor** para simplificar o desenvolvimento de aplicativos Java
-- **Sistema inteligente de IA** para análise de imagens de animais, auxiliando no processo de identificação e resgate
+- **Sistema inteligente de IA - Gemini Vision** para análise de imagens de animais, auxiliando no processo de identificação e resgate
 
 ## 📋 Funcionalidades Principais
 - **Cadastro de animais** com informações detalhadas, incluindo foto e características.
 - **Interface para ONGs e adotantes**, facilitando o contato e o acompanhamento de processos.
-- **Sistema de match inteligente**, adoções com base nas características dos adotantes e dos animais, ajudando a encontrar o melhor par para cada animal.
+- **Sistema inteligente**, analise de imagem através de IA (API do Google Gemini) para agilizar solicitações de resgate de animais
 
 ## 📄 Licença
 Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](LICENSE) para mais detalhes.

@@ -1,0 +1,123 @@
+
+@import  '_variaveis.scss';
+
+
+
+//-----------------  header do INDEX css------------------//
+
+header{
+    width: 100%;
+    padding: 28px 8%;
+    #navbar{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #nav_logo{
+        font-size: 24px;
+        font-weight: 600;
+        color: $AzulEscuro;
+    }
+
+    #nav_list{
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        list-style: none;
+
+        .active a{
+            color: $AzulEscuro;
+            border-bottom: 3px solid $AzulEscuro;
+        }
+    }
+
+    .nav-item a {
+        text-decoration: none;
+        color: $AzulEscuro;
+        font-weight: 500;
+        &:hover{
+            color: #1d1d1d;
+            border-bottom: 3px solid #1d1d1d;
+        }
+    }
+
+    // .nav-item.active a {
+    //     color: blue;
+    //     border-bottom: 3px solid $AzulEscuro;
+
+    //     &:hover{
+    //         color: #1d1d1d;
+    //     }
+    // }
+}
+
+#mobile_btn{
+    display: none;
+}
+
+#mobile_menu{
+    display: none;
+}
+
+@media screen and (max-width: 1170px){
+
+    header #nav_list, #navbar .btn-default{
+        display: none;
+    }
+
+    #mobile_btn{
+        display: block;
+        border: none;
+        background-color: transparent;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    #mobile_menu.active{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #mobile_nav_list{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1rem 0px;
+        }
+        #mobile_nav_list .nav-item{
+            list-style: none;
+            text-align: center;
+        }
+
+    }
+}
+
+
+.btn-default{
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 0, 0, 0.834);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 17px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    a{
+        color:#1d1d1d;
+        text-decoration: none;
+    }
+
+    &:hover{
+        background-color: $AzulEscuroTrasparente;
+    }
+}
+
+//----------------- END do INDEX header css------------------//

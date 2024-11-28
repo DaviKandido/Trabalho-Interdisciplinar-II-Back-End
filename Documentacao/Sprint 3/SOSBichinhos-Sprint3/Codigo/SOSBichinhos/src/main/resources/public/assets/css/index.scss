@@ -1,0 +1,165 @@
+
+@import "./Componentes/headerIndex";
+@import "./Componentes/variaveis";
+@import "./Componentes/footer";
+
+
+
+
+body{
+    background-color: $FundoColor;
+}
+
+
+section{
+    padding: 28px 8%;
+}
+
+// -----------------home css
+
+#home{
+    display: flex;
+    min-height: calc(100vh - 91px);
+    position: relative;
+}
+
+
+
+#cta {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 5%;
+
+
+    .title{
+    font-size: 3rem;
+    color: #1d1d1d;
+    }
+
+    & span{
+        color: $AzulEscuro;
+
+        &:hover{
+            color: $AzulEscuroTrasparente;
+        }
+    }
+
+    .description{
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    & .apresentation{
+        margin-top: -10px;
+    }
+
+    #cta_buttons{
+        display: flex;
+        gap: 28px;
+    
+        a{
+            text-decoration: none;
+            color: #1d1d1d;
+        }
+    }
+
+}
+
+
+
+
+#phone_button{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 8px 14px;
+    font-weight: 500;
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+
+    button{
+        box-shadow: none;
+    }
+}
+
+
+
+#banner{
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    width: 70%;
+
+    img{
+        height: 90%;
+        width: fit-content;
+        z-index: 2;
+
+    }
+}
+
+.shape{
+    background-color: #dfedff;
+    width: 50%;
+    height: 90%;
+    position: absolute;
+    border-radius: 40% 10% 10% 20%;
+    top: 0;
+    right: 0;
+}
+
+
+
+@media screen and (max-width: 1600px){
+
+    #home{
+        min-height: 100%;
+        padding-top: 0px;
+    }
+
+    #cta{
+        & .apresentation{
+            display: none;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 1170px){
+
+    #home{
+        min-height: 100%;
+        padding-top: 0px;
+    }
+
+    #banner, #banner img, #home .shape{
+        display: none;
+    }
+
+    #cta{
+        width: 100%;
+        text-align: center;
+        align-items: center;
+
+        & .apresentation{
+            display: none;
+        }
+    }
+}
+
+
+@media screen and (max-width: 450px){
+
+    #phone_button{
+        display: none;
+    }
+}
+
+
+
+//-----------------END home css
+

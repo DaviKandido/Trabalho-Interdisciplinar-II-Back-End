@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+  <link href="assets/images/favicon.png" rel="icon">
+  <title>Trabalho Interdisciplinar - Documentação</title>
+  <meta name="description" content="Documentação do projeto da disciplina de Trabalho Interdisciplinar">
+  <meta name="author" content="Rommel Carneiro (WebTech)">
+
+  <!-- Stylesheet ========================= -->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Document Wrapper  =============================== -->
+  <div id="main-wrapper">
+
+    <!-- Header  ============================ -->
+    <header id="header" class="sticky-top">
+      <!-- Navbar -->
+      <nav class="primary-menu navbar navbar-expand-lg navbar-dropdown-dark">
+        <div class="container-fluid">
+          <!-- Sidebar Toggler -->
+          <button type="button" id="sidebarCollapse" class="navbar-toggler d-block d-md-none"><span></span><span
+              class="w-75"></span><span class="w-50"></span></button>
+
+          <!-- Logo -->
+          <a class="logo ml-md-3" href="index.html" title="iDocs Template"> <img src="assets/images/logo.png"
+              alt="iDocs Template"> </a>
+          <span class="text-2 ml-2">v2.0</span>
+          <!-- Logo End -->
+        </div>
+      </nav>
+    </header>
+    <!-- Header End -->
+
+    <!-- Content ============================ -->
+    <main id="content">
+
+      <!-- Sidebar Navigation	============================ -->
+      <div class="idocs-navigation bg-light">
+        <ul class="nav flex-column ">
+          <li class="nav-item"><a class="nav-link active" href="#ti_intro">Introdução</a> </li>
+          <li class="nav-item"><a class="nav-link" href="#ti_contexto">Contexto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ti_concepcao">Concepção</a>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="#ti_processo_dt">Design Thinking</a></li>
+              <li class="nav-item"><a class="nav-link" href="#ti_especificacoes">Especificações</a></li>
+              <li class="nav-item"><a class="nav-link" href="#ti_projeto_interfaces">Projeto de Interfaces</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#ti_metodologia">Metodologia</a>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="#ti_ferramentas">Ferramentas</a></li>
+              <li class="nav-item"><a class="nav-link" href="#ti_gestao_projeto">Gestao do Projeto</a></li>
+              <li class="nav-item"><a class="nav-link" href="#ti_controle_versao">Controle de Versão</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#ti_solucao">Solução</a>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="#ti_video">Vídeo do Projeto</a></li>
+              <li class="nav-item"><a class="nav-link" href="#ti_funcionalidades">Funcionalidades</a></li>
+              <li class="nav-item"><a class="nav-link" href="#ti_estruturas_dados">Estruturas de Dados</a></li>
+              <li class="nav-item"><a class="nav-link" href="#ti_modulos_apis">Módulos e APIs</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#ti_faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ti_referencias">Referências</a></li>
+        </ul>
+      </div>
+
+      <!-- Docs Content ============================ -->
+      <div class="idocs-content">
+        <div class="container">
+
+          <!-- Introdução ============================ -->
+          <section id="ti_intro">
+            <h2>Introdução</h2>
+            <p class="lead">Informações básicas do projeto.</p>
+
+            <section id="ti_intro_info">
+              <h4>Informações Gerais</h4>
+              <div class="row">
+                <div class="col-12">
+                  <ul class="list-unstyled">
+                    <li><strong>Projeto:</strong> Patinhas Felizes</li>
+                    <li><strong>Repositório GitHub:</strong> <a href="https://github.com/ICEI-PUC-Minas-PMGCC-TI/ti-1-pmg-cc-t-20241-patinhas-felizes">https://github.com/ICEI-PUC-Minas-PMGCC-TI/ti-1-pmg-cc-t-20241-patinhas-felizes</a>
+                    </li>
+                    <li><strong>Membros da equipe:</strong>
+                      <ul>
+                        <li><a href="https://github.com/AnaLonczynski">Ana Clara Lonczynski</a></li>
+                        <li><a href="https://github.com/GabrielDev0001">Gabriel Henrique de Morais</a></li>
+                        <li><a href="https://github.com/Silva031">Gabriel Silva Costa Araújo</a></li>
+                        <li><a href="https://github.com/HenriqueGiberti">Henrique Giberti Piló Fernandes</a></li>
+                        <li><a href="https://github.com/Towers444">João Pedro Torres</a></li>
+                        <li><a href="https://github.com/letiicia1">Letícia da Silva Rocha</a></li>
+                        <li><a href="https://github.com/lucascarneiro1202">Lucas Carneiro Nassau Malta</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+          </section>
+          <hr class="divider">
+
+          <!-- Contexto ============================ -->
+          <section id="ti_contexto">
+            <h2>Contexto</h2>
+            <p class="lead">É evidente que os animais de estimação são um símbolo de amor e carinho para os seres humanos, porém tal tratamento não se estende à totalidade dos animais, sobretudo no Brasil. Estima-se hoje em dia que o número de animais em condições de rua, seja por nunca terem tido um lar, seja por serem abandonados, é cerca de trinta milhões - dentre os quais aproximadamente dez milhões são gatos e vinte milhões são cachorros. Por viverem em situações como essa, muitos animais estão sob péssimas condições de vida, sem conforto, alimento e água para a sua sobrevivência, além de enfrentarem altas e baixas temperaturas. Dessa forma, visamos desenvolver uma aplicação que resolva estas tristes condições.</p>
+            <section>
+              <h5>Problema
+              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseProblema">Info</button></h5>
+              <div class="alert alert-warning collapse" role="alert" id="collapseProblema">
+                Programas para a adoção de animais já existem, contudo não são suficientemente divulgados e, diante dessa grande parcela de animais em condições de ruas e do aumento de pessoas que buscam por um “pet” para compor o seu lar, objetivamos realizar uma intermediação entre esses seres e seus futuros tutores, a fim de promover maior alegria para ambos os lados. 
+              </div>
+            </section>
+
+            <section>
+              <h5>Objetivos
+              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseObjetivos">Info</button></h5>
+              <div class="alert alert-warning collapse" role="alert" id="collapseObjetivos">
+                O objetivo da aplicação é integrar todos participantes do processo de adoção de animais em um só lugar, fazendo a ponte entre qualquer pessoa que busque adotar um animal, uma ONG parceira, pessoas que encontram animais abandonados e qualquer pessoa que busque ajudar. 
+              </div>
+
+            <section>
+              <h5>Justificativa
+              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseJustificativa">Info</button></h5>
+              <div class="alert alert-warning collapse" role="alert" id="collapseJustificativa">
+                Como já descrito, é evidente a importância da causa contra o abandono animal. Ao analisar o problema, fica claro os vários ramos de expansão do problema, como: animais abandonados, a falta de lares temporários, falta de ajuda às ONGs, dificuldades para adoção, incompatibilidade entre os perfis dos animais e os donos, etc. Dito isso, sem ganhos comerciais, o objetivo do “Patinhas Felizes” é exclusivamente solidário, facilitando, assim, a conexão entre todos os indivíduos que se envolvem na melhora do mundo à nossa volta. 
+              </div>
+            </section>
+
+            <section>
+              <h5>Público-alvo
+              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapsePublico">Info</button></h5>
+              <div class="alert alert-warning collapse" role="alert" id="collapsePublico">
+                Nosso público-alvo inclui: <br>
+
+                <strong>Indivíduos e Famílias em Busca de um Animal de Estimação:</strong> Pessoas que desejam adotar um animal de estimação para fazer parte de suas vidas e lares. <br>
+
+                <strong>ONGs Parceiras:</strong> Nosso objetivo é facilitar o processo de adoção de animais, auxiliando na busca por um novo lar compatível com a personalidade do animal e do adotante, garantindo a felicidade de ambos. <br>
+
+                <strong>Resgatadores de Animais Abandonados:</strong> Pessoas que resgatam animais nas ruas e os encaminharam para nossa ONG parceira, que é uma instituição de confiança, proporcionando a eles uma segunda chance em um novo lar. <br>
+              </div>
+            </section>
+
+          </section>
+          <hr class="divider">
+
+          <!-- Concepção ============================ -->
+          <section id="ti_concepcao">
+            <h2>Concepção (Design Thinking)</h2>
+            <p class="lead">Detalhes do processo de discovery do projeto.
+            <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseConcepcao">Info</button></p>
+
+            <section id="ti_processo_dt">
+              <h4>Processo de Design Thinking</h4>
+              <p>O arquivo que se segue apresenta o resultado desse processo.
+                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseProcesso">Info</button>
+              </p>
+              <div class="alert alert-warning collapse" role="alert" id="collapseProcesso">
+                <img src="../../imgs/abc.jpg" />
+                <img src="../../imgs/abcd.jpg" />
+                <img src="../../imgs/abcde.jpg" />
+            
+                <p>Apresente o processo de Design Thinking realizado pelo grupo e documentado por meio do software Miro. No documento apresentado, devem ser incluídos: (1) a matriz CSD, (2) o mapa de stakeholders, (3) as personas, (4) as respectivas propostas de valor e (5) o processo de ideação identificando as ideias levantadas e sua priorização.</p>
+              </div>
+              <object data="assets/files/processo-design-thinking" type="application/pdf" width="100%" height="500px">
+                <p>Não foi possível apresentar o arquivo PDF. Faça o download e abra no seu computador: <a href="/assets/files/processo-design-thinking">Download</a></p>
+              </object>
+            </section>
+
+            <section id="ti_especificacoes">
+              <h4>Especificações do Projeto</h4>
+              <p>Documentação das especificações do projeto.
+                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseEspecificacao">Info</button>
+              </p>
+              <section>
+                <h5>Histórias de Usuários</h5>
+                <p>Com base na análise das personas foram identificadas as seguintes histórias de usuários:
+                  <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseHistorias">Info</button>
+                </p>
+                <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">EU COMO...</th>
+                          <th scope="col">QUERO/PRECISO...</th>
+                          <th scope="col">PARA...</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <th scope="row">ONG</th>
+                          <td>Cadastrar as informações da instituição</td>
+                          <td>Demonstrar confiabilidade aos usuários</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">ONG</th>
+                        <td>Disponibilizar os meios de contato com a organização</td>
+                        <td>Possibilitar a conversa com adotantes e indivíduos que encontraram animais abandonados</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Funcionário da ONG</th>
+                          <td>Cadastrar os animais disponíveis</td>
+                          <td>Mostrá-los aos usuários interessados na adoção</td>
+                      </tr>                      
+                      <tr>
+                          <th scope="row">Indivíduo com interesse em adotar</th>
+                          <td>Ver quais animais estão disponíveis para adoção</td>
+                          <td>Entrar em contato com a ONG</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Indivíduo com interesse em adotar</th>
+                        <td>Entrar em contato com a ONG</td>
+                        <td>Discutir acerca dos detalhes da adoção</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Indivíduo que encontrou um animal abandonado</th>
+                          <td>Entrar em contato com a ONG parceira da plataforma</td>
+                          <td>Entregar o animal encontrados</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Indivíduo que encontrou um animal abandonado</th>
+                        <td>Enviar informações do animal encontrado (foto, descrições e comentários)</td>
+                        <td>Confirmar a possibilidade de entregá-lo à ONG parceira</td>
+                      </tr>
+                  </tbody>
+                </table>
+              </section>
+
+               <!-- Requisitos ============================ -->
+              
+              <section>
+                
+
+                <p><strong>Requisitos Funcionais</strong></p>
+                <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Descrição do Requisito</th>
+                          <th scope="col">Prioridade</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <th scope="row">RF-001</th>
+                          <td>O sistema deve permitir que o usuário faça seu cadastro pessoal<span class="exemplo"></span></td>
+                          <td>ALTA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RF-002</th>
+                          <td>O sistema deve permitir que o usuário faça o cadastro do animal<span class="exemplo"></span></td>
+                          <td>ALTA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RF-003</th>
+                          <td>O sistema deve exibir quais animais estão disponíveis para adoção<span class="exemplo"></span></td>
+                          <td>ALTA</td>
+                      </tr>
+                    <tr>
+                        <th scope="row">RF-004</th>
+                        <td>O sistema deve permitir que a ONG faça seu cadastro<span class="exemplo"></span></td>
+                        <td>ALTA</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RF-005</th>
+                        <td>O sistema deve permitir que o adotante preencha a documentação para a adoção<span class="exemplo"></span></td>
+                        <td>ALTA</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RF-006</th>
+                        <td>O sistema deve permitir que o usuário trafegue entre telas<span class="exemplo"></span></td>
+                        <td>ALTA</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RF-007</th>
+                        <td>O sistema deve permitir que a ONG tenha uma tela para sua apresentação<span class="exemplo"></span></td>
+                        <td>MÉDIA</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RF-008</th>
+                        <td>O sistema deve permitir que os usuários enviem fotos e comentários sobre os animais <span class="exemplo"></span></td>
+                        <td>MÉDIA</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RF-009</th>
+                        <td>O sistema deve permitir que usuários se ofereçam como lares temporários<span class="exemplo"></span></td>
+                        <td>MÉDIA</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RF-010</th>
+                        <td>O sistema deve ter a funcionalidade “Match de animais e donos”<span class="exemplo"></span></td>
+                        <td>BAIXA</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p><strong>Requisitos Não-Funcionais</strong></p>
+                <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Descrição do Requisito</th>
+                          <th scope="col">Prioridade</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <th scope="row">RNF-001</th>
+                          <td>O sistema deve ser desenvolvido utilizando as linguagens HTML, CSS e JavaScript<span class="exemplo"></span></td>
+                          <td>ALTA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RNF-002</th>
+                          <td>O sistema deve ser responsivo para rodar em dispositivos móveis<span class="exemplo"></span></td>
+                          <td>MEDIA</td>
+                      </tr>
+                    <tr>
+                        <th scope="row">RNF-003</th>
+                        <td>O sistema deve ter alta disponibilidade e ser capaz de lidar com um grande volume de acessos simultâneos.<span class="exemplo"></span></td>
+                        <td>MÉDIA</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RNF-004</th>
+                        <td>O sistema deve ter um sistema de backup de dados confiável para evitar perda de informações importantes.<span class="exemplo">EXEMPLO</span></td>
+                        <td>ALTA</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RNF-005</th>
+                        <td>O sistema deve ser intuitivo e fácil de usar, mesmo para usuários com pouca experiência em tecnologia, ou deficientes. Além de ter uma boa performance, mesmo em conexões de internet lentas.<span class="exemplo"></span></td>
+                        <td>ALTA</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RNF-006</th>
+                        <td>O sistema deve fornecer suporte técnico eficiente para os usuários em caso de problemas ou dúvidas.<span class="exemplo"></span></td>
+                        <td>MEDIA</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+            </section>
+
+            <section id="ti_projeto_interfaces">
+              <h4>Projeto de Interface</h4>
+              <p>Artefatos relacionados com a interface e a interacão do usuário na proposta de solução.
+                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseInterface">Info</button>
+              </p>
+              <div class="alert alert-warning collapse" role="alert" id="collapseInterface">
+                <p>Apresente a ideia de interface que está sendo prevista para o projeto. Inclua os wireframes, o user/screen flow e o protótipo interativo.</p>
+              </div>
+
+              <section>
+                <h5>User/Screen Flow e Protótipo interativo</h5>
+                <p>Artefatos relacionados com a interface e a interacão do usuário na solução proposta.
+                  <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseUserFlow">Info</button>
+                </p>
+                <div class="alert alert-warning collapse" role="alert" id="collapseUserFlow">
+                  <p>O fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe. <img  class="img-fluid" src="assets/images/exemplo-userflow.png" alt="Exemplo de fluxo de usuário">
+                  </p>
+                  <p>Um protótipo interativo apresenta o projeto de interfaces e permite ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. Veja o exemplo a seguir.<br>
+                    
+                    <img src="../../imgs/aa.jpg" />
+                  </p>
+                </div>
+                <p>Link para o Protótipo Interativo pelo Figma: <a href="https://www.figma.com/file/ZhrG5oP1UAv83VUXxLWRQj/Prot%C3%B3tipo-Interativo?type=design&node-id=44%3A212&mode=design&t=pQykdQjyQvNtQdQU-1">https://www.figma.com/file/ZhrG5oP1UAv83VUXxLWRQj/Prot%C3%B3tipo-Interativo?type=design&node-id=44%3A212&mode=design&t=pQykdQjyQvNtQdQU-1</a></p>
+              </section>
+
+              <section>
+                <h5>Wireframes</h5>
+                <p>Protótipo de telas do sistema em baixa fidelidade (rascunhos).
+                  <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseWireframes">Info</button>
+                </p>
+                <div class="alert alert-warning collapse" role="alert" id="collapseWireframes">
+                  <p>Os Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface. <img  class="img-fluid" src="assets/images/exemplo-wireframe.png" alt="Exemplo de wireframe"></p>
+                </div>
+                <div>
+                  <img>
+                  <p><strong>Tela Inicial: </strong>Tela inicial(home) do projeto.</p>
+                  <p><strong>Tela com os animais disponíveis: </strong>Catálogo de animais disponíveis para adoção.</p>
+                  <p><strong>Card individual de apresentação do animal: </strong>Card com informações do animal em questão.</p>
+                  <p><strong>Tela de instruções para animal encontrado em situação de rua: </strong>Instruções para quem encontrar um animal em situação de rua.</p>
+                  <p><strong>Formulário 1: </strong>Formulário para adoção de animal.</p>
+                  <p><strong>Formulário 2: </strong>Tela de aviso de envio de formulário.</p>
+                  <p><strong>Sobre nós: </strong>Tela para apresentação do projeto e da autoria.</p>
+                  <p><strong>Card individual: </strong>Card para ONG inserir dados do animal.</p>
+                  <p><strong>Login do usuário: </strong>Tela de login com usuário e senha.</p>
+                  <p><strong>Cadastro do usuário: </strong>Tela de cadastro de usuário.</p>
+                  <p><strong>Quero ajudar: </strong>Tela de informações com pacotes de doação para usuários que queiram ajudar a causa.</p>
+                  <p><strong>Sobre a ONG: </strong>Tela de apresentação da ONG cadastrada.</p>
+                  <p><strong>Tela inicial da ONG:  </strong>Tela com os animais disponíveis de cada ONG.</p>
+                  <p><strong>Requerimentos: </strong>Tela para indicar se animal foi adotado(tela de uso da ONG).</p>
+                </div>
+              </section>
+
+            </section>
+          </section>
+
+          <hr class="divider">
+
+          <!-- Metodologia ============================ -->
+          <section id="ti_metodologia">
+            <h2>Metodologia</h2>
+            <p class="lead">Detalhes sobre a organização do grupo e o ferramental empregado.
+              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseMetodologia">Info</button>
+            </p>
+            <div class="alert alert-warning collapse" role="alert"  id="collapseMetodologia">
+              <p>Nesta parte do documento, você deve apresentar a metodologia adotada pelo grupo, descrevendo o processo de trabalho baseado nas metodologias ágeis, a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada agestão de configuração do projeto via GitHub.</p>
+              <p>Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.</p>
+            </div>
+
+            <section>
+              <h4 id="ti_ferramentas">Ferramentas</h4>
+              <p>Relação de ferramentas empregadas pelo grupo durante o projeto.
+                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseFerramentas">Info</button>
+              </p>
+              <div class="alert alert-warning collapse" role="alert" id="collapseFerramentas">
+                <p>Liste as ferramentas empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) Editor de código, ferramentas de comunicação, ferramentas de diagramação, plataformas de hospedagem, entre outras.</p>
+              </div>
+              <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Ambiente</th>
+                        <th scope="col">Plataforma</th>
+                        <th scope="col">Link de Acesso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Processo de Design Thinking</td>
+                        <td>Miro</td>
+                        <td><a href="https://miro.com/app/board/uXjVKZuvvRo=/">https://miro.com/app/board/uXjVKZuvvRo=/</a><span class="exemplo">EXEMPLO</span></td>
+                    </tr>
+                    <tr>
+                        <td>Repositório de código</td>
+                        <td>GitHub</td>
+                        <td><a href="https://github.com/ICEI-PUC-Minas-PMGCC-TI/ti-1-pmg-cc-t-20241-patinhas-felizes">https://github.com/ICEI-PUC-Minas-PMGCC-TI/ti-1-pmg-cc-t-20241-patinhas-felizes</a><span class="exemplo">EXEMPLO</span></td>
+                    </tr>
+                    <tr>
+                        <td>Protótipo Interativo</td>
+                        <td>Figma</td>
+                        <td><a href="https://www.figma.com/proto/ZhrG5oP1UAv83VUXxLWRQj/Prot%C3%B3tipo-Interativo?type=design&t=rA8Ryp95CrcXNQwn-1&scaling=min-zoom&page-id=0%3A1&node-id=74-198&starting-point-node-id=74%3A198&mode=design">https://www.figma.com/proto/ZhrG5oP1UAv83VUXxLWRQj/Prot%C3%B3tipo-Interativo?type=design&t=rA8Ryp95CrcXNQwn-1&scaling=min-zoom&page-id=0%3A1&node-id=74-198&starting-point-node-id=74%3A198&mode=design</a></td>
+                    </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section id="ti_gestao_projeto">
+              <h4>Gestão do Projeto</h4>
+              <p>Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
+                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapsePapeis">Info</button>
+              </p>
+              <div class="alert alert-warning collapse" role="alert" id="collapsePapeis">
+                <p>Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
+                Para a gestão do projeto, foi utilizado o aplicativo de gerenciamento chamado Trello, representante do método Kanban. No Trello, cada cartão representa uma tarefa ou etapa do processo, desde o design inicial até a implementação e testes. As listas organizam esses cartões de forma lógica, permitindo uma visão clara do progresso e das prioridades. Com recursos como atribuição de membros, prazos e comentários, o Trello se torna uma plataforma central para coordenar esforços e manter todos os envolvidos informados e alinhados.
+                No projeto, dividiu-se os cartões, que contém as tarefas por meio de sua conclusão, sendo atualizados durante sua conclusão ou quando entrados em execução. Tais cartões incluíam tarefas relacionadas às diversas entregas do Sprint, sendo elas a documentação do projeto, os repositórios do site GitHub e o Design Thinking, produzido no site Miro.
+</p>
+                <p>Apresente o quadro de gerenciamento do time (Kanban), seu formato e as experiências na utilização dessa ferramenta (GitHub Projects) </p>
+              </div>
+              <img src="../../imgs/aaaaaa.jpg" />
+            </section>
+
+
+            <section id="ti_controle_versao">
+              <h4>Controle de Versão</h4>
+              <p>Estrutura do fluxo de trabalho no ambiente do GitHub.
+              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseVersao">Info</button>
+              </p>
+              <div class="alert alert-warning collapse" role="alert" id="collapseVersao">
+                <p>Discuta como a configuração do projeto foi feita na ferramenta de versionamento (GitHub). Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.<br>
+                  <img class="img-fluid" src="assets/images/exemplo-workflow.png" alt="">
+                </p>
+              </div>
+              <p>......  COLOQUE AQUI O SEU TEXTO ......</p>
+            </section>
+          </section>
+          <hr class="divider">
+
+          <!-- Funcionalidades ==================== -->
+          <section id="ti_solucao">
+            <h2>Solução</h2>
+            <p class="lead">Esta seção apresenta todos os detalhes da solução criada no projeto.
+              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseSolucao">Info</button>
+            </p>
+            <div class="alert alert-warning collapse" role="alert" id="collapseSolucao">
+              <p>Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.</p>
+              <p>Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.</p>
+            </div>
+
+            <section id="ti_video">
+              <h4>Video do Projeto</h4>
+              <p>O vídeo a seguir traz uma apresentação do problema que a equipe está tratando e a proposta de solução.
+                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseVideo">Info</button>
+              </p>
+              <div class="alert alert-warning collapse" role="alert" id="collapseVideo">
+                <p>O video de apresentação é voltado para que o público externo possa conhecer a solução. O formato é livre, sendo importante que seja apresentado o problema e a solução numa linguagem descomplicada e direta.</p>
+                <p>Utilize o recurso de compartilhamento via embed e inclua o vídeo logo abaixo.</p>
+              </div>
+              <p>......  COLOQUE AQUI O SEU VIDEO ......</p>
+            </section>
+
+            <section id="ti_funcionalidades">
+              <h4>Funcionalidades</h4>
+              <p>Esta seção apresenta as funcionalidades da solução.
+              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseFuncionalidades">Info</button>
+              </p>
+              <div class="alert alert-warning collapse" role="alert" id="collapseFuncionalidades">
+                <p>Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.</p>
+                <p>Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.</p>
+              </div>
+
+              <section>
+                <h5>Funcionalidade 1 - Cadastro de usuário<span class="exemplo"></span></h5>
+                <p>Permite o cadastro dos usuários na plataforma</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados:  Usuários </strong><a href="#ti_ed_contatos">Contatos</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e, no menu principal, clique no ícone de perfil no canto superior direito.</li>
+                    <li>Na página de login, clique em “Não tem uma conta?” </li>
+                    <li>Preencha os dados de cadastro corretamente</li>
+                    <li>Clique em “Cadastrar”</li>
+                  </ul></li>
+                </ul>
+                <p>    <img src="../../imgs/cadastro.jpg" /></p>
+              </section>
+
+              <section>
+                  <h5>Funcionalidade 2 - Alteração de dados da ONG<span class="exemplo"></span></h5>
+                  <p>Permite a alteração dos dados da ONG pré-cadastrada na plataforma</p>
+                  <ul class="list-unstyled">
+                      <li><strong>Estrutura de dados: </strong>Ong</li>
+                      <li><strong>Instruções de acesso: </strong>
+                          <ul>
+                              <li>Abra o site e, no menu principal, clique sobre o ícone de perfil no canto superior direito para ir para o login.</li>
+                              <li>Insira o e-mail e a senha específicos do perfil da ONG (escolhidos pelo desenvolvedor).</li>
+                              <li>Na página inicial da ONG, clique sobre o ícone de avatar no canto superior novamente.</li>
+                              <li>Substitua os dados pré-cadastrados como preferir.</li>
+                              <li>Clique sobre o botão “Alterar” para concluir a edição dos dados.</li>
+                              <li>Clique sobre o botão “Sair” para retornar à tela inicial do site, fora do perfil da ONG.</li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <p><img src="../../imgs/dados.jpg" /></p>
+                <p> <img src="../../imgs/info.jpg" /></p>
+              </section>
+
+              <section>
+                  <h5>Funcionalidade 3 - Cadastro do animal<span class="exemplo"></span></h5>
+                  <p>Permite o cadastro dos animais na plataforma</p>
+                  <ul class="list-unstyled">
+                      <li><strong>Estrutura de dados: </strong>Animais</li>
+                      <li><strong>Instruções de acesso: </strong>
+                        <ul>
+                            <li>Abra o site e, no menu principal, clique sobre o ícone de avatar para ir para o login.</li>
+                            <li>Insira as informações de login da ONG (pré-cadastradas pelos desenvolvedores).</li>
+                            <li>Clique na caixa com o ícone “+” na tela inicial da ONG para acessar o catálogo de animais cadastrados.</li>
+                          <p> <img src="../../imgs/ficha.jpg" /></p>
+                        </ul>
+                      </li>
+                  </ul>
+              </section>
+
+              <section>
+                  <h5>Funcionalidade 4 - Apresentação dos animais disponíveis para adoção<span class="exemplo"></span></h5>
+                  <p>Exibição dos animais disponíveis para adoção</p>
+                  <ul class="list-unstyled">
+                      <li><strong>Estrutura de dados: </strong>Animais</li>
+                      <li><strong>Instruções de acesso: </strong>
+                          <ul>
+                              <li>Na tela inicial, aparecem alguns animais já disponíveis para adoção.</li>
+                              <li>Para acessar mais opções, clique sobre o botão “Exibir mais animais”.</li>
+                              <li>Clique sobre o botão “Saiba Mais” para acessar mais detalhes de cada animal individualmente.</li>
+                          </ul>
+                      </li>
+                  </ul>
+              </section>
+                <p><img src="../../imgs/animais.jpg" /></p>
+              <section>
+                  <h5>Funcionalidade 5 - Preenchimento da documentação para a adoção pelo adotante<span class="exemplo"></span></h5>
+                  <p>Permite o preenchimento do formulário de adoção que será direcionado para a ONG</p>
+                  <ul class="list-unstyled">
+                      <li><strong>Estrutura de dados: </strong>Formulários</li>
+                      <li><strong>Instruções de acesso: </strong>
+                          <ul>
+                              <li>Abra o site e, na página inicial, clique sobre o ícone de avatar no canto superior direito.</li>
+                              <li>Realize o login (ou o cadastro, caso ainda não possua uma conta).</li>
+                              <li>Novamente na tela inicial, clique sobre o botão “Exibir mais animais”.</li>
+                              <li>Selecione o animal desejado entre os disponíveis e clique sobre o botão “Saiba Mais”.</li>
+                              <li>Em vista das informações detalhadas dos animais, clique sobre o botão “Adotar”.</li>
+                              <li>Preencha as informações pedidas corretamente.</li>
+                          </ul>
+                      </li>
+                  </ul>
+              </section>
+              <p><img src="../../imgs/questio.jpg" /><p>
+              <section>
+                  <h5>Funcionalidade 6 - Apresentação das requisições de adoções para a ONG<span class="exemplo"></span></h5>
+                  <p>Permite a exibição dos requerimentos de doação para a ONG, assim como classificá-los como “Adotou” e “Não Adotou”.</p>
+                  <ul class="list-unstyled">
+                      <li><strong>Estrutura de dados: </strong>Formulários</li>
+                      <li><strong>Instruções de acesso: </strong>
+                          <ul>
+                              <li>Abra o site e, no menu principal, clique sobre o ícone de avatar para ir para o login.</li>
+                              <li>Insira as informações de login da ONG (pré-cadastradas pelos desenvolvedores).</li>
+                              <li>Clique em requerimentos no canto superior direito da tela.</li>
+                          </ul>
+                      </li>
+                  </ul>
+              </section>
+              <p><img src="../../imgs/requerimentos.jpg" /><p>
+              <section>
+                  <h5>Funcionalidade 7 - Postagem, edição e exclusão de comentários sobre os animais pelo usuário<span class="exemplo"></span></h5>
+                  <p>Permite a publicação, alteração e exclusão de comentários sobre animais</p>
+                  <ul class="list-unstyled">
+                      <li><strong>Estrutura de dados: </strong>Comentários</li>
+                      <li><strong>Instruções de acesso: </strong>
+                          <ul>
+                              <li>Na tela inicial, clique sobre o botão “Exibir mais animais”.</li>
+                              <li>Selecione um animal e clique sobre o botão “Saiba Mais”.</li>
+                              <li>Em vista dos detalhes do animal selecionado, clique sobre o botão “Comentários!”.</li>
+                              <li>Para publicar um comentário, digite sua mensagem no espaço correto e clique sobre o botão “Publicar” (se o usuário não estiver logado, será redirecionado automaticamente para a página de login).</li>
+                              <li>Para editar um comentário, clique sobre os “três pontos” à direita do comentário escolhido e, em seguida, clique sobre o botão “Editar”. Caso o comentário seja do usuário atualmente logado, será aberta uma caixa para reescrever a mensagem, assim como dois botões: “Ok”, para concluir a edição, e “Cancelar”, para cancelá-la. Caso contrário, não será permitido concluir essas ações.</li>
+                              <li>Para excluir um comentário, clique sobre os “três pontos” à direita do comentário escolhido e, em seguida, clique sobre o botão “Excluir”. Caso o comentário seja do usuário atualmente logado, será possível excluí-lo. Caso contrário, não o será.</li>
+                          </ul>
+                      </li>
+                  </ul>
+              </section>
+              <p><img src="../../imgs/comentario.jpg" /></p>
+              <section>
+                  <h5>Funcionalidade 8 - Exibir tela de perfil<span class="exemplo"></span></h5>
+                  <p>Permite ao usuário visualizar seu perfil na plataforma</p>
+                  <ul class="list-unstyled">
+                      <li><strong>Estrutura de dados: </strong>Perfil do Usuário</li>
+                      <li><strong>Instruções de acesso: </strong>
+                          <ul>
+                              <li>Abra o site e, no menu principal, clique sobre o ícone de perfil no canto superior direito.</li>
+                              <li>Insira suas informações de login (se necessário).</li>
+                              <li>Na página de perfil, você pode ver suas informações pessoais, como nome, foto de perfil, e informações adicionais cadastradas.</li>
+                              <li>Para editar o perfil, clique no botão de edição (se disponível) ao lado das informações que deseja alterar.</li>
+                              <li>Para sair do perfil, clique em “Sair” ou no ícone de perfil novamente para retornar à tela inicial.</li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <p><img src="../../imgs/perfil.jpg" /></p>
+              </section>
+
+              <section>
+                  <h5>Funcionalidade 9 - Match de animais<span class="exemplo"></span></h5>
+                  <p>Permite escolher um animal para adotar de uma forma mais dinâmica, lúdica e prática.</p>
+                  <ul class="list-unstyled">
+                      <li><strong>Estrutura de dados: </strong> Animais e Usuários</li>
+                      <li><strong>Instruções de acesso: </strong>
+                          <ul>
+                              <li>Abra o site e, na página inicial, procure pelo menu ou opção que exiba animais adotados.</li>
+                              <li>Clique no ícone do canto superior direito com um coração.</li>
+                              <li>Aperte o ícone de check se gostar do animal ou o ícone de X se não gostar.</li>
+                         
+                          </ul>
+                      </li>
+                  </ul>
+              </section>
+              <p><img src="../../imgs/adotar.jpg" /></p>
+              <section>
+                  <h5>Funcionalidade 10 - Apresentação das informações da ONG<span class="exemplo"></span></h5>
+                  <p>Permite exibir as informações da instituição parceira para os usuários</p>
+                  <ul class="list-unstyled">
+                      <li><strong>Estrutura de dados: </strong>Ong</li>
+                      <li><strong>Instruções de acesso: </strong>
+                          <ul>
+                              <li>Na tela inicial, clique em “Sobre a ONG” no canto superior direito da tela.</li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <p><img src="../../imgs/ong.jpg" /></p>
+              </section>
+
+            </section>
+
+            <!-- Estruturas de dados =============== -->
+            <section id="ti_estruturas_dados">
+              <h4>Estruturas de Dados</h4>
+              <p>Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.
+                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseEstruturas">Info</button>
+              </p>
+              <div class="alert alert-warning collapse" role="alert" id="collapseEstruturas">
+                <p>Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração</p>
+                <p>Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.</p>
+              </div>
+
+              <section>
+                <h5>Estrutura de Dados - ONG<span class="exemplo">EXEMPLO</span></h5>
+                <p>Dados Cadastrais da ONG</p>
+                <pre>
+                  "ong": [
+                    {
+                      "id": "0",
+                      "nome": "ONG Aumigos",
+                      "cnpj": "20. 802. 329/0001-90",
+                      "endereco": "Av. Trinta e Um de Março, 1020 - Dom Cabral, Belo Horizonte - MG, 30535-000",
+                      "telefone": "+55 31971412003",
+                      "email": "patinhasfelizesdiw@gmail.com",
+                      "senha": "trabalhoDIW2024",
+                      "logo": "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/007aae49-a1f2-4d3b-b75b-ee004690adf3",
+                      "historia": "A ONG Aumigos foi fundada em 2015, com o objetivo de ajudar as animais abandonados e desaparecidos."
+                    }
+                  ]
+
+                </pre>
+              </section>
+
+              <section>
+                <h5>Estrutura de Dados - Usuários<span class="exemplo">EXEMPLO</span></h5>
+                <p>Registro dos usuários do sistema utilizados para login, perfil, comentários e match.</p>
+                <pre>
+                  "users": [
+                  {
+                    "id": "1",
+                    "imagem": "https://i.pinimg.com/originals/4f/73/3b/4f733b83724e86f43c759de191f7e9fc.jpg",
+                    "nome": "Leanne Graham",
+                    "email": "Sincere@april.biz",
+                    "senha": "123",
+                    "etiquetas": [
+                      "Agitada",
+                      "gosta de passear",
+                      "brincalhona",
+                      "gosta de companhia",
+                      "Protetor",
+                      "leal",
+                      "energético",
+                      "vigilante"
+
+                </pre>
+              </section>
+            </section>
+
+            <section>
+                <h5>Estrutura de Dados - Comentários<span class="exemplo"></span></h5>
+                <p>Registro dos comentários dos usuários no sistema</p>
+                <pre>
+                  "comments": [
+                    {
+                      "userid": 32,
+                      "animalid": 1,
+                      "id": 356,
+                      "content": "Amei, gente!"
+                    }
+                  ] 
+                    }
+                </pre>
+              </section>
+            </section>
+
+            <section>
+                <h5>Estrutura de Dados - Animais<span class="exemplo"></span></h5>
+                <p>Registro dos animais para adoção no sistema.</p>
+                <pre>
+                  "animais": [
+                      {
+                        "id": "1",
+                        "imagem": "https://www.petz.com.br/blog/wp-content/uploads/2024/04/como-saber-se-o-cachorro-e-de-raca-interna2.jpg",
+                        "especie": "CA",
+                        "nome": "Amora",
+                        "descricao": "Linda, carinhosa e companheira! O que mais você precisa?",
+                        "sexo": "F",
+                        "urlSexo": "https://static.vecteezy.com/system/resources/previews/018/922/116/non_2x/3d-female-gender-symbol-sign-png.png",
+                        "idade": "5 meses",
+                        "raca": "Vira-lata",
+                        "porte": "G",
+                        "vacinado": "Gripe canina; Giárdia; Antirrábica; Leishmaniose",
+                        "castrado": "false",
+                        "historia": "Amora é uma cadela adorável, resgatada das ruas de Belo Horizonte por uma gentil alma que a levou para um abrigo de animais. Com seus olhos brilhantes e uma energia contagiante, Amora logo se tornou a favorita entre os voluntários do abrigo.  Apesar de ter sido resgatada, Amora não perdeu sua alegria de viver. Ela é uma cachorrinha agitada, sempre pronta para brincar e explorar novos lugares. Seu coração transborda amor e gratidão, e ela anseia por encontrar uma família para compartilhar todo esse amor. ",
+                        "etiquetas": [
+                          "Brincalhao",
+                          "Gosta de caminhar",
+                          "Extrovertido"
+                      ]
+                  }
+
+                </pre>
+              </section>
+            </section>
+
+          <section>
+              <h5>Estrutura de Dados - Formulários<span class="exemplo"></span></h5>
+              <p>Registro dos formulários no sistema.</p>
+              <pre>
+                "form": [
+                  {
+                    "id": 1,
+                    "animal": "Amora",
+                    "nome": "Julia Santos",
+                    "sexo": "Feminino",
+                    "idade": "24 anos",
+                    "cidade": "Belo Horizonte",
+                    "telefone": "31-98395-5587",
+                    "email": "juliasantos@gmail.com",
+                    "mora": "casa",
+                    "cientes": "sim",
+                    "apliberado": "não moro em apartamento",
+                    "teveanimal": "Sim",
+                    "aondefica": "Com meus amigos",
+                    "animalsozinho": "Não",
+                    "permisao": "Sim",
+                    "imagem": "https://www.petz.com.br/blog/wp-content/uploads/2024/04/como-saber-se-o-cachorro-e-de-raca-interna2.jpg"
+                  },
+                ]
+
+              </pre>
+            </section>
+          </section>
+            <!-- Módulos e APIs ================= -->
+            <section id="ti_modulos_apis">
+              <h4>Módulos e APIs</h4>
+              <p>Esta seção apresenta os módulos e APIs utilizados na solução.
+                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseModulos">Info</button>
+              </p>
+              <div class="alert alert-warning collapse" role="alert" id="collapseModulos">
+                <p>Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) Frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.</p>
+              </div>
+
+              <section>
+                <h5>Images:</h5>
+                <ul>
+                  <li>Unsplash - <a target="_blank" href="https://unsplash.com/">https://unsplash.com/</a><span class="exemplo">EXEMPLO</span></li>
+                </ul>
+              </section>
+
+              <section>
+                <h5>Fonts:</h5>
+                <ul>
+                  <li>Icons Font Face - <a target="_blank" href="https://fontawesome.com/">https://fontawesome.com/</a><span class="exemplo">EXEMPLO</span></li>
+                </ul>
+              </section>
+
+              <section>
+                <h5>Scripts:</h5>
+                <ul>
+                  <li>jQuery - <a target="_blank" href="http://www.jquery.com/">http://www.jquery.com/</a><span class="exemplo">EXEMPLO</span></li>
+                  <li>Bootstrap 4 - <a target="_blank" href="http://getbootstrap.com/">http://getbootstrap.com/</a><span class="exemplo">EXEMPLO</span></li>
+                </ul>
+              </section>
+            </section>
+
+          </section>
+          <hr class="divider">
+
+          <!-- FAQ ============================ -->
+          <section id="ti_faq">
+            <h2>FAQ</h2>
+            <p class="lead">Perguntas e respostas comuns associadas ao projeto.
+              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseFAQ">Info</button>
+            </p>
+            <div class="alert alert-warning collapse" role="alert" id="collapseFAQ">
+              <p>Apresente uma lista de perguntas e respostas comuns associadas ao projeto. Inclua perguntas como: (1) detalhes de acesso e uso do projeto; (2) informações sobre a instalação e configuração da aplicação; (3) questões sobre a manutenção da aplicação; (4) detalhes sobre a integração da aplicação com outros sistemas; (5) questões sobre a segurança da aplicação.</p>
+            </div>
+
+            <span class="exemplo">EXEMPLO</span>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="accordion accordion-alterate arrow-right" id="popularTopics">
+                  <div class="card">
+                    <div class="card-header" id="heading1">
+                      <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse1"
+                          aria-expanded="false" aria-controls="collapse1">Como é feito o contato com ONG para adotar um animal?</a> </h5>
+                    </div>
+                    <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#popularTopics">
+                      <div class="card-body"> “O contato é realizado através do Email da ONG. O formulário preenchido pelo usuário será encaminhado como um email para a análise da instituição, que decidirá o resultado da adoção e entrará em contato com o usuário posteriormente.”</div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="heading2">
+                      <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse2"
+                          aria-expanded="false" aria-controls="collapse2">Como comunicar com a ONG que um animal abandonado foi encontrado?</a> </h5>
+                    </div>
+                    <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#popularTopics">
+                      <div class="card-body"> “Através da funcionalidade do sistema “Encontrei um Animal”, encontrada no canto superior direito na tela inicial, é possível inserir informações desse animal. Tais dados preenchidos serão automaticamente encaminhados para a ONG por meio do Email.”</div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="heading3">
+                      <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse3"
+                          aria-expanded="false" aria-controls="collapse3">Como posso navegar pelo site da ONG ?</a> </h5>
+                    </div>
+                    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#popularTopics">
+                      <div class="card-body"> “Nosso site é organizado em seções como: "Home ", "Encontrei um animal", "Sobre Nós", "Sobre a ONG" e "Ícone de Perfil". Utilize o menu no topo da página para acessar essas seções. Além disso, há botões como “Exibir mais animais” para acessar todos os animais disponíveis para adoção.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </section>
+          <hr class="divider">
+
+          <!-- Referências Bibliográficas ================= -->
+          <section id="ti_referencias">
+            <h2>Referências Bibliográficas</h2>
+            <p class="lead">Esta seção apresenta as referências bibliográficas utilizadas no projeto.
+              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseReferencias">Info</button></p>
+            <div class="alert alert-warning collapse" role="alert" id="collapseReferencias">
+              <p>Apresente as referências bibliográficas utilizadas no projeto. Inclua itens como: (1) livros, artigos, tutoriais, etc. utilizados no desenvolvimento da solução; (2) links para sites, blogs, etc. utilizados no desenvolvimento da solução.</p>
+            </div>
+            <p>Referência de sites de adoção:
+            CÃOVIVER: Nossa alegria é você adotar um vira-lata!. Disponível em: https://caoviver.com.br/. Acesso em: 12 abr. 2024.
+
+            ADOTEPETZ: Maior rede sustentável de adoção no Brasil. Disponível em: https://www.adotepetz.com.br/. Acesso em: 12 abr. 2024.
+
+            AMIGONAOSECOMPRA: Site de adoções. Disponível em: https://www.amigonaosecompra.com.br/. Acesso em: 12 abr. 2024.
+
+            ABRIGOBALAIODEGATO: - - Site de adoções de gatos. Disponível em: https://abrigobalaiodegato.com.br/. Acesso em: 12 abr. 2024.
+
+            VALEDEANIMAIS: Vale. Disponível em: https://vale.com/pt/adocao-de-animais. Acesso em: 12 abr. 2024.
+
+            AMPARAANIMAL: Instituto Ampara Animal. Disponível em: https://www.amparanimal.org.br/. Acesso em: 12 abr. 2024.
+            CAOSEMDONO: ONG de Proteção Animal. Disponível em: http://www.caosemdono.com.br/. Acesso em: 12 abr. 2024.
+
+            ROCKBICHO: Adote um Pet e Receba um Amor Incondicional. Disponível em: http://rockbicho.org/. Acesso em: 12 abr. 2024.
+
+            ADOTEHOME: Adote Patas. Disponível em: https://www.adotapatas.com.br/. Acesso em: 12 abr. 2024.
+
+            PETFINDER: Portal de Adoção de Animais. Disponível em: https://www.petfinder.ong.br/ Acesso em: 12 abr. 2024.
+</p>
+          </section>
+
+        </div>
+      </div>
+    <!-- Content end -->
+    </main>
+
+    <!-- Footer
+  ============================ -->
+    <footer id="footer" class="section bg-dark footer-text-light">
+      <div class="container">
+        <p class="text-center"><strong>Trabalho Interdisciplinar - ICEI PUC Minas</strong><br>Modelo adaptado de <a
+            href="http://www.harnishdesign.net/idocs-one-page-documentation-html-template/">iDocs</a>  - Design &amp; Develop by <a class="btn-link" target="_blank"
+            href="http://www.harnishdesign.net/">HarnishDesign</a></p>
+      </div>
+    </footer>
+    <!-- Footer end -->
+
+    <!-- Document Wrapper end -->
+  </div>
+
+  <!-- Back To Top -->
+  <a id="back-to-top" data-toggle="tooltip" title="Topo" href="javascript:void(0)"><i
+        class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript ============================ -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Highlight JS -->
+  <script src="assets/vendor/highlight.js/highlight.min.js"></script>
+  <!-- Easing -->
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <!-- Magnific Popup -->
+  <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <!-- Custom Script -->
+  <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

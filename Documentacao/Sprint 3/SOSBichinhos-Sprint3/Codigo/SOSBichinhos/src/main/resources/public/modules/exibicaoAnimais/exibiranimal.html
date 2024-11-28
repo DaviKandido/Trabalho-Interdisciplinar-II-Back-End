@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../../imgs/logo.jpg" type="image/x-icon">
+  <title>SOSBichinhos</title>
+  <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+
+  
+  <!-- link Css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../../assets/css/exibirAnimal.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav id="navbar">
+
+        <img src="../../imgs/indexImgs/logoSemFundo.png" alt="logo"class="logo">
+
+        <ul id="nav_list">
+          <li class="nav-item"><a href="../../index.html">Inicio</a></li>
+          <li class="nav-item active"><a href="../../modules/exibicaoAnimais/exibiranimal.html">Catalogo de adoção</a></li>
+          <li class="nav-item"><a href="../../modules/encontreiAnimal/encontreiAnimal.html">Indicar Animal para ONG</a></li>
+      </ul>
+
+      <a href="../../modules/tela_perfil_usuario/perfil.html">
+         <img src="../../imgs/user_icon.png" alt="user-icon" class="logo">
+      </a>
+
+        <button id="mobile_btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+    <div id="mobile_menu">
+
+        <ul id="nav_list">
+            <li class="nav-item"><a href="../../index.html">Inicio</a></li>
+            <li class="nav-item active"><a href="../../modules/exibicaoAnimais/">Catalogo de adoção</a></li>
+            <li class="nav-item"><a href="../../modules/encontreiAnimal/encontreiAnimal.html">Indicar Animal para ONG</a></li>
+        </ul>
+
+       <a href="../../modules/tela_perfil_usuario/perfil.html">
+          <img src="../../imgs/user_icon.png" alt="user-icon" class="logo">
+       </a>
+
+    </div>
+</header>
+
+  <!-- <header>
+    <div class="home">
+      <a href="/../index.html">
+        <img src="../../imgs/logo.jpg" alt="logo" class="logo">
+      </a>
+    </div>
+    <nav>
+      <a href="../../modules/encontreiAnimal/encontreiAnimal.html">Encontrei um Animal</a>
+      <a href="../../modules/sobreNos/sobreNos.html">Sobre nós</a>
+      <a href="../../modules/sobreONG/sobreONG.html">Sobre a ONG</a>
+      <a href="../../modules/tela_perfil_usuario/perfil.html">
+        <img src="../../imgs/user_icon.png" alt="user-icon" class="logo">
+      </a>
+    </nav>
+  </header> -->
+
+  <div id="filtro-containerJP">
+    <div class="filter-containerJP">
+      <label for="generoJP">Gênero:</label>
+      <select id="generoJP">
+        <option value="Todos">Todos</option>
+        <option value="M">Macho</option>
+        <option value="F">Fêmea</option>
+      </select>
+
+      <label for="tamanhoJP">Porte:</label>
+      <select id="tamanhoJP">
+        <option value="Todos">Todos</option>
+        <option value="P">Pequeno</option>
+        <option value="M">Médio</option>
+        <option value="G">Grande</option>
+      </select>
+
+      <label for="especieJP">Espécie:</label>
+      <select id="especieJP">
+        <option value="Todos">Todos</option>
+        <option value="Cachorro">Cachorro</option>
+        <option value="Gato">Gato</option>
+        <option value="Coelho">Coelho</option>
+        <option value="Roedor">Roedores</option>
+      </select>
+
+      <button type="button" id="botaoPesquisar">Pesquisar <i class="fa-solid fa-magnifying-glass"></i></button>
+      
+      <button id="botaoModalMatchJP">
+        <img id="iconeMatch" src="../../imgs/download-removebg-preview.png" alt="">
+      </button>
+      
+      <button id="botaoModalMatch2JP">
+        <img id="iconeMatch" src="../../imgs/download-removebg-preview.png" alt="">
+      </button>
+    </div>
+
+  </div>
+  
+
+  <div id="ContemCardsAnimais">
+
+
+
+            <!-- Os animais exibidos ficarão aqui -->
+  
+  <div id="ContemMoldaisAnimais">
+    <!-- <div class="modalJP">
+      <div id="cabecalhoModalJP">
+        <h1>Vamos Adotar?</h1>
+        <span class="fechar-modalJP"></span>
+      </div>
+      <div class="corpo_modalJP">
+        <section class="flexPerfilJP">
+
+          <div>
+            <img id="avatarPrincipalJP" src="../../imgs/jasmin.jpg" alt="">
+          </div>
+          <div class="informacoesJP">
+            <div id="nomeAutorJP">
+              <p>Jasmin</p>
+            </div>
+            <p><strong>Idade:</strong> 5 meses</p>
+            <p><strong>Raça:</strong> Pembroke Welsh Corgi</p>
+            <p><strong>Vacinação:</strong> Gripe canina; Giárdia; Antirrábica; Leishmaniose </p>
+            <p><strong>Castrado:</strong> Não</p>
+            <div id="descricaoJP">
+              <h4>História:</h4>
+              <p>
+                Jasmin é uma cadela adorável, resgatada das ruas de Belo Horizonte por uma gentil alma que a
+                levou para um abrigo de animais. Com seus olhos brilhantes e uma energia contagiante, Jasmin logo
+                se tornou a favorita entre os voluntários do abrigo.
+
+                Apesar de ter sido resgatada, Jasmin não perdeu sua alegria de viver. Ela é uma cachorrinha agitada,
+                sempre pronta para brincar e explorar novos lugares. Seu coração transborda amor e gratidão, e ela
+                anseia por encontrar uma família para compartilhar todo esse amor.
+              </p>
+            </div>
+            <button class="button-44JP"></button>
+          </div>
+        </section>
+      </div>
+    </div> -->
+  </div>
+  <div class="mascaraJP"></div>
+
+  <div id="modaisMatchJP">
+    <div class="modalMatchJP">
+      <div id="cabecalhoModalJP">
+        <h1>Vamos Adotar?</h1>
+        <span class="fechar-modal-MatchJP">  </span>
+      </div>
+      <div class="corpo_modalJP">
+
+        <!-- A seção de modal ficara aqui -->
+
+        <section class="section_Modal_MatchJP">
+          <img id="imgMatchJP" src="../../imgs/jasmin.jpg" alt="">
+          <button id="slideDireitaJP"> > </button>
+          <button id="slideEsquerdaJP">
+            < </button>
+              <section class="informacoesModalMatchJP">
+                <p id="nomeMatchJP">Jasmin</p>
+                <p id="descricaoMatchJP">Calma, paciente e atenciosa! Alguém viu uma gatinha?</p>
+              </section>
+        </section>
+        <div class="flexIconesMatchJP">
+          <img id="iconeLikeJP" src="../../imgs/iconCheck.png" alt="">
+          <img id="iconeXJP" src="../../imgs/iconX.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mascaraJP"></div>
+
+  <div id="modaisMatch2JP">
+    <div class="modalMatch2JP">
+      <div id="cabecalhoModalJP">
+        <h1>Vamos Adotar?</h1>
+        <span class="fechar-modal-Match2JP">  </span>
+      </div>
+      <div class="corpo_modalJP">
+        <div id="textoResultadoMatchJP">
+          <h1>Deu Match!</h1>
+        </div>
+        <section class="section_Modal_Match_ResultadoJP">
+          <img id="avatarPrincipalMatchAnimalJP" src="../../imgs/jasmin.jpg" alt="">
+          <section class="informacoesModalMatchResultadoJP">
+            <img id="avatarPrincipalMatchUsuarioJP" src="../../imgs/jasmin.jpg" alt="">
+          </section>
+        </section>
+        <button class="button-matchJP" id="adotarMatchJP" >Adotar!</button>
+        <button class="button-matchJP" id="voltarMatchJP">Voltar</button>
+      </div>
+    </div>
+  </div>
+  <div class="mascaraJP"></div>
+
+
+  <!-- <footer>
+    <img src="../../imgs/indexImgs/wave2.svg" alt="FooterImg">
+    <div id="footer_items">
+        <span id="copyright">&copy; SOS Bichinhos</span>
+        <p>Conexão entre ONGs e Adotantes!</p>
+
+            <div class="social-media-buttons">
+
+                <a href="https://api.whatsapp.com/send?phone=5531971412007" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+                <a href="https://www.facebook.com/sosbichinhos/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+
+                <a href="https://www.instagram.com/sosbichinhos/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+            </div>
+    </div>
+</footer> -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- <script src="../../assets/scripts/script.js" charset="utf-8"></script> -->
+  <script src="../../assets/scripts/scriptExibirAnimal.js" charset="utf-8"></script>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+
+        <!-- Link para o jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- link js navBar-->
+        <script src="../../assets/scripts/index.js"></script>
+</body>
+
+</html>

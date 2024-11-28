@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap");
+
+/* ---------------------------- Cadastro User ----------------------------- */
+
+/* ------------------------------ [HEADER] -------------------------------- */
+
+header {
+    border: 3px solid rgb(255, 255, 255);
+    margin: 20px 40px;
+    border-radius: 30px 30px 30px 30px;
+    background-color: rgba(31, 84, 242, 0.8823529412);
+    padding: 20px 8%;
+    margin-bottom: 220px;
+    padding-bottom: 40px;
+  }
+  header:hover {
+    border: 3px solid #1d1d1d;
+  }
+  header #navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header .logo {
+    width: 80px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  header #nav_list {
+    margin-top: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    list-style: none;
+  }
+  header #nav_list .active a {
+    color: #1d1d1d;
+    border-bottom: 3px solid #1d1d1d;
+  }
+  header .nav-item a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+  }
+  header .nav-item a:hover {
+    color: #1d1d1d;
+    border-bottom: 3px solid #1d1d1d;
+  }
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------ [MOBILE] -------------------------------- */
+
+#mobile_btn {
+  display: none;
+}
+
+#mobile_menu {
+  display: none;
+}
+
+@media screen and (max-width: 1170px) {
+  header #nav_list, #navbar .btn-default {
+    display: none;
+  }
+  #mobile_btn {
+    display: block;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  #mobile_menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #mobile_menu.active #mobile_nav_list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0px;
+  }
+  #mobile_menu.active #mobile_nav_list .nav-item {
+    list-style: none;
+    text-align: center;
+  }
+}
+.btn-default {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 0, 0, 0.834);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 17px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-default a {
+  color: #1d1d1d;
+  text-decoration: none;
+}
+.btn-default:hover {
+  background-color: white;
+}
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------ [BODY] ---------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+  }
+  
+  html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../../imgs/Fundo2.png);
+    background-repeat: repeat;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+  }
+  
+  main {
+    flex: 1;
+  }
+
+/* ------------------------------------------------------------------------ */
+/* --------------------------- [CONTAINERS] ------------------------------- */
+
+.HG_div-titulo {
+    margin-bottom: 10px;
+    padding: 0px;
+  }
+  
+  main.HG_container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-bottom: 40px;
+    justify-content: space-between;
+  }
+  
+  .HG_titulo {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .HG_fill_green {
+    background-color: #A0D3F2;
+    padding: 30px 30px;
+    border-radius: 6px;
+  }
+  
+  .HG_fill_green_perfil {
+    background-color: #A0D3F2;
+    padding: 30px 50px;
+    border-radius: 50px;
+    border: 1px solid #000000;
+  }
+  
+  .HG_fill_green_cadastro {
+    background-color: #bfc2d9;
+    padding: 50px;
+    border-radius: 6px;
+    border: 1px solid #000000;
+    max-width: 500px;
+    margin: 0 auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .HG_fill_green_cadastro_maior {
+    background-color: #A0D3F2;
+    padding: 30px 50px;
+    border-radius: 50px;
+    border: 1px solid #000000;
+    margin: 0 auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    justify-content: space-between;
+  }
+  
+  .HG_label_box {
+    display: flex;
+    flex-direction: row; /* Alinha os itens em uma linha */
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #000000;
+    border-radius: 0.25rem;
+    background-color: #252988;
+    color: white;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 25px;
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: space-between;
+  }
+  
+  .HG_perfil-img {
+    width: 150px;
+    height: 150px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #000;
+  }
+  
+  .HG_btn {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  
+  .HG_container {
+    max-width: 800px;
+    width: 80%;
+    margin: auto;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin-bottom: 40px;
+    justify-content: space-between;
+  }
+  
+  .HG_caixa {
+    padding: 15px;
+    margin-bottom: 40px;
+    justify-content: space-between;
+  }
+  
+  .HG_imagem {
+    margin-bottom: 20px;
+  }
+  
+  .HG_imagem_cadastro {
+    margin-bottom: 10px;
+  }
+  
+  .HG_file-input-container {
+    margin-bottom: 20px;
+  }
+
+  .btn{
+    margin: 10px;
+  }
+
+/* ------------------------------------------------------------------------ */
+/* ----------------------------- [FOOTER] --------------------------------- */
+footer {
+    background-color: rgba(31, 84, 242, 0.88);
+    width: 100%;
+    margin-top: 250px;
+    padding-top: 40px;
+  }
+  
+  footer img {
+    margin-top: -40px;
+  }
+  
+  footer_text {
+    color: rgb(0, 0, 0);
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+  
+  #footer_items {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 8% 24px 8%;
+    align-items: center;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+  }
+  
+  #copyright {
+    color: #000000;
+    font-weight: 600;
+  }
+  
+  @media screen and (max-width: 600px) {
+    footer img {
+      margin-top: 100px;
+    }
+    .social-media-buttons {
+      display: none;
+    }
+    #footer_items {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  
+  /* Botões de mídias sociais */
+  .social-media-buttons {
+    display: flex;
+    gap: 18px;
+  }
+  
+  .social-media-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 45px;
+    background-color: #ffffff;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #1d1d1d;
+    box-shadow: 0px 0px 12px 8px rgba(0, 8, 254, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .social-media-buttons a:hover {
+    color: rgba(31, 84, 242, 0.88);
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+  }

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imgs/logo.jpg" type="image/x-icon">
+    
+    <!-- Links css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/index.css">
+
+
+    <title>SOSBichinhos</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <i class="fa-solid fa-dog" id="nav_logo">SOSBichinhos</i>
+
+            <ul id="nav_list">
+                <li class="nav-item active"><a href="./index.html">Inicio</a></li>
+                <li class="nav-item"><a href="modules/sobreONG/sobreONG.html"> Sobre a ONG</a></li>
+                <li class="nav-item"><a href="modules/sobreNos/sobreNos.html">Sobre nos</a></li>
+                <li class="nav-item"><a href="modules/login/login.html">Login</a></li>
+                <li class="nav-item"><a href="modules/tela_cadastro_usuario/cadastro.html">Cadastrar</a></li>
+            </ul>
+
+            <button class="btn-default">
+                <a href="modules/sobreONG/ApoieaOng.html"> Doe aqui</a>
+            </button>
+
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item active"><a href="./index.html">Inicio</a></li>
+                <li class="nav-item"><a href="modules/sobreONG/sobreONG.html"> Sobre a ONG</a></li>
+                <li class="nav-item"><a href="modules/sobreNos/sobreNos.html">Sobre nos</a></li>
+                <li class="nav-item"><a href="modules/login/login.html">Login</a></li>
+                <li class="nav-item"><a href="modules/tela_cadastro_usuario/cadastro.html">Cadastrar</a></li>
+            </ul>
+
+            <button class="btn-default">
+                <a href="modules/sobreONG/ApoieaOng.html"> Doe aqui</a>
+            </button>
+
+        </div>
+    </header>
+
+    <main id="content">
+        <section id="home">
+            <div class="shape"></div>
+            <div id="cta">
+                <h1 class="title"><span>SOS</span>Bichinhos</h1>
+
+                <p class="description">Bem-vindo ao SOSBichinhos! Nosso projeto é dedicado a apoiar ONGs no resgate, acolhimento e adoção de animais abandonados. Facilitamos a conexão entre ONGs e adotantes, ajudando as ONGs a gerenciar com eficiência todo o processo, desde o resgate inicial até o momento em que um animal encontra um novo lar...</p>
+
+                <div id="cta_buttons">
+                    <a href="modules/sobreONG/ApoieaOng.html" class="btn-default"> Doar</a>
+
+                    <a href="tel:+5531973067259" id="phone_button">
+                      <button class="btn-default"><i class="fa-solid fa-phone"></i></button> (31) 971412007
+                    </a>
+                </div>
+            
+                <div class="social-media-buttons">
+
+                    <a href="https://api.whatsapp.com/send?phone=5531971412007" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+                    <a href="https://www.facebook.com/sosbichinhos/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+
+                    <a href="https://www.instagram.com/sosbichinhos/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+
+                <img class="apresentation" src="imgs/indexImgs/apresentacao2.png" alt="Apresentacao2">
+                <img class="apresentation" src="imgs/indexImgs/apresentacao3.png" alt="Apresentacao3">
+            </div>
+            <div id="banner">
+                <img src="imgs/indexImgs/FundoApresentacao.png" alt="bunner">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <img src="imgs/indexImgs/wave.svg" alt="FooterImg">
+        <div id="footer_items">
+            <span id="copyright">&copy; SOS Bichinhos</span>
+            <p>Conexão entre ONGs e Adotantes!</p>
+
+                <div class="social-media-buttons">
+
+                    <a href="https://api.whatsapp.com/send?phone=5531971412007" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+                    <a href="https://www.facebook.com/sosbichinhos/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+
+                    <a href="https://www.instagram.com/sosbichinhos/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+                </div>
+        </div>
+
+
+    </footer>
+
+
+    <!-- Link para o jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- link js navBar-->
+     <script src="assets/scripts/index.js"></script>
+</body>
+</html>
